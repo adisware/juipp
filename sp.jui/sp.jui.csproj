@@ -33,13 +33,57 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CommandAttribute.cs" />
+    <Compile Include="Commands\IApplicationContextAccessible.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commons\IBindable.cs" />
+    <Compile Include="Commons\IHideable.cs" />
+    <Compile Include="Commons\IModel.cs" />
+    <Compile Include="Commons\IRetrieveable.cs" />
+    <Compile Include="Controllers\ApplicationControllerBase.cs" />
+    <Compile Include="Controllers\CommandViewBindingBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controllers\IApplicationContext.cs" />
+    <Compile Include="Controllers\IContainCommandViewBinding.cs" />
+    <Compile Include="Controllers\IDetermineInitialEvent.cs" />
+    <Compile Include="Controllers\IDetermineModelTypes.cs" />
+    <Compile Include="Controllers\IDetermineNotificationViewName.cs" />
+    <Compile Include="Controllers\ILoadCommandViewBinding.cs" />
+    <Compile Include="Controllers\IViewSwitchedInvoker.cs" />
+    <Compile Include="Events\Arguments\ActionPerformedEventArgs.cs" />
+    <Compile Include="Events\Arguments\IViewSwitchedEventArgs.cs" />
+    <Compile Include="Events\Arguments\OptionChangedEventArgs.cs" />
+    <Compile Include="Events\Arguments\ViewSwitchedEventArgs.cs" />
+    <Compile Include="Events\Handlers\ActionPerformedHandler.cs" />
+    <Compile Include="Events\Handlers\OptionChangedHandler.cs" />
+    <Compile Include="Events\Handlers\ViewSwitchedHandler.cs" />
+    <Compile Include="Events\Handlers\ViewSwitchedMethodDelegate.cs" />
+    <Compile Include="Events\Handlers\VisibilityChangedHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ApplicationViewBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\IActionPerformer.cs" />
+    <Compile Include="Views\IActionPerformerParent.cs" />
+    <Compile Include="Views\ICanExplicitlyEnable.cs" />
+    <Compile Include="Views\ICanHandleActionPerformed.cs" />
+    <Compile Include="Views\ICanObserveActionPerformed.cs" />
+    <Compile Include="Views\ICanObserverViewSwitched.cs" />
+    <Compile Include="Views\ICanPropagateChange.cs" />
+    <Compile Include="Views\ICanRetainViewName.cs" />
+    <Compile Include="Views\IParentActionReferable.cs" />
+    <Compile Include="Views\IVisibilityChangeInvoker.cs" />
+    <Compile Include="Views\SectionViewBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

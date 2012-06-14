@@ -3,6 +3,6 @@ bin
 obj
 _ReSharper.sp.jui.soln
 sp.jui.soln.suo
-
+sp.jui.csproj.user
 # mstest test results
 TestResults
