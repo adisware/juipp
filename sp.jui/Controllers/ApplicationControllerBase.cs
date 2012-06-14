@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Web.UI.WebControls;
-using sp.jui.Commands;
+using sp.jui.Behaviors;
+using sp.jui.Behaviors;
 using sp.jui.Commons;
 using sp.jui.Events.Arguments;
 using sp.jui.Events.Handlers;
@@ -12,7 +13,7 @@ namespace sp.jui.Controllers
 {
     public abstract class ApplicationControllerBase :
         WebControl,
-        ILoadCommandViewBinding,
+        ILoadBehaviorViewBinding,
         IDetermineCurrentViewName,
         IDetermineNotificationViewName,
         IDetermineInitialEvent,
@@ -21,7 +22,7 @@ namespace sp.jui.Controllers
     {
         protected IDictionary<string, ApplicationViewBase> Views;
         protected IDictionary<string, string> Mapping;
-        protected IDictionary<string, IApplicationContextAccessible> Commands;
+        protected IDictionary<string, IApplicationContextAccessible> Behaviors;
 
 
         private readonly IDictionary<string, string> _contextValues = new Dictionary<string, string>();
@@ -62,7 +63,7 @@ namespace sp.jui.Controllers
             if (sender is IActionPerformer<T>) this.CurrentViewName = viewName;
         }
 
-        protected void OnInitialActionPerformed<T>(string viewName, string commandName) where T : IModel, new()
+        protected void OnInitialActionPerformed<T>(string viewName, string behaviorName) where T : IModel, new()
         {
             var viewModeable = (IActionPerformer<T>) Views[viewName];
 
@@ -74,7 +75,7 @@ namespace sp.jui.Controllers
                             CurrentViewName = viewName
                         })
                     {
-                        CommandName = commandName
+                        BehaviorName = behaviorName
                     });
         }
 
@@ -120,7 +121,7 @@ namespace sp.jui.Controllers
 
             var method = onInitialActionPerformed.MakeGenericMethod(new[] { this.InitialModel.GetType() } );
 
-            method.Invoke(this, new object[] {this.InitialViewName, this.InitialCommandName});
+            method.Invoke(this, new object[] {this.InitialViewName, this.InitialBehaviorName});
         }
 
         protected void ShowNotification<T>(ICollection<T> list)
@@ -141,7 +142,7 @@ namespace sp.jui.Controllers
         protected abstract void OnViewSwitch<T>(ViewSwitchedEventArgs<T> args)
             where T : IModel, new();
 
-        protected virtual void OnBeforeViewSwitch<T>(IDetermineCurrentViewName viewModeable, ICommand<T> command)
+        protected virtual void OnBeforeViewSwitch<T>(IDetermineCurrentViewName viewModeable, IBehavior<T> behavior)
             where T : IModel, new()
         {
         }
@@ -179,37 +180,37 @@ namespace sp.jui.Controllers
         public bool OnActionPerformed<T>(IActionPerformer<T> sender, ActionPerformedEventArgs<T> args)
             where T : IModel, new()
         {
-            if (this.Commands.ContainsKey(args.CommandName) == false) return false;
+            if (this.Behaviors.ContainsKey(args.BehaviorName) == false) return false;
 
-            var command = this.Commands[args.CommandName] as ICommand<T>;
-            if (command == null) return false;
+            var behavior = this.Behaviors[args.BehaviorName] as IBehavior<T>;
+            if (behavior == null) return false;
 
-            command.Execute(args);
+            behavior.Execute(args);
 
-            var viewName = this.Mapping[args.CommandName];
+            var viewName = this.Mapping[args.BehaviorName];
 
             var nextView = this.GetNextView(viewName);
 
-            this.OnBeforeViewSwitch(nextView, command);
+            this.OnBeforeViewSwitch(nextView, behavior);
 
             this.SwitchView(sender as ApplicationViewBase, viewName, args);
 
             return true;
         }
 
-        public void LoadCommandViewBinding(IDictionary<string, ApplicationViewBase> views,
+        public void LoadBehaviorViewBinding(IDictionary<string, ApplicationViewBase> views,
                                            IDictionary<string, string> mapping,
-                                           IDictionary<string, IApplicationContextAccessible> commands)
+                                           IDictionary<string, IApplicationContextAccessible> behaviors)
         {
             this.Views = views;
-            this.Commands = commands;
+            this.Behaviors = behaviors;
             this.Mapping = mapping;
 
-            this.OnLoadCommandViewBinding();
+            this.OnLoadBehaviorViewBinding();
             this.InitApplicationContext();
         }
 
-        public virtual void OnLoadCommandViewBinding()
+        public virtual void OnLoadBehaviorViewBinding()
         {
             foreach (var model in Models)
             {
@@ -223,7 +224,7 @@ namespace sp.jui.Controllers
         }
 
         public abstract string InitialViewName { get; }
-        public abstract string InitialCommandName { get; }
+        public abstract string InitialBehaviorName { get; }
         public abstract IModel InitialModel { get; }
         public abstract string NotificationViewName { get; }
         public abstract void InitApplicationContext();

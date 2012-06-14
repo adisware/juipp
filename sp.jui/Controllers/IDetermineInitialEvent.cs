@@ -5,7 +5,7 @@ namespace sp.jui.Controllers
     public interface IDetermineInitialEvent
     {
         string InitialViewName { get; }
-        string InitialCommandName { get; }
+        string InitialBehaviorName { get; }
         IModel InitialModel { get; }
     }
 }

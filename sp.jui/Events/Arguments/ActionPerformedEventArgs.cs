@@ -14,6 +14,6 @@ namespace sp.jui.Events.Arguments
             this.EventArgs = internalEventArgs;
         }
         public T DataItem { get; set; }
-        public string CommandName { get; set; }
+        public string BehaviorName { get; set; }
     }
 }

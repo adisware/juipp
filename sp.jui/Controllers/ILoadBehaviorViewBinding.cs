@@ -1,14 +1,15 @@
 using System.Collections.Generic;
-using sp.jui.Commands;
+using sp.jui.Behaviors;
+using sp.jui.Behaviors;
 using sp.jui.Views;
 
 namespace sp.jui.Controllers
 {
-    public interface ILoadCommandViewBinding
+    public interface ILoadBehaviorViewBinding
     {
-        void LoadCommandViewBinding(
+        void LoadBehaviorViewBinding(
             IDictionary<string, ApplicationViewBase> views,
             IDictionary<string, string> binding,
-            IDictionary<string, IApplicationContextAccessible> commands);
+            IDictionary<string, IApplicationContextAccessible> behaviors);
     }
 }
