@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sp.jui", "sp.jui\sp.jui.csproj", "{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
