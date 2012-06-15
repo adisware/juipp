@@ -78,12 +78,12 @@ namespace juip.Views
             var handler = VisibilityChanged;
             if (handler != null) handler(this, isVisible);
         }
-        public bool RaiseActionEvent<T>(ActionPerformedHandler<T> handler, ActionPerformedEventArgs<T> args) where T : IModel, new()
+        public bool RaiseActionEvent<T>(ActionPerformedHandler<T> handler, ActionPerformedEventArgs<T> args) where T : IViewModel, new()
         {
             if (args == null) return false;
             return handler != null && handler(this as IActionPerformer<T>, args);
         }
-        public virtual void OnViewModeChanged<T>(IViewSwitchedInvoker<T> sender, IViewSwitchedEventArgs<T> args) where T : IModel, new() { }
+        public virtual void OnViewModeChanged<T>(IViewSwitchedInvoker<T> sender, IViewSwitchedEventArgs<T> args) where T : IViewModel, new() { }
         //public abstract void OnActionPerformed<T>(ActionPerformedEventArgs<T> args) where T : IDataTransferObject, new();
 
         public virtual void PropagateChange() { }
@@ -94,7 +94,7 @@ namespace juip.Views
 
         protected readonly IList<RaiseActionEventDelegate> RaiseActionEventDelegates = new List<RaiseActionEventDelegate>();
 
-        public bool OnActionPerformed<T>(ActionPerformedEventArgs<T> args) where T : IModel, new()
+        public bool OnActionPerformed<T>(ActionPerformedEventArgs<T> args) where T : IViewModel, new()
         {
             var success = false;
             foreach (var raiseActionEventDelegate in this.RaiseActionEventDelegates)

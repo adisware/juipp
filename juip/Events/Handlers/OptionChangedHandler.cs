@@ -4,5 +4,5 @@ using juip.Views;
 
 namespace juip.Events.Handlers
 {
-    public delegate void OptionChangedHandler<TD>(SectionViewBase<TD> sender, OptionChangedEventArgs<TD> args)  where TD : IModel, new();
+    public delegate void OptionChangedHandler<TD>(SectionViewBase<TD> sender, OptionChangedEventArgs<TD> args)  where TD : IViewModel, new();
 }

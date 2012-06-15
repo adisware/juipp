@@ -2,7 +2,7 @@
 
 namespace juip.Views
 {
-    public interface IParentActionReferable<T>  where T : IModel, new()
+    public interface IParentActionReferable<T>  where T : IViewModel, new()
     {
         void AddActioneableView(IActionPerformer<T> actionPerformer);
     }

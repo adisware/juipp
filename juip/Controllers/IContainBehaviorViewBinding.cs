@@ -8,6 +8,6 @@ namespace sp.jui.Controllers
     {
         IDictionary<string, IApplicationContextAccessible> Behaviors { get; set; } 
         IDictionary<string, ApplicationViewBase> Views { get; set; }
-        IDictionary<string, string> Binding { get; set; }
+        IDictionary<string, string> BehaviorBinding { get; set; }
     }
 }

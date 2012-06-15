@@ -1,4 +1,5 @@
 ﻿using System;
+using juip.Commons;
 
 namespace juip.Behaviors
 {
@@ -9,6 +10,6 @@ namespace juip.Behaviors
     public class BehaviorAttribute : Attribute
     {
         public string Name { get; set; }
-        public Type Model { get; set; }
+        public string ViewModelName { get; set; }
     }
 }

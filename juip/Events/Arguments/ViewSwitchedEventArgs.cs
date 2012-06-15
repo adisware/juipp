@@ -3,7 +3,7 @@ using juip.Commons;
 
 namespace juip.Events.Arguments
 {
-    public class ViewSwitchedEventArgs<T> : EventArgs, IViewSwitchedEventArgs<T> where T : IModel, new() 
+    public class ViewSwitchedEventArgs<T> : EventArgs, IViewSwitchedEventArgs<T> where T : IViewModel, new() 
     {
         public ActionPerformedEventArgs<T> ActionPerformedEventArgs { get; private set; }
 

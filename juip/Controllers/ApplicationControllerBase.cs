@@ -12,12 +12,11 @@ using sp.jui.Events.Handlers;
 
 namespace juip.Controllers
 {
+
     public abstract class ApplicationControllerBase :
         WebControl,
         ILoadBehaviorViewBinding,
         IDetermineCurrentViewName,
-        IDetermineNotificationViewName,
-        IDetermineInitialEvent,
         IDetermineModels,
         IApplicationContext
     {
@@ -55,7 +54,7 @@ namespace juip.Controllers
         }
 
         private void SwitchView<T>(IHideable sender, string viewName, ActionPerformedEventArgs<T> args)
-            where T : IModel, new()
+            where T : IViewModel, new()
         {
             this.SwitchView(sender, viewName);
 
@@ -64,17 +63,12 @@ namespace juip.Controllers
             if (sender is IActionPerformer<T>) this.CurrentViewName = viewName;
         }
 
-        protected void OnInitialActionPerformed<T>(string viewName, string behaviorName) where T : IModel, new()
+        protected void OnInitialActionPerformed<T>(string behaviorName) where T : IViewModel, new()
         {
-            var viewModeable = (IActionPerformer<T>) Views[viewName];
-
             this.OnActionPerformed(
-                viewModeable,
+                null,
                 new ActionPerformedEventArgs<T>(
-                    new ViewSwitchedEventArgs<T>(null)
-                        {
-                            CurrentViewName = viewName
-                        })
+                    new ViewSwitchedEventArgs<T>(null) {})
                     {
                         BehaviorName = behaviorName
                     });
@@ -90,7 +84,7 @@ namespace juip.Controllers
         private void SwitchView(IHideable sender, string viewName)
         {
             var nextView = this.GetNextView(viewName);
-            if (!sender.Equals(nextView))
+            if (sender != null && !sender.Equals(nextView))
             {
                 sender.Hide();
             }
@@ -99,7 +93,7 @@ namespace juip.Controllers
 
         private void RaiseViewSwitch<T>(ActionPerformedEventArgs<T> args,
                                         ViewSwitchedMethodDelegate<T> viewSwitchedMethod, string viewName)
-            where T : IModel, new()
+            where T : IViewModel, new()
         {
             viewSwitchedMethod(new ViewSwitchedEventArgs<T>(args)
                                    {
@@ -120,20 +114,30 @@ namespace juip.Controllers
             var type = this.GetType();
             var onInitialActionPerformed = type.GetMethod("OnInitialActionPerformed", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy);
 
-            var method = onInitialActionPerformed.MakeGenericMethod(new[] { this.InitialModel.GetType() } );
+            var attribute = (ControllerAttribute) type.GetCustomAttributes(typeof(ControllerAttribute), false)[0];
 
-            method.Invoke(this, new object[] {this.InitialViewName, this.InitialBehaviorName});
+            var assembly = type.Assembly;
+            var behaviorType = assembly.GetType(attribute.InitialBehaviorName);
+
+            if (behaviorType.BaseType == null)  throw new ApplicationException("Behavior does not inherit BehaviorBase");
+
+            var initalModelType = behaviorType.BaseType.GetGenericArguments()[0];
+
+            var method = onInitialActionPerformed.MakeGenericMethod(new[] { initalModelType });
+
+            method.Invoke(this, new object[] { attribute.InitialBehaviorName });
+           
         }
 
-        protected void ShowNotification<T>(ICollection<T> list)
-        {
-            var infoView = this.Views[this.NotificationViewName];
-            ((IBindable<ICollection<T>>) infoView).Bind(list);
-            infoView.Show();
-        }
+        //protected void ShowNotification<T>(ICollection<T> list)
+        //{
+        //    var infoView = this.Views[this.NotificationViewName];
+        //    ((IBindable<ICollection<T>>) infoView).Bind(list);
+        //    infoView.Show();
+        //}
 
         protected void FireViewSwitched<T>(ViewSwitchedEventArgs<T> args, ViewSwitchedHandler<T> viewSwitchedHandler)
-            where T : IModel, new()
+            where T : IViewModel, new()
         {
             if (args == null || viewSwitchedHandler == null) return;
 
@@ -141,15 +145,15 @@ namespace juip.Controllers
         }
 
         protected abstract void OnViewSwitch<T>(ViewSwitchedEventArgs<T> args)
-            where T : IModel, new();
+            where T : IViewModel, new();
 
         protected virtual void OnBeforeViewSwitch<T>(IDetermineCurrentViewName viewModeable, IBehavior<T> behavior)
-            where T : IModel, new()
+            where T : IViewModel, new()
         {
         }
 
         protected void BindOnActionPerformedEvent<T>()
-            where T : IModel, new()
+            where T : IViewModel, new()
         {
             foreach (var view in Views)
             {
@@ -179,7 +183,7 @@ namespace juip.Controllers
         }
 
         public bool OnActionPerformed<T>(IActionPerformer<T> sender, ActionPerformedEventArgs<T> args)
-            where T : IModel, new()
+            where T : IViewModel, new()
         {
             if (this.Behaviors.ContainsKey(args.BehaviorName) == false) return false;
 
@@ -224,11 +228,14 @@ namespace juip.Controllers
             }
         }
 
-        public abstract string InitialViewName { get; }
-        public abstract string InitialBehaviorName { get; }
-        public abstract IModel InitialModel { get; }
-        public abstract string NotificationViewName { get; }
-        public abstract void InitApplicationContext();
-        public abstract IList<IModel> Models { get; }
+        //public abstract string InitialViewName { get; }
+        //public abstract string InitialBehaviorName { get; }
+        //public abstract IViewModel InitialModel { get; }
+        //public abstract string NotificationViewName { get; }
+        public virtual void InitApplicationContext()
+        {
+        }
+
+        public abstract IList<IViewModel> Models { get; }
     }
 }

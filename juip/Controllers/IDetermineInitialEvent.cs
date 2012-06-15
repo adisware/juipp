@@ -6,6 +6,6 @@ namespace sp.jui.Controllers
     {
         string InitialViewName { get; }
         string InitialBehaviorName { get; }
-        IModel InitialModel { get; }
+        IViewModel InitialModel { get; }
     }
 }

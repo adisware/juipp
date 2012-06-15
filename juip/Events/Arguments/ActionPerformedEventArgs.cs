@@ -5,7 +5,7 @@ namespace juip.Events.Arguments
 {
    
 
-    public class ActionPerformedEventArgs<T> : EventArgs where T : IModel, new()
+    public class ActionPerformedEventArgs<T> : EventArgs where T : IViewModel, new()
     {
         internal EventArgs EventArgs { get; private set; }
 

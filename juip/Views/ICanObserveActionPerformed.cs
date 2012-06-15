@@ -5,6 +5,6 @@ namespace juip.Views
 {
     public interface ICanObserveActionPerformed 
     {
-        void OnActionPerformed<T>(IActionPerformer<T> sender, ActionPerformedEventArgs<T> args) where T : IModel, new();
+        void OnActionPerformed<T>(IActionPerformer<T> sender, ActionPerformedEventArgs<T> args) where T : IViewModel, new();
     }
 }

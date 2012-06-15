@@ -16,7 +16,7 @@ namespace juip.Controllers
 
         public abstract IDictionary<string, ApplicationViewBase> Views { get; set; }
 
-        public abstract IDictionary<string, string> Binding { get; set; }
+        public abstract IDictionary<string, string> BehaviorBinding { get; set; }
 
         public IList<string> Names { get; set; }
 
@@ -35,7 +35,7 @@ namespace juip.Controllers
                 {
                     behaviorNames.Add(behaviorAttribute.Name);
 
-                    var behaviorType = behaviorAttribute.Model == null ? type : type.MakeGenericType(behaviorAttribute.Model);
+                    var behaviorType = behaviorAttribute.ViewModelName == null ? type : type.MakeGenericType(typeof(object));
                     var ctor = behaviorType.GetConstructor(new[] { typeof(IApplicationContext) });
                     if (ctor == null) continue;
                     var obj = ctor.Invoke(new object[] { context });

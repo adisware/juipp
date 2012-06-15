@@ -48,10 +48,16 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Controllers\Application.ascx" />
     <Content Include="Default.aspx" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Views\HomeView.ascx" />
+    <Content Include="Views\StudentBrowseView.ascx" />
+    <Content Include="Views\StudentProfileAddView.ascx" />
+    <Content Include="Views\StudentProfileEditView.ascx" />
+    <Content Include="Views\StudentProfileView.ascx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -61,6 +67,33 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\BehaviorNames.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BehaviorNames.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\ViewNames.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewNames.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Behaviors\OpenHomeBehavior.cs" />
+    <Compile Include="Behaviors\OpenStudentBrowseBehavior.cs" />
+    <Compile Include="Controllers\Application.ascx.cs">
+      <DependentUpon>Application.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controllers\Application.ascx.designer.cs">
+      <DependentUpon>Application.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Application.juip.cs">
+      <DependentUpon>Application.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\ApplicationController.juip.cs">
+      <DependentUpon>ApplicationController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -68,10 +101,73 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\CourseViewModel.cs" />
+    <Compile Include="ViewModels\RegistrationViewModel.cs" />
+    <Compile Include="ViewModels\StudentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ApplicationView.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ApplicationView.juip.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ApplicationView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeView.ascx.cs">
+      <DependentUpon>HomeView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\HomeView.ascx.designer.cs">
+      <DependentUpon>HomeView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentBrowseView.ascx.cs">
+      <DependentUpon>StudentBrowseView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StudentBrowseView.ascx.designer.cs">
+      <DependentUpon>StudentBrowseView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentProfileAddView.ascx.cs">
+      <DependentUpon>StudentProfileAddView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StudentProfileAddView.ascx.designer.cs">
+      <DependentUpon>StudentProfileAddView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentProfileEditView.ascx.cs">
+      <DependentUpon>StudentProfileEditView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StudentProfileEditView.ascx.designer.cs">
+      <DependentUpon>StudentProfileEditView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudentProfileView.ascx.cs">
+      <DependentUpon>StudentProfileView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\StudentProfileView.ascx.designer.cs">
+      <DependentUpon>StudentProfileView.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\juip\juip.csproj">
+      <Project>{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}</Project>
+      <Name>juip</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\BehaviorNames.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>BehaviorNames.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\ViewNames.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ViewNames.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

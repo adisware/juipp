@@ -5,6 +5,6 @@ namespace juip.Views
 {
     public interface ICanHandleActionPerformed
     {
-        bool OnActionPerformed<T>(ActionPerformedEventArgs<T> args) where T : IModel, new();
+        bool OnActionPerformed<T>(ActionPerformedEventArgs<T> args) where T : IViewModel, new();
     }
 }

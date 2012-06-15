@@ -41,16 +41,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behaviors\BehaviorAttribute.cs" />
+    <Compile Include="Behaviors\BehaviorBase.cs" />
     <Compile Include="Behaviors\IApplicationContextAccessible.cs" />
     <Compile Include="Behaviors\IBehavior.cs" />
     <Compile Include="Commons\IBindable.cs" />
     <Compile Include="Commons\IHideable.cs" />
-    <Compile Include="Commons\IModel.cs" />
+    <Compile Include="Commons\IViewModel.cs" />
     <Compile Include="Commons\IRetrieveable.cs" />
+    <Compile Include="Controllers\ApplicationBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Controllers\ApplicationControllerBase.cs" />
     <Compile Include="Controllers\CommandViewBindingBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Controllers\ControllerAttribute.cs" />
     <Compile Include="Controllers\IApplicationContext.cs" />
     <Compile Include="Controllers\IBehaviorNames.cs" />
     <Compile Include="Controllers\IContainBehaviorViewBinding.cs" />
@@ -88,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ExpressionBuilders\" />
+    <Folder Include="Routings\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

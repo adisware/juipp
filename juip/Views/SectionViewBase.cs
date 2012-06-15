@@ -4,7 +4,7 @@ using sp.jui.Controllers;
 
 namespace juip.Views
 {
-    public abstract class SectionViewBase<TD> : ApplicationViewBase, IBindable<TD> where TD : IModel, new()
+    public abstract class SectionViewBase<TD> : ApplicationViewBase, IBindable<TD> where TD : IViewModel, new()
     {
         protected TD DataItem
         {
