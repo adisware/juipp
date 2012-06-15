@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\CommandAttribute.cs" />
-    <Compile Include="Commands\IApplicationContextAccessible.cs" />
-    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Behaviors\BehaviorAttribute.cs" />
+    <Compile Include="Behaviors\IApplicationContextAccessible.cs" />
+    <Compile Include="Behaviors\IBehavior.cs" />
     <Compile Include="Commons\IBindable.cs" />
     <Compile Include="Commons\IHideable.cs" />
     <Compile Include="Commons\IModel.cs" />
@@ -52,11 +52,12 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controllers\IApplicationContext.cs" />
-    <Compile Include="Controllers\IContainCommandViewBinding.cs" />
+    <Compile Include="Controllers\IBehaviorNames.cs" />
+    <Compile Include="Controllers\IContainBehaviorViewBinding.cs" />
     <Compile Include="Controllers\IDetermineInitialEvent.cs" />
     <Compile Include="Controllers\IDetermineModelTypes.cs" />
     <Compile Include="Controllers\IDetermineNotificationViewName.cs" />
-    <Compile Include="Controllers\ILoadCommandViewBinding.cs" />
+    <Compile Include="Controllers\ILoadBehaviorViewBinding.cs" />
     <Compile Include="Controllers\IViewSwitchedInvoker.cs" />
     <Compile Include="Events\Arguments\ActionPerformedEventArgs.cs" />
     <Compile Include="Events\Arguments\IViewSwitchedEventArgs.cs" />
@@ -84,6 +85,9 @@
     <Compile Include="Views\SectionViewBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ExpressionBuilders\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
