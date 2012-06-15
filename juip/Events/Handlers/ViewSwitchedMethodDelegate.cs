@@ -1,5 +1,5 @@
-using sp.jui.Commons;
-using sp.jui.Events.Arguments;
+using juip.Commons;
+using juip.Events.Arguments;
 
 namespace sp.jui.Events.Handlers
 {

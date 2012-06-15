@@ -1,4 +1,4 @@
-namespace sp.jui.Events.Handlers
+namespace juip.Events.Handlers
 {
     public delegate void VisibilityChangedHandler(object sender, bool isVisible);
 }

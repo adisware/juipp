@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace sp.jui.Behaviors
+namespace juip.Behaviors
 {
     [AttributeUsage(
         AttributeTargets.Class, 

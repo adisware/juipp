@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
-using sp.jui.Behaviors;
-using sp.jui.Behaviors;
-using sp.jui.Views;
+using juip.Behaviors;
+using juip.Views;
+using sp.jui.Controllers;
 
-namespace sp.jui.Controllers
+namespace juip.Controllers
 {
     public abstract class BehaviorViewBindingBase : UserControl, IContainBehaviorViewBinding, IBehaviorNames
     {

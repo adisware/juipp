@@ -1,6 +1,6 @@
-using sp.jui.Events.Handlers;
+using juip.Events.Handlers;
 
-namespace sp.jui.Views
+namespace juip.Views
 {
     public interface IVisibilityChangeInvoker
     {

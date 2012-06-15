@@ -1,4 +1,4 @@
-using sp.jui.Commons;
+using juip.Commons;
 
 namespace sp.jui.Controllers
 {

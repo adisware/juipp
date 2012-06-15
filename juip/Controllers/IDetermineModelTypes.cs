@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using sp.jui.Commons;
+using juip.Commons;
 
 namespace sp.jui.Controllers
 {

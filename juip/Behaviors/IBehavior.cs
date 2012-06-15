@@ -1,8 +1,7 @@
-﻿using sp.jui.Behaviors;
-using sp.jui.Commons;
-using sp.jui.Events.Arguments;
+﻿using juip.Commons;
+using juip.Events.Arguments;
 
-namespace sp.jui.Behaviors
+namespace juip.Behaviors
 {
     public interface IBehavior<T> : IApplicationContextAccessible where T : IModel, new()
     {

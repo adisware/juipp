@@ -1,8 +1,8 @@
-using sp.jui.Commons;
-using sp.jui.Events.Arguments;
-using sp.jui.Views;
+using juip.Commons;
+using juip.Events.Arguments;
+using juip.Views;
 
-namespace sp.jui.Events.Handlers
+namespace juip.Events.Handlers
 {
     public delegate bool ActionPerformedHandler<TD>(IActionPerformer<TD> sender, ActionPerformedEventArgs<TD> args) where TD : IModel, new();
 }

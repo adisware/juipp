@@ -1,4 +1,4 @@
-namespace sp.jui.Controllers
+namespace juip.Controllers
 {
     public interface IDetermineNotificationViewName
     {

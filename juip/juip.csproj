@@ -8,8 +8,8 @@
     <ProjectGuid>{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>sp.jui</RootNamespace>
-    <AssemblyName>sp.jui</AssemblyName>
+    <RootNamespace>juip</RootNamespace>
+    <AssemblyName>juip</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

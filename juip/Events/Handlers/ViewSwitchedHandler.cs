@@ -1,8 +1,8 @@
-using sp.jui.Commons;
+using juip.Commons;
+using juip.Events.Arguments;
 using sp.jui.Controllers;
-using sp.jui.Events.Arguments;
 
-namespace sp.jui.Events.Handlers
+namespace juip.Events.Handlers
 {
     public delegate void ViewSwitchedHandler<in TD>(IViewSwitchedInvoker<TD> sender, IViewSwitchedEventArgs<TD> args) where TD : IModel, new();
 }

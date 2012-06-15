@@ -1,8 +1,8 @@
-using sp.jui.Commons;
+using juip.Commons;
+using juip.Events.Arguments;
 using sp.jui.Controllers;
-using sp.jui.Events.Arguments;
 
-namespace sp.jui.Views
+namespace juip.Views
 {
     public interface ICanObserverViewSwitched
     {

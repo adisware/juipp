@@ -1,6 +1,6 @@
 using System;
 
-namespace sp.jui.Events.Arguments
+namespace juip.Events.Arguments
 {
     public class OptionChangedEventArgs<TD> : EventArgs
     {

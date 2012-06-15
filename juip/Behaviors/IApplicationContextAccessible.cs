@@ -1,6 +1,7 @@
+using juip.Controllers;
 using sp.jui.Controllers;
 
-namespace sp.jui.Behaviors
+namespace juip.Behaviors
 {
     public interface IApplicationContextAccessible
     {

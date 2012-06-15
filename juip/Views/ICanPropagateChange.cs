@@ -1,4 +1,4 @@
-namespace sp.jui.Views
+namespace juip.Views
 {
     public interface ICanPropagateChange
     {

@@ -1,6 +1,6 @@
-﻿using sp.jui.Commons;
+﻿using juip.Commons;
 
-namespace sp.jui.Views
+namespace juip.Views
 {
     public interface IParentActionReferable<T>  where T : IModel, new()
     {

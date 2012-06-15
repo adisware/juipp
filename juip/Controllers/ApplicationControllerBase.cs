@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Web.UI.WebControls;
-using sp.jui.Behaviors;
-using sp.jui.Behaviors;
-using sp.jui.Commons;
-using sp.jui.Events.Arguments;
+using juip.Behaviors;
+using juip.Commons;
+using juip.Events.Arguments;
+using juip.Events.Handlers;
+using juip.Views;
+using sp.jui.Controllers;
 using sp.jui.Events.Handlers;
-using sp.jui.Views;
 
-namespace sp.jui.Controllers
+namespace juip.Controllers
 {
     public abstract class ApplicationControllerBase :
         WebControl,

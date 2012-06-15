@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace sp.jui.Controllers
+namespace juip.Controllers
 {
     public interface IBehaviorNames
     {

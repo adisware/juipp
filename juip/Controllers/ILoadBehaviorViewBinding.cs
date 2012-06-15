@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using sp.jui.Behaviors;
-using sp.jui.Behaviors;
-using sp.jui.Views;
+using juip.Behaviors;
+using juip.Views;
 
 namespace sp.jui.Controllers
 {

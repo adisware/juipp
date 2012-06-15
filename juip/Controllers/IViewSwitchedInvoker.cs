@@ -1,4 +1,5 @@
-using sp.jui.Commons;
+using juip.Commons;
+using juip.Events.Handlers;
 using sp.jui.Events.Handlers;
 
 namespace sp.jui.Controllers
