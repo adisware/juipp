@@ -9,6 +9,6 @@ namespace juip.Controllers
 {
     public class ControllerAttribute : Attribute
     {
-        public string InitialBehaviorName { get; set; }
+        public string InitialBehaviorFullName { get; set; }
     }
 }

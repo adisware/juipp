@@ -2,27 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using Resources;
-using juip.Behaviors;
-using juip.Controllers;
-using juip.Views;
 using juip.app.Behaviors;
-using sp.jui.Controllers;
+using juip.app.ViewModels;
+using juip.app.Views;
 
 namespace juip.app.Controllers
 {
-    public partial class Main 
+    public partial class Main
     {
         protected override void OnBehaviorBinding()
         {
-            this.BehaviorBinding = new Dictionary<string, string>()
-                               {
-                                  { BehaviorNames.OpenHomeBehavior, ViewNames.HomeView },
-                                  { BehaviorNames.OpenStudentBrowseBehavior, ViewNames.StudentBrowseView },
-                                  { BehaviorNames.OpenStudentAddBehavior, ViewNames.StudentProfileAddView }
-                               };
+            base.BehaviorBinding = new Dictionary<string, string>
+                                       {
+                                           {Behavior.OpenHomeBehavior, View.HomeView},
+                                           {Behavior.OpenStudentBrowseBehavior, View.StudentBrowseView}
+                                       };
         }
     }
 }

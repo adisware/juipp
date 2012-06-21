@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Resources;
 using juip.Events.Arguments;
 using juip.Views;
+using juip.app.Behaviors;
 using juip.app.ViewModels;
 
 namespace juip.app.Views
@@ -24,7 +24,7 @@ namespace juip.app.Views
         {
             this.OnActionPerformed(new ActionPerformedEventArgs<StudentViewModel>(e)
             {
-                BehaviorName = BehaviorNames.OpenStudentBrowseBehavior
+                BehaviorName = Behavior.OpenStudentBrowseBehavior
             });
         }
 
@@ -32,7 +32,7 @@ namespace juip.app.Views
         {
             this.OnActionPerformed(new ActionPerformedEventArgs<StudentViewModel>(e)
             {
-                BehaviorName = BehaviorNames.OpenStudentAddBehavior
+                BehaviorName = Behavior.OpenStudentAddBehavior
             });
         }
     }

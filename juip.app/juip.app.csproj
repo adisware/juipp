@@ -72,32 +72,28 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_GlobalResources\BehaviorNames.Designer.cs">
+    <Compile Include="Behaviors\Behavior.juip.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BehaviorNames.resx</DependentUpon>
-    </Compile>
-    <Compile Include="App_GlobalResources\ViewNames.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ViewNames.resx</DependentUpon>
+      <DependentUpon>Behavior.juip.tt</DependentUpon>
     </Compile>
     <Compile Include="Behaviors\OpenHomeBehavior.cs" />
+    <Compile Include="Behaviors\OpenStudentAddBehavior.cs" />
     <Compile Include="Behaviors\OpenStudentBrowseBehavior.cs" />
+    <Compile Include="Controllers\ApplicationController.behind.juip.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ApplicationController.behind.juip.tt</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\Main.behind.juip.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Main.behind.juip.tt</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\Main.cs">
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Controllers\ApplicationController.cs" />
-    <Compile Include="Controllers\ApplicationController.juip.cs">
-      <DependentUpon>ApplicationController.juip.tt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -164,9 +160,7 @@
       <DependentUpon>StudentProfileView.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\juip\juip.csproj">
       <Project>{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}</Project>
@@ -174,35 +168,27 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\BehaviorNames.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>BehaviorNames.Designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_GlobalResources\ViewNames.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>ViewNames.Designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Controllers\Main.juip.tt">
+    <None Include="Behaviors\Behavior.juip.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Main.juip.ascx</LastGenOutput>
-      <DependentUpon>Main.cs</DependentUpon>
+      <LastGenOutput>Behavior.juip.cs</LastGenOutput>
+    </None>
+    <None Include="Controllers\ApplicationController.behind.juip.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ApplicationController.behind.juip.cs</LastGenOutput>
+      <DependentUpon>ApplicationController.cs</DependentUpon>
     </None>
     <None Include="Controllers\Main.behind.juip.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Main.behind.juip.cs</LastGenOutput>
       <DependentUpon>Main.cs</DependentUpon>
     </None>
-    <None Include="Controllers\ApplicationController.juip.tt">
+    <None Include="Controllers\Main.juip.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ApplicationController.juip.cs</LastGenOutput>
-      <DependentUpon>ApplicationController.cs</DependentUpon>
+      <LastGenOutput>Main.juip.ascx</LastGenOutput>
+      <DependentUpon>Main.cs</DependentUpon>
     </None>
     <None Include="ViewModels\ViewModel.juip.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

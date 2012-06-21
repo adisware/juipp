@@ -5,9 +5,12 @@
 
 namespace <#= "juip.app.ViewModels" #> 
 {
+
+
 <#
-    var viewModels = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\"));
+    var viewModels = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\"));  
 #>
+
     <#
     foreach(var model in viewModels)
     {
@@ -15,6 +18,7 @@ namespace <#= "juip.app.ViewModels" #>
         var className =  System.IO.Path.GetFileName(model).Split('.')[0];
         if(fileName.EndsWith("ViewModel.cs") == false) continue;
     #> 
+    
     [Serializable]
     public partial class <#= className #> : IViewModel {}
  <#

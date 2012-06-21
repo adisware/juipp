@@ -7,11 +7,24 @@
 
 namespace <#= "juip.app.Views" #> 
 {
-
+   
     public partial class <#= "ApplicationView" #> : ApplicationViewBase {}
+    
+    public static class View
+    {
+             <#
+                var views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\"));
+                foreach(var view in views)
+                {
+                    var fileName = System.IO.Path.GetFileName(view);
+                    var className =  fileName.Split('.')[0];
+                    if(fileName.EndsWith("View.ascx.cs") == false) continue;
+             #>public static string <#= className #> = "juip.app.Views.<#= className #>";
+             <#}#>
+    }
 
     <# 
-    var models = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\"));
+    var models = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\")); 
     foreach(var model in models)
     {
         var className =  System.IO.Path.GetFileName(model).Split('.')[0];

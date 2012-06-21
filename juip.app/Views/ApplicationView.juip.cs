@@ -5,8 +5,18 @@ using juip.app.ViewModels;
 
 namespace juip.app.Views 
 {
-
+   
     public partial class ApplicationView : ApplicationViewBase {}
+    
+    public static class View
+    {
+             public static string HomeView = "juip.app.Views.HomeView";
+             public static string StudentBrowseView = "juip.app.Views.StudentBrowseView";
+             public static string StudentProfileAddView = "juip.app.Views.StudentProfileAddView";
+             public static string StudentProfileEditView = "juip.app.Views.StudentProfileEditView";
+             public static string StudentProfileView = "juip.app.Views.StudentProfileView";
+             public static string WorkView = "juip.app.Views.WorkView";
+                 }
 
      
         public partial class ApplicationView : IActionPerformer<CourseViewModel> 

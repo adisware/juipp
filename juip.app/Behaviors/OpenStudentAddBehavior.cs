@@ -7,5 +7,5 @@ using juip.app.ViewModels;
 
 namespace juip.app.Behaviors
 {
-    public class OpenHomeBehavior : BehaviorBase<StudentViewModel> {}
+    public class OpenStudentAddBehavior : BehaviorBase<StudentViewModel> { }
 }

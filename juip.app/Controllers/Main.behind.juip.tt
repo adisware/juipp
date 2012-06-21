@@ -2,12 +2,11 @@
 <#@ output extension=".cs" #>
 <#= "using System;" #>
 <#= "using System.Collections.Generic;" #>
-<#= "using Resources;" #>
 <#= "using juip.Behaviors;" #>
 <#= "using juip.app.Behaviors;" #>
 <#= "using juip.Views;" #>
 <#= "using juip.Controllers;" #>
-
+<#= "using juip.app.Views;" #>
 
 namespace <#= "juip.app.Controllers" #> 
 { 
@@ -36,10 +35,12 @@ namespace <#= "juip.app.Controllers" #>
                 var behaviors = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Behaviors\"));
                 foreach(var behavior in behaviors)
                 {
-                    var className =  System.IO.Path.GetFileName(behavior).Split('.')[0];
+                    var fileName =  System.IO.Path.GetFileName(behavior);
+                    var className =  fileName.Split('.')[0];
+                    if(fileName.EndsWith("Behavior.cs") == false) continue;
              #> 
                  base.Behaviors.Add(new KeyValuePair<string, IApplicationContextAccessible>(
-                                        BehaviorNames.<#= className #>, 
+                                        Behavior.<#= className #>, 
                                         new <#= className #>() { ActionContext = base.Controller } ));
              <#
                 }
@@ -57,7 +58,7 @@ namespace <#= "juip.app.Controllers" #>
                     if(fileName.EndsWith("View.ascx.cs") == false) continue;
              #> 
                  base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
-                                        ViewNames.<#= className #>,  
+                                        View.<#= className #>,  
                                         this.<#= className #> ));
              <#
                 }

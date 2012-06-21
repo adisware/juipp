@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Resources;
 using juip.Behaviors;
 using juip.app.Behaviors;
 using juip.Views;
 using juip.Controllers;
-
+using juip.app.Views;
 
 namespace juip.app.Controllers 
 { 
@@ -32,11 +31,15 @@ namespace juip.app.Controllers
 
               
                  base.Behaviors.Add(new KeyValuePair<string, IApplicationContextAccessible>(
-                                        BehaviorNames.OpenHomeBehavior, 
+                                        Behavior.OpenHomeBehavior, 
                                         new OpenHomeBehavior() { ActionContext = base.Controller } ));
               
                  base.Behaviors.Add(new KeyValuePair<string, IApplicationContextAccessible>(
-                                        BehaviorNames.OpenStudentBrowseBehavior, 
+                                        Behavior.OpenStudentAddBehavior, 
+                                        new OpenStudentAddBehavior() { ActionContext = base.Controller } ));
+              
+                 base.Behaviors.Add(new KeyValuePair<string, IApplicationContextAccessible>(
+                                        Behavior.OpenStudentBrowseBehavior, 
                                         new OpenStudentBrowseBehavior() { ActionContext = base.Controller } ));
              
 
@@ -44,27 +47,27 @@ namespace juip.app.Controllers
 
               
                  base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
-                                        ViewNames.HomeView,  
+                                        View.HomeView,  
                                         this.HomeView ));
               
                  base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
-                                        ViewNames.StudentBrowseView,  
+                                        View.StudentBrowseView,  
                                         this.StudentBrowseView ));
               
                  base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
-                                        ViewNames.StudentProfileAddView,  
+                                        View.StudentProfileAddView,  
                                         this.StudentProfileAddView ));
               
                  base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
-                                        ViewNames.StudentProfileEditView,  
+                                        View.StudentProfileEditView,  
                                         this.StudentProfileEditView ));
               
                  base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
-                                        ViewNames.StudentProfileView,  
+                                        View.StudentProfileView,  
                                         this.StudentProfileView ));
               
                  base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
-                                        ViewNames.WorkView,  
+                                        View.WorkView,  
                                         this.WorkView ));
                            this.Controller.LoadBehaviorViewBinding(this.Views, this.BehaviorBinding, this.Behaviors);
         }

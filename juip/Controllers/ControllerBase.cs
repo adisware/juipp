@@ -117,7 +117,7 @@ namespace juip.Controllers
             var attribute = (ControllerAttribute) type.GetCustomAttributes(typeof(ControllerAttribute), false)[0];
 
             var assembly = type.Assembly;
-            var behaviorType = assembly.GetType(attribute.InitialBehaviorName);
+            var behaviorType = assembly.GetType(attribute.InitialBehaviorFullName);
 
             if (behaviorType.BaseType == null)  throw new ApplicationException("Behavior does not inherit BehaviorBase");
 
@@ -125,7 +125,7 @@ namespace juip.Controllers
 
             var method = onInitialActionPerformed.MakeGenericMethod(new[] { initalModelType });
 
-            method.Invoke(this, new object[] { attribute.InitialBehaviorName });
+            method.Invoke(this, new object[] { attribute.InitialBehaviorFullName });
            
         }
 
