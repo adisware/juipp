@@ -104,5 +104,14 @@ namespace Resources {
                 return ResourceManager.GetString("StudentProfileView", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to juip.app.Views.WorkView.
+        /// </summary>
+        internal static string WorkView {
+            get {
+                return ResourceManager.GetString("WorkView", resourceCulture);
+            }
+        }
     }
 }

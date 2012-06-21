@@ -22,12 +22,12 @@ namespace juip.app {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Application control.
+        /// Main control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::juip.app.Controllers.Application Application;
+        protected global::juip.app.Controllers.Main Main;
     }
 }

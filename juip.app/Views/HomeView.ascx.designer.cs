@@ -10,7 +10,7 @@
 namespace juip.app.Views {
     
     
-    public partial class Home {
+    public partial class HomeView {
         
         /// <summary>
         /// ButtonStudentBrowse control.

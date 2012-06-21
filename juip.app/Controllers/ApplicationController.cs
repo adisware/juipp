@@ -10,7 +10,5 @@ using sp.jui.Controllers;
 namespace juip.app.Controllers
 {
     [Controller(InitialBehaviorName = "juip.app.Behaviors.OpenHomeBehavior")]
-    public partial class ApplicationController : ApplicationControllerBase
-    {
-    }
+    public partial class ApplicationController {}
 }

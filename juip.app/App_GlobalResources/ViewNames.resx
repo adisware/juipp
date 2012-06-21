@@ -132,4 +132,7 @@
   <data name="StudentProfileView" xml:space="preserve">
     <value>juip.app.Views.StudentProfileView</value>
   </data>
+  <data name="WorkView" xml:space="preserve">
+    <value>juip.app.Views.WorkView</value>
+  </data>
 </root>

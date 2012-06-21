@@ -1,39 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using juip.Commons;
 using juip.Events.Arguments;
 using juip.Events.Handlers;
 using juip.app.ViewModels;
 using sp.jui.Controllers;
+using juip.Controllers;
 
 namespace juip.app.Controllers
 {
-    public partial  class ApplicationController
+    public partial class ApplicationController : ControllerBase
     {
-        protected override void OnViewSwitch<T>(ViewSwitchedEventArgs<T> args)
-        {
+        protected override void OnViewSwitch<T>(ViewSwitchedEventArgs<T> args)  
+        {  
+              
             base.FireViewSwitched(args as ViewSwitchedEventArgs<CourseViewModel>, _courseViewModelViewSwitched);
+              
             base.FireViewSwitched(args as ViewSwitchedEventArgs<RegistrationViewModel>, _registrationViewModelViewSwitched);
+              
             base.FireViewSwitched(args as ViewSwitchedEventArgs<StudentViewModel>, _studentViewModelViewSwitched);
+             
         }
 
         public override IList<IViewModel> Models
         {
             get
             {
-                return new List<IViewModel>()
-                           {
-                               new CourseViewModel(),
-                               new RegistrationViewModel(),
-                               new StudentViewModel()
-                           };
+                var list = new List<IViewModel>();
+                                 list.Add(new CourseViewModel());
+                                 list.Add(new RegistrationViewModel());
+                                 list.Add(new StudentViewModel());
+                                 return list; 
             }
         }
     }
-    //CourseViewModel
-    public partial class ApplicationController : IViewSwitchedInvoker<CourseViewModel>
+
+
+     public partial class ApplicationController : IViewSwitchedInvoker<CourseViewModel>
     {
         private ViewSwitchedHandler<CourseViewModel> _courseViewModelViewSwitched;
         event ViewSwitchedHandler<CourseViewModel> IViewSwitchedInvoker<CourseViewModel>.ViewSwitched
@@ -42,9 +44,7 @@ namespace juip.app.Controllers
             remove { if (_courseViewModelViewSwitched != null) _courseViewModelViewSwitched -= value; }
         }
     }
-
-    //RegistrationViewModel
-    public partial class ApplicationController : IViewSwitchedInvoker<RegistrationViewModel>
+     public partial class ApplicationController : IViewSwitchedInvoker<RegistrationViewModel>
     {
         private ViewSwitchedHandler<RegistrationViewModel> _registrationViewModelViewSwitched;
         event ViewSwitchedHandler<RegistrationViewModel> IViewSwitchedInvoker<RegistrationViewModel>.ViewSwitched
@@ -53,9 +53,7 @@ namespace juip.app.Controllers
             remove { if (_registrationViewModelViewSwitched != null) _registrationViewModelViewSwitched -= value; }
         }
     }
-
-    //StudentViewModel
-    public partial class ApplicationController : IViewSwitchedInvoker<StudentViewModel>
+     public partial class ApplicationController : IViewSwitchedInvoker<StudentViewModel>
     {
         private ViewSwitchedHandler<StudentViewModel> _studentViewModelViewSwitched;
         event ViewSwitchedHandler<StudentViewModel> IViewSwitchedInvoker<StudentViewModel>.ViewSwitched
@@ -64,4 +62,6 @@ namespace juip.app.Controllers
             remove { if (_studentViewModelViewSwitched != null) _studentViewModelViewSwitched -= value; }
         }
     }
-}
+ 
+} 
+

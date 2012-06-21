@@ -13,7 +13,7 @@ using sp.jui.Events.Handlers;
 namespace juip.Controllers
 {
 
-    public abstract class ApplicationControllerBase :
+    public abstract class ControllerBase :
         WebControl,
         ILoadBehaviorViewBinding,
         IDetermineCurrentViewName,

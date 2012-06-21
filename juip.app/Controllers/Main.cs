@@ -13,7 +13,7 @@ using sp.jui.Controllers;
 
 namespace juip.app.Controllers
 {
-    public partial class Application : ApplicationBase
+    public partial class Main 
     {
         protected override void OnBehaviorBinding()
         {

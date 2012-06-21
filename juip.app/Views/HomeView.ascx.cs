@@ -11,7 +11,7 @@ using juip.app.ViewModels;
 
 namespace juip.app.Views
 {
-    public partial class Home : ApplicationView
+    public partial class HomeView : ApplicationView
     {
         protected override void OnInit(EventArgs e)
         {

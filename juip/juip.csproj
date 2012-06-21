@@ -51,7 +51,7 @@
     <Compile Include="Controllers\ApplicationBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controllers\ApplicationControllerBase.cs" />
+    <Compile Include="Controllers\ControllerBase.cs" />
     <Compile Include="Controllers\CommandViewBindingBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

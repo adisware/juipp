@@ -3,8 +3,7 @@ using juip.Commons;
 
 namespace juip.app.ViewModels
 {
-    [Serializable]
-    public class CourseViewModel : IViewModel
+    public partial class CourseViewModel 
     {
         public int ID { get; set; }
         public string Code { get; set; }

@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using juip.Views;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace juip.app.Views
 {
-    public partial class ApplicationView : ApplicationViewBase
+    public partial class WorkView : ApplicationView
     {
     }
 }

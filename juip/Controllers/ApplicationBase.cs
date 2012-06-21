@@ -10,7 +10,7 @@ namespace juip.Controllers
 {
     public abstract class ApplicationBase : System.Web.UI.UserControl, IContainBehaviorViewBinding
     {
-        protected ApplicationControllerBase Controller;
+        protected ControllerBase Controller;
 
         public IDictionary<string, ApplicationViewBase> Views { get; set; }
         public IDictionary<string, string> BehaviorBinding { get; set; }
