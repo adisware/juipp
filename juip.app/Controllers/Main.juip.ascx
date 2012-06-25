@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Application.ascx.cs" Inherits="juip.app.Controllers.Main" %>
-<%@ Register TagPrefix="juip" Namespace="juip.app.Controllers" Assembly="juip.app" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Application.ascx.cs" Inherits="TargetName@juip.Controllers.Main" %>
+<%@ Register TagPrefix="juip" Namespace="TargetName@juip.Controllers" Assembly="TargetName@juip" %>
 
 
  <%@Register src="~/Views/HomeView.ascx" tagName="HomeView" tagPrefix="juip" %>

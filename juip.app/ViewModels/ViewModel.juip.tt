@@ -1,9 +1,9 @@
-﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ output extension=".cs" #>
 <#= "using System;" #>
 <#= "using juip.Commons;" #>
 
-namespace <#= "juip.app.ViewModels" #> 
+namespace <#= "TargetName@juip.ViewModels" #> 
 {
 
 

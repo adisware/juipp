@@ -1,12 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using juip.Behaviors;
-using juip.app.webtemplate.Behaviors;
+using juip.app.Behaviors;
 using juip.Views;
 using juip.Controllers;
-using juip.app.Views;
+using TargetName@juip.Views;
 
-namespace juip.app.webtemplate.Controllers 
+namespace TargetName@juip.Controllers 
 { 
 
     public partial class Main : ApplicationBase

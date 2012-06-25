@@ -1,11 +1,11 @@
-﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ output extension=".cs" #>
 <#= "using juip.Events.Arguments;" #>
 <#= "using juip.Events.Handlers;" #>
 <#= "using juip.Views;" #>
-<#= "using juip.app.ViewModels;" #>
+<#= "using TargetName@juip.ViewModels;" #>
 
-namespace <#= "juip.app.Views" #> 
+namespace <#= "TargetName@juip.Views" #> 
 {
    
     public partial class <#= "ApplicationView" #> : ApplicationViewBase {}
@@ -19,7 +19,7 @@ namespace <#= "juip.app.Views" #>
                     var fileName = System.IO.Path.GetFileName(view);
                     var className =  fileName.Split('.')[0];
                     if(fileName.EndsWith("View.ascx.cs") == false) continue;
-             #>public static string <#= className #> = "juip.app.Views.<#= className #>";
+             #>public static string <#= className #> = "TargetName@juip.Views.<#= className #>";
              <#}#>
     }
 

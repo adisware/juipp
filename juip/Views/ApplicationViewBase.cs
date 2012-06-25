@@ -4,7 +4,6 @@ using juip.Commons;
 using juip.Controllers;
 using juip.Events.Arguments;
 using juip.Events.Handlers;
-using sp.jui.Controllers;
 
 namespace juip.Views
 {

@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using juip.app.Behaviors;
+using juip.app.ViewModels;
 using juip.app.Views;
-using juip.app.webtemplate.Behaviors;
 
-namespace juip.app.webtemplate.Controllers
+namespace juip.app.Controllers
 {
     public partial class Main
     {
@@ -10,6 +14,8 @@ namespace juip.app.webtemplate.Controllers
         {
             base.BehaviorBinding = new Dictionary<string, string>
                                        {
+                                           {Behavior.OpenHomeBehavior, View.HomeView},
+                                           {Behavior.OpenStudentBrowseBehavior, View.StudentBrowseView}
                                        };
         }
     }

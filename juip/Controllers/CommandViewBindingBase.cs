@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web.UI;
 using juip.Behaviors;
 using juip.Views;
-using sp.jui.Controllers;
 
 namespace juip.Controllers
 {

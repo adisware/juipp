@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using juip.Commons;
 
 namespace juip.app.ViewModels

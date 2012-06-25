@@ -1,12 +1,11 @@
-﻿using juip.Events.Arguments;
+using juip.Events.Arguments;
 using juip.Events.Handlers;
 using juip.Behaviors;
 
-namespace juip.app.webtemplate.Behaviors 
+namespace TargetName@juip.Behaviors 
 {
-    public static class Behavior
+    public static class Behavior 
     {
                  }
 } 
 
- 

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "juip", "juip\juip.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "juip.app.webtemplate", "juip.app.webtemplate\juip.app.webtemplate.csproj", "{5B5DAAA7-B542-4736-A4D4-8DB80497B20A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "juip.Build", "juip.Build\juip.Build.csproj", "{C2E7F288-4771-4E1F-A82A-18A834145852}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{5B5DAAA7-B542-4736-A4D4-8DB80497B20A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B5DAAA7-B542-4736-A4D4-8DB80497B20A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B5DAAA7-B542-4736-A4D4-8DB80497B20A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2E7F288-4771-4E1F-A82A-18A834145852}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2E7F288-4771-4E1F-A82A-18A834145852}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2E7F288-4771-4E1F-A82A-18A834145852}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2E7F288-4771-4E1F-A82A-18A834145852}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

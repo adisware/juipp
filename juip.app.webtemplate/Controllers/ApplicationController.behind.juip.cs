@@ -1,13 +1,12 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using juip.Commons;
 using juip.Events.Arguments;
 using juip.Events.Handlers;
-using juip.app.webtemplate.ViewModels;
-using sp.jui.Controllers;
+using TargetName@juip.ViewModels;
 using juip.Controllers;
 
-namespace juip.app.webtemplate.Controllers
-{
+namespace TargetName@juip.Controllers
+{ 
     public partial class ApplicationController : ControllerBase
     {
         protected override void OnViewSwitch<T>(ViewSwitchedEventArgs<T> args)  

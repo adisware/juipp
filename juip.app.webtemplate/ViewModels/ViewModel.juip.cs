@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using juip.Commons;
 
-namespace juip.app.webtemplate.ViewModels
+namespace TargetName@juip.ViewModels 
 {
 
 

@@ -1,4 +1,4 @@
-﻿using juip.Events.Arguments;
+using juip.Events.Arguments;
 using juip.Events.Handlers;
 using juip.Views;
 using juip.app.ViewModels;

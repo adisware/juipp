@@ -1,6 +1,6 @@
 using juip.Commons;
 
-namespace sp.jui.Controllers
+namespace juip.Controllers
 {
     public interface IDetermineInitialEvent
     {

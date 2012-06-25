@@ -1,7 +1,7 @@
-﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ template debug="false" hostspecific="true" language="C#" inherits="" #>
 <#@ output extension=".ascx" #>
-<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Application.ascx.cs" Inherits="juip.app.Controllers.Main" %>
-<%@ Register TagPrefix="juip" Namespace="juip.app.Controllers" Assembly="juip.app" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Application.ascx.cs" Inherits="TargetName@juip.Controllers.Main" %>
+<%@ Register TagPrefix="juip" Namespace="TargetName@juip.Controllers" Assembly="TargetName@juip" %>
 
 <#
     var views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\")); 

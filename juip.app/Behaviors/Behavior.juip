@@ -4,9 +4,9 @@
 <#= "using juip.Events.Handlers;" #>
 <#= "using juip.Behaviors;" #>
 
-namespace <#= "juip.app.Behaviors" #> 
+namespace <#= "TargetName@juip.Behaviors" #> 
 {
-    public static class Behavior
+    public static class Behavior       
     {
              <#
                 var views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Behaviors\"));
@@ -15,7 +15,7 @@ namespace <#= "juip.app.Behaviors" #>
                     var fileName = System.IO.Path.GetFileName(view);
                     var className =  fileName.Split('.')[0];
                     if(fileName.EndsWith("Behavior.cs") == false) continue;
-             #>public static string <#= className #> = "juip.app.Behaviors.<#= className #>";
+             #>public static string <#= className #> = "TargetName@juip.Behaviors.<#= className #>";
              <#}#>
     }
 } 

@@ -7,7 +7,6 @@ using juip.Commons;
 using juip.Events.Arguments;
 using juip.Events.Handlers;
 using juip.Views;
-using sp.jui.Controllers;
 using sp.jui.Events.Handlers;
 
 namespace juip.Controllers
@@ -25,9 +24,9 @@ namespace juip.Controllers
         protected IDictionary<string, IApplicationContextAccessible> Behaviors;
 
 
-        private readonly IDictionary<string, string> _contextValues = new Dictionary<string, string>();
+        private readonly IDictionary<string, object> _contextValues = new Dictionary<string, object>();
 
-        string IApplicationContext.this[string key]
+        object IApplicationContext.this[string key]
         {
             get { return _contextValues.ContainsKey(key) == false ? null : _contextValues[key]; }
             set

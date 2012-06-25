@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using juip.Behaviors;
 using juip.Views;
 
-namespace sp.jui.Controllers
+namespace juip.Controllers
 {
     public interface IContainBehaviorViewBinding
     {

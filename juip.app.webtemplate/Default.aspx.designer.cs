@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace juip.app.webtemplate {
+namespace <juip>TargetName<juip> {
     
     
     public partial class _Default {
@@ -28,6 +28,6 @@ namespace juip.app.webtemplate {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::juip.app.webtemplate.Controllers.Main Main;
+        protected global::<juip>TargetName<juip>.Controllers.Main Main;
     }
 }

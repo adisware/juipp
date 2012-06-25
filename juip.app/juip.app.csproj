@@ -89,12 +89,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Main.behind.juip.tt</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controllers\ApplicationController.cs" />
-    <Compile Include="Controllers\Main.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="Controllers\Main.cs" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -110,6 +107,8 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ViewModel.juip.tt</DependentUpon>
+      <SubType>
+      </SubType>
     </Compile>
     <Compile Include="Views\ApplicationView.juip.cs">
       <AutoGen>True</AutoGen>
@@ -119,42 +118,36 @@
     </Compile>
     <Compile Include="Views\WorkView.ascx.cs">
       <DependentUpon>WorkView.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\WorkView.ascx.designer.cs">
       <DependentUpon>WorkView.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\HomeView.ascx.cs">
       <DependentUpon>HomeView.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\HomeView.ascx.designer.cs">
       <DependentUpon>HomeView.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentBrowseView.ascx.cs">
       <DependentUpon>StudentBrowseView.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\StudentBrowseView.ascx.designer.cs">
       <DependentUpon>StudentBrowseView.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentProfileAddView.ascx.cs">
       <DependentUpon>StudentProfileAddView.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\StudentProfileAddView.ascx.designer.cs">
       <DependentUpon>StudentProfileAddView.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentProfileEditView.ascx.cs">
       <DependentUpon>StudentProfileEditView.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\StudentProfileEditView.ascx.designer.cs">
       <DependentUpon>StudentProfileEditView.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentProfileView.ascx.cs">
       <DependentUpon>StudentProfileView.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\StudentProfileView.ascx.designer.cs">
       <DependentUpon>StudentProfileView.ascx</DependentUpon>
@@ -221,13 +214,22 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <SharedTasksDir>C:\transfer\GitHub\sp.jui\juip.Build\bin\Debug\</SharedTasksDir>
+    <BeforeTransform>juip_BeforeTransform</BeforeTransform>
+    <AfterTransform>juip_AfterTransform</AfterTransform>
+  </PropertyGroup>
+  <UsingTask AssemblyFile="$(SharedTasksDir)\juip.Build.dll" TaskName="ReplaceJuipToken" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
+       Other similar extension points exist, see Microsoft.Common.targets. -->
+  <Target Name="juip_BeforeTransform">
+  </Target>
+  <Target Name="juip_AfterTransform">
+  </Target>
   <Target Name="BeforeBuild">
+    <ReplaceJuipToken ProjectDir="$(ProjectDir)" TargetName="$(TargetName)">
+    </ReplaceJuipToken>
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
   <PropertyGroup>
     <TransformOnBuild>true</TransformOnBuild>
     <OverwriteReadOnlyOuputFiles>true</OverwriteReadOnlyOuputFiles>
