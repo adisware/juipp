@@ -1,4 +1,6 @@
-sp.jui
+juipp - Juicy Presentation Pattern
+http://www.juipp.com
 ======
 
-SharePoint Presentation Framework
+SharePoint Application Framework
+ASP.NET Web Forms Framework
