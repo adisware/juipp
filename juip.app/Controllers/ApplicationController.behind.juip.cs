@@ -2,10 +2,10 @@ using System.Collections.Generic;
 using juip.Commons;
 using juip.Events.Arguments;
 using juip.Events.Handlers;
-using juip.app.ViewModels;
+using TargetName@juip.ViewModels;
 using juip.Controllers;
 
-namespace juip.app.Controllers
+namespace TargetName@juip.Controllers
 {    
     public partial class ApplicationController : ControllerBase
     {

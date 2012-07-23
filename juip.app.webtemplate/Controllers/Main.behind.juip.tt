@@ -3,10 +3,11 @@
 <#= "using System;" #>
 <#= "using System.Collections.Generic;" #>
 <#= "using juip.Behaviors;" #>
-<#= "using juip.app.Behaviors;" #>
+<#= "using TargetName@juip.Behaviors;" #>
+<#= "using TargetName@juip.Views;" #>
+<#= "using TargetName@juip.Controllers;" #>
 <#= "using juip.Views;" #>
 <#= "using juip.Controllers;" #>
-<#= "using TargetName@juip.Views;" #>
 
 namespace <#= "TargetName@juip.Controllers" #> 
 { 

@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask AssemblyFile="$(SolutionDir)..\\Tools\\JUIPP\\0.1\\bin\\juip.Build.dll" TaskName="juip.Build.ReplaceJuipToken" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -85,7 +86,9 @@
       <DesignTime>True</DesignTime>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Controllers\Main.cs" />
+    <Compile Include="Controllers\Main.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -171,13 +174,16 @@
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
+  
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="OnAfterTransform">
+    <ReplaceJuipToken ProjectDir="$(ProjectDir)" TargetName="$(TargetName)" />
+  </Target>
   <PropertyGroup>
     <TransformOnBuild>true</TransformOnBuild>
+    <AfterTransform>OnAfterTransform</AfterTransform>
     <OverwriteReadOnlyOuputFiles>true</OverwriteReadOnlyOuputFiles>
     <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
   </PropertyGroup>

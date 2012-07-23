@@ -1,9 +1,9 @@
 using juip.Events.Arguments;
 using juip.Events.Handlers;
 using juip.Views;
-using juip.app.ViewModels;
+using juip.app.webtemplate.ViewModels;
 
-namespace TargetName@juip.Views 
+namespace juip.app.webtemplate.Views 
 {
    
     public partial class ApplicationView : ApplicationViewBase {}

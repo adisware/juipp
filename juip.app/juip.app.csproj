@@ -72,6 +72,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\Behavior.cs" />
     <Compile Include="Behaviors\Behavior.juip.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -91,7 +92,9 @@
       <DependentUpon>Main.behind.juip.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ApplicationController.cs" />
-    <Compile Include="Controllers\Main.cs" />
+    <Compile Include="Controllers\Main.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -118,36 +121,42 @@
     </Compile>
     <Compile Include="Views\WorkView.ascx.cs">
       <DependentUpon>WorkView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\WorkView.ascx.designer.cs">
       <DependentUpon>WorkView.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\HomeView.ascx.cs">
       <DependentUpon>HomeView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\HomeView.ascx.designer.cs">
       <DependentUpon>HomeView.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentBrowseView.ascx.cs">
       <DependentUpon>StudentBrowseView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\StudentBrowseView.ascx.designer.cs">
       <DependentUpon>StudentBrowseView.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentProfileAddView.ascx.cs">
       <DependentUpon>StudentProfileAddView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\StudentProfileAddView.ascx.designer.cs">
       <DependentUpon>StudentProfileAddView.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentProfileEditView.ascx.cs">
       <DependentUpon>StudentProfileEditView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\StudentProfileEditView.ascx.designer.cs">
       <DependentUpon>StudentProfileEditView.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentProfileView.ascx.cs">
       <DependentUpon>StudentProfileView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\StudentProfileView.ascx.designer.cs">
       <DependentUpon>StudentProfileView.ascx</DependentUpon>
@@ -164,6 +173,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Behaviors\Behavior.juip" />
     <None Include="Behaviors\Behavior.juip.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Behavior.juip.cs</LastGenOutput>

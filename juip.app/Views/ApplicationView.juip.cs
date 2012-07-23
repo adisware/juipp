@@ -1,21 +1,21 @@
 using juip.Events.Arguments;
 using juip.Events.Handlers;
 using juip.Views;
-using juip.app.ViewModels;
+using TargetName@juip.ViewModels;
 
-namespace juip.app.Views 
+namespace TargetName@juip.Views 
 {
    
     public partial class ApplicationView : ApplicationViewBase {}
     
     public static class View
     {
-             public static string HomeView = "juip.app.Views.HomeView";
-             public static string StudentBrowseView = "juip.app.Views.StudentBrowseView";
-             public static string StudentProfileAddView = "juip.app.Views.StudentProfileAddView";
-             public static string StudentProfileEditView = "juip.app.Views.StudentProfileEditView";
-             public static string StudentProfileView = "juip.app.Views.StudentProfileView";
-             public static string WorkView = "juip.app.Views.WorkView";
+             public static string HomeView = "TargetName@juip.Views.HomeView";
+             public static string StudentBrowseView = "TargetName@juip.Views.StudentBrowseView";
+             public static string StudentProfileAddView = "TargetName@juip.Views.StudentProfileAddView";
+             public static string StudentProfileEditView = "TargetName@juip.Views.StudentProfileEditView";
+             public static string StudentProfileView = "TargetName@juip.Views.StudentProfileView";
+             public static string WorkView = "TargetName@juip.Views.WorkView";
                  }
 
      

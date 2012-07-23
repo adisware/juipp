@@ -7,7 +7,7 @@
 <#= "using TargetName@juip.ViewModels;" #>
 <#= "using juip.Controllers;" #>
 
-namespace <#= "TargetName@juip.Controllers" #>
+namespace <#= "TargetName@juip.Controllers" #> 
 { 
 <#
     var viewModels = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\")); 

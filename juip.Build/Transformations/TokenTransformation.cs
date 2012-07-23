@@ -5,7 +5,7 @@ using System.Text;
 
 namespace juip.Build.Transformations
 {
-    class TokenTransformation  : TextTransformation
-    {
-    }
+    //class TokenTransformation  : TextTransformation
+    //{
+    //}
 }
