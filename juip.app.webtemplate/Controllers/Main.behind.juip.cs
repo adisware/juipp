@@ -21,8 +21,6 @@ namespace juip.app.webtemplate.Controllers
              
 
             base.Views = new Dictionary<string, ApplicationViewBase>();
-
-                           this.Controller.LoadBehaviorViewBinding(this.Views, this.BehaviorBinding, this.Behaviors);
         }
     }
 } 
