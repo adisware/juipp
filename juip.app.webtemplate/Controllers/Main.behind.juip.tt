@@ -64,7 +64,6 @@ namespace <#= "TargetName@juip.Controllers" #>
              <#
                 }
              #>
-              this.Controller.LoadBehaviorViewBinding(this.Views, this.BehaviorBinding, this.Behaviors);
         }
     }
 } 
