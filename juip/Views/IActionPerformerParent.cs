@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using juip.Commons;
+using juipp.Commons;
 
-namespace juip.Views
+namespace juipp.Views
 {
     public interface IActionPerformerParent<T> where T : IViewModel, new()
     {

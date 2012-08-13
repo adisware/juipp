@@ -1,4 +1,4 @@
-namespace juip.Views
+namespace juipp.Views
 {
     public interface ICanExplicitlyEnable
     {

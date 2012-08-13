@@ -1,7 +1,7 @@
-using juip.Commons;
-using juip.Events.Handlers;
+using juipp.Commons;
+using juipp.Events.Handlers;
 
-namespace juip.Controllers
+namespace juipp.Controllers
 {
     public interface IViewSwitchedInvoker<out TD> where TD : IViewModel, new()
     {

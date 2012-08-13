@@ -1,6 +1,6 @@
-using juip.Commons;
+using juipp.Commons;
 
-namespace juip.Events.Arguments
+namespace juipp.Events.Arguments
 {
 
     public interface IViewSwitchedEventArgs<out T> where T : IViewModel, new()

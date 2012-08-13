@@ -1,7 +1,7 @@
-﻿using juip.Commons;
-using juip.Events.Arguments;
+﻿using juipp.Commons;
+using juipp.Events.Arguments;
 
-namespace juip.Behaviors
+namespace juipp.Behaviors
 {
     public interface IBehavior<T> : IApplicationContextAccessible where T : IViewModel, new()
     {

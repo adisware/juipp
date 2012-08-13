@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Web.UI.WebControls;
-using juip.Behaviors;
-using juip.Commons;
-using juip.Events.Arguments;
-using juip.Events.Handlers;
-using juip.Views;
+using juipp.Behaviors;
+using juipp.Commons;
+using juipp.Events.Arguments;
+using juipp.Events.Handlers;
+using juipp.Views;
 using sp.jui.Events.Handlers;
 
-namespace juip.Controllers
+namespace juipp.Controllers
 {
 
     public abstract class ControllerBase :
@@ -69,7 +69,7 @@ namespace juip.Controllers
                 new ActionPerformedEventArgs<T>(
                     new ViewSwitchedEventArgs<T>(null) {})
                     {
-                        BehaviorName = behaviorName
+                        BehaviorReference = behaviorName
                     });
         }
 
@@ -120,12 +120,14 @@ namespace juip.Controllers
 
             if (behaviorType.BaseType == null)  throw new ApplicationException("Behavior does not inherit BehaviorBase");
 
-            var initalModelType = behaviorType.BaseType.GetGenericArguments()[0];
+            
 
+            //For Generic BehaviorBase<>
+            var initalModelType = assembly.GetType(attribute.InitialViewModel); //behaviorType.BaseType.GetGenericArguments()[0];
             var method = onInitialActionPerformed.MakeGenericMethod(new[] { initalModelType });
-
             method.Invoke(this, new object[] { attribute.InitialBehaviorFullName });
            
+            //onInitialActionPerformed.Invoke(this, new object[] {attribute.InitialBehaviorFullName});
         }
 
         //protected void ShowNotification<T>(ICollection<T> list)
@@ -147,6 +149,11 @@ namespace juip.Controllers
             where T : IViewModel, new();
 
         protected virtual void OnBeforeViewSwitch<T>(IDetermineCurrentViewName viewModeable, IBehavior<T> behavior)
+            where T : IViewModel, new()
+        {
+        }
+
+        protected virtual void OnAfterViewSwitch<T>(IDetermineCurrentViewName viewModeable, IBehavior<T> behavior)
             where T : IViewModel, new()
         {
         }
@@ -184,20 +191,23 @@ namespace juip.Controllers
         public bool OnActionPerformed<T>(IActionPerformer<T> sender, ActionPerformedEventArgs<T> args)
             where T : IViewModel, new()
         {
-            if (this.Behaviors.ContainsKey(args.BehaviorName) == false) return false;
+            if (this.Behaviors.ContainsKey(args.BehaviorReference) == false) return false;
 
-            var behavior = this.Behaviors[args.BehaviorName] as IBehavior<T>;
+            var behavior = this.Behaviors[args.BehaviorReference] as IBehavior<T>;
             if (behavior == null) return false;
 
             behavior.Execute(args);
 
-            var viewName = this.Mapping[args.BehaviorName];
+            if (this.Mapping.ContainsKey(args.BehaviorReference) == false) return true;
+            var viewName = this.Mapping[args.BehaviorReference];
 
             var nextView = this.GetNextView(viewName);
 
             this.OnBeforeViewSwitch(nextView, behavior);
 
             this.SwitchView(sender as ApplicationViewBase, viewName, args);
+
+            this.OnAfterViewSwitch(nextView, behavior);
 
             return true;
         }

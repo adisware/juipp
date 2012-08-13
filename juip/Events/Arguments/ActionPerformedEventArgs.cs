@@ -1,7 +1,7 @@
 using System;
-using juip.Commons;
+using juipp.Commons;
 
-namespace juip.Events.Arguments
+namespace juipp.Events.Arguments
 {
    
 
@@ -14,6 +14,6 @@ namespace juip.Events.Arguments
             this.EventArgs = internalEventArgs;
         }
         public T DataItem { get; set; }
-        public string BehaviorName { get; set; }
+        public string BehaviorReference { get; set; }
     }
 }

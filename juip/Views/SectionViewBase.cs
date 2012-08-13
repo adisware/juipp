@@ -1,8 +1,8 @@
-using juip.Commons;
-using juip.Controllers;
-using juip.Events.Arguments;
+using juipp.Commons;
+using juipp.Controllers;
+using juipp.Events.Arguments;
 
-namespace juip.Views
+namespace juipp.Views
 {
     public abstract class SectionViewBase<TD> : ApplicationViewBase, IBindable<TD> where TD : IViewModel, new()
     {

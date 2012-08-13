@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using juip.Behaviors;
-using juip.Commons;
+using juipp.Behaviors;
+using juipp.Commons;
 
-namespace juip.Controllers
+namespace juipp.Controllers
 {
     public class ControllerAttribute : Attribute
     {
         public string InitialBehaviorFullName { get; set; }
+        public string InitialViewModel { get; set; }
     }
 }

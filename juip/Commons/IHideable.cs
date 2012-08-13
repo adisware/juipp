@@ -1,4 +1,4 @@
-namespace juip.Commons
+namespace juipp.Commons
 {
     public interface IHideable
     {

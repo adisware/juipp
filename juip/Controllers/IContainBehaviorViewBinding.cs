@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using juip.Behaviors;
-using juip.Views;
+using juipp.Behaviors;
+using juipp.Views;
 
-namespace juip.Controllers
+namespace juipp.Controllers
 {
     public interface IContainBehaviorViewBinding
     {

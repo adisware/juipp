@@ -1,7 +1,7 @@
 ﻿using System;
-using juip.Commons;
+using juipp.Commons;
 
-namespace juip.Behaviors
+namespace juipp.Behaviors
 {
     [AttributeUsage(
         AttributeTargets.Class, 

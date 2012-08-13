@@ -1,8 +1,8 @@
-using juip.Commons;
-using juip.Controllers;
-using juip.Events.Arguments;
+using juipp.Commons;
+using juipp.Controllers;
+using juipp.Events.Arguments;
 
-namespace juip.Events.Handlers
+namespace juipp.Events.Handlers
 {
     public delegate void ViewSwitchedHandler<in TD>(IViewSwitchedInvoker<TD> sender, IViewSwitchedEventArgs<TD> args) where TD : IViewModel, new();
 }

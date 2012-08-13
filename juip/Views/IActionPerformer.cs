@@ -1,7 +1,7 @@
-using juip.Commons;
-using juip.Events.Handlers;
+using juipp.Commons;
+using juipp.Events.Handlers;
 
-namespace juip.Views
+namespace juipp.Views
 {
     public interface IActionPerformer<TD>  where TD : IViewModel, new()
     {

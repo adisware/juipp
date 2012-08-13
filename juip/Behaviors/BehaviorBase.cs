@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using juip.Commons;
-using juip.Controllers;
+using juipp.Commons;
+using juipp.Controllers;
 
-namespace juip.Behaviors
+namespace juipp.Behaviors
 {
-    [Serializable]
-    public abstract class BehaviorBase<T> : IBehavior<T> where T : IViewModel, new()
-    {
-        public IApplicationContext ActionContext { get; set; }
+    //[Serializable]
+    //public abstract class BehaviorBase<T> : IBehavior<T> where T : IViewModel, new()
+    //{
+    //    public IApplicationContext ActionContext { get; set; }
 
-        public virtual void Execute(Events.Arguments.ActionPerformedEventArgs<T> args)
-        {
-        }
-    }
+    //    public virtual void Execute(Events.Arguments.ActionPerformedEventArgs<T> args)
+    //    {
+    //    }
+    //}
 }

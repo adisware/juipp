@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
-using juip.Behaviors;
-using juip.Views;
+using juipp.Behaviors;
+using juipp.Views;
 
-namespace juip.Controllers
+namespace juipp.Controllers
 {
     public abstract class BehaviorViewBindingBase : UserControl, IContainBehaviorViewBinding, IBehaviorNames
     {

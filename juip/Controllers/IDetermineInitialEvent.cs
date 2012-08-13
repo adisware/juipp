@@ -1,6 +1,6 @@
-using juip.Commons;
+using juipp.Commons;
 
-namespace juip.Controllers
+namespace juipp.Controllers
 {
     public interface IDetermineInitialEvent
     {

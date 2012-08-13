@@ -1,7 +1,7 @@
 using System;
-using juip.Commons;
+using juipp.Commons;
 
-namespace juip.Events.Arguments
+namespace juipp.Events.Arguments
 {
     public class ViewSwitchedEventArgs<T> : EventArgs, IViewSwitchedEventArgs<T> where T : IViewModel, new() 
     {

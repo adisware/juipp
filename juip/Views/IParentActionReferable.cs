@@ -1,6 +1,6 @@
-﻿using juip.Commons;
+﻿using juipp.Commons;
 
-namespace juip.Views
+namespace juipp.Views
 {
     public interface IParentActionReferable<T>  where T : IViewModel, new()
     {

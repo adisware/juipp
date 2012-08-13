@@ -1,7 +1,7 @@
-using juip.Commons;
-using juip.Events.Arguments;
+using juipp.Commons;
+using juipp.Events.Arguments;
 
-namespace juip.Views
+namespace juipp.Views
 {
     public interface ICanHandleActionPerformed
     {

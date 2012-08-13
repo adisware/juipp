@@ -1,7 +1,7 @@
-using juip.Controllers;
+using juipp.Controllers;
 
 
-namespace juip.Behaviors
+namespace juipp.Behaviors
 {
     public interface IApplicationContextAccessible
     {

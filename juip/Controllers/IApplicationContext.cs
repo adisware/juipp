@@ -1,6 +1,6 @@
 using System;
 
-namespace juip.Controllers
+namespace juipp.Controllers
 {
     public interface IApplicationContext
     {

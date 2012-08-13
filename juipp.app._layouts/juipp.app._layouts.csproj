@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask AssemblyFile="$(SolutionDir)..\\Tools\\JUIPP\\0.1\\bin\\juipp.Build.dll" TaskName="juipp.Build.ReplaceJuippToken" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D3A7FBD8-8F9C-4D55-AF3D-95CFBE758CE3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>juipp</RootNamespace>
+    <AssemblyName>juipp._layouts.MyApp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_layouts\MyApp\Controllers\Container.juipp.ascx">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Container.juipp.tt</DependentUpon>
+    </Content>
+    <Content Include="_layouts\MyApp\Default.aspx" />
+    <Content Include="_layouts\MyApp\Web.config" />
+    <Content Include="_layouts\MyApp\Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="_layouts\MyApp\Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="_layouts\MyApp\Behaviors\Behavior.juipp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Behavior.juipp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_layouts\MyApp\Behaviors\FirstBehavior.cs" />
+    <Compile Include="_layouts\MyApp\Controllers\Container.behind.juipp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Container.behind.juipp.tt</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_layouts\MyApp\Controllers\Controller.behind.juipp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Controller.behind.juipp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_layouts\MyApp\Controllers\Controller.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_layouts\MyApp\Controllers\Container.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_layouts\MyApp\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_layouts\MyApp\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="_layouts\MyApp\ViewModels\MyViewModel.cs" />
+    <Compile Include="_layouts\MyApp\ViewModels\ViewModel.juipp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewModel.juipp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_layouts\MyApp\Views\View.juipp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>View.juipp.tt</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_layouts\MyApp\Views\FirstView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_layouts\MyApp\Behaviors\Behavior.juipp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Behavior.juipp.cs</LastGenOutput>
+    </None>
+    <None Include="_layouts\MyApp\Controllers\Controller.behind.juipp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Controller.cs</DependentUpon>
+      <LastGenOutput>Controller.behind.juipp.cs</LastGenOutput>
+    </None>
+    <None Include="_layouts\MyApp\Controllers\Container.behind.juipp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Container.cs</DependentUpon>
+      <LastGenOutput>Container.behind.juipp.cs</LastGenOutput>
+    </None>
+    <None Include="_layouts\MyApp\Controllers\Container.juipp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Container.cs</DependentUpon>
+      <LastGenOutput>Container.juipp.ascx</LastGenOutput>
+    </None>
+    <None Include="_layouts\MyApp\ViewModels\ViewModel.juipp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ViewModel.juipp.cs</LastGenOutput>
+    </None>
+    <None Include="_layouts\MyApp\Views\View.juipp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>View.juipp.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\juip\juipp.csproj">
+      <Project>{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}</Project>
+      <Name>juipp</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\TextTemplating\v10.0\Microsoft.TextTemplating.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49175</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="OnAfterTransform">
+    <ReplaceJuippToken ProjectDir="$(ProjectDir)" TargetName="$(TargetName)" />
+  </Target>
+  <PropertyGroup>
+    <TransformOnBuild>true</TransformOnBuild>
+    <AfterTransform>OnAfterTransform</AfterTransform>
+    <OverwriteReadOnlyOuputFiles>true</OverwriteReadOnlyOuputFiles>
+    <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
+  </PropertyGroup>
+</Project>

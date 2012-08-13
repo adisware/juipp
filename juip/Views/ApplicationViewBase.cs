@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Web.UI;
-using juip.Commons;
-using juip.Controllers;
-using juip.Events.Arguments;
-using juip.Events.Handlers;
+using juipp.Commons;
+using juipp.Controllers;
+using juipp.Events.Arguments;
+using juipp.Events.Handlers;
 
-namespace juip.Views
+namespace juipp.Views
 {
     public abstract class ApplicationViewBase : UserControl, ICanHandleActionPerformed, IDetermineCurrentViewName, IHideable, IVisibilityChangeInvoker, ICanObserverViewSwitched
     {
