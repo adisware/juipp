@@ -93,9 +93,7 @@
     <Compile Include="Views\ICanRetainViewName.cs" />
     <Compile Include="Views\IParentActionReferable.cs" />
     <Compile Include="Views\IVisibilityChangeInvoker.cs" />
-    <Compile Include="Views\SectionViewBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="Views\SectionViewBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ExpressionBuilders\" />
