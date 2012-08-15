@@ -1,14 +1,35 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Web.UI;
-using juipp.Commons;
-using juipp.Controllers;
-using juipp.Events.Arguments;
-using juipp.Events.Handlers;
+using adisware.juipp.Commons;
+using adisware.juipp.Controllers;
+using adisware.juipp.Events.Arguments;
+using adisware.juipp.Events.Handlers;
+using adisware.juipp.ViewModels;
 
-namespace juipp.Views
+namespace adisware.juipp.Views
 {
-    public abstract class ViewBase : UserControl, ICanHandleActionPerformed, IDetermineCurrentViewName, IHideable, IVisibilityChangeInvoker, ICanObserverViewSwitched
+    public abstract class ViewBase : 
+        UserControl, 
+        ICanSendBehaviorEvent,  
+        ICanChangeMyVisibility,  
+        ICanCatchTransition
     {
+        public string Reference
+        {
+            set
+            {
+                var state = this.ViewState["Reference"];
+                if (state != null) this.ViewState.Remove("Reference");
+                this.ViewState.Add("Reference", value);
+            }
+            get
+            {
+                var state = this.ViewState["Reference"];
+                if (state == null) return null;
+                return (string)state;
+            }
+        }
+
         #region IHideable
 
         public virtual void Hide()
@@ -24,27 +45,6 @@ namespace juipp.Views
 
         #endregion
 
-        #region IViewModeable
-
-        private const string ViewModeStateKey = "ViewMode";
-        public string CurrentViewName
-        {
-            set
-            {
-                var state = this.ViewState[ViewModeStateKey];
-                if (state != null) this.ViewState.Remove(ViewModeStateKey);
-                this.ViewState.Add(ViewModeStateKey, value);
-            }
-            get
-            {
-                var state = this.ViewState[ViewModeStateKey];
-                if (state == null) return default(string);
-                return (string)state;
-            }
-        }
-
-        #endregion
-
         public T RetrieveBindingElement<T>()
         {
             var name = typeof(T).FullName;
@@ -52,7 +52,7 @@ namespace juipp.Views
             {
                 var bindingItem = this.ViewState[name];
                 if (bindingItem == null) return default(T);
-                return (T)bindingItem;
+                return (T) bindingItem;
             }
             return default(T);
         }
@@ -67,41 +67,37 @@ namespace juipp.Views
             }
         }
 
+        public IBehaviorContext BehaviorContext { get; set; }
 
+        public delegate bool FireBehaviorEventDelegate(object behaviorEvent);
+        public event VisibilityChangedHandler  VisibilityChanged;
 
-        public event VisibilityChangedHandler VisibilityChanged;
-        public IApplicationContext ActionContext { get; set; }
-
-        public void OnVisibilityChanged(bool isVisible)
+        public void OnVisibilityChanged(bool visibility)
         {
             var handler = VisibilityChanged;
-            if (handler != null) handler(this, isVisible);
+            if (handler != null) handler(this, visibility);
         }
-        public bool RaiseActionEvent<T>(ActionPerformedHandler<T> handler, ActionPerformedEventArgs<T> args) where T : IViewModel, new()
-        {
-            if (args == null) return false;
-            return handler != null && handler(this as IActionPerformer<T>, args);
-        }
-        public virtual void OnViewModeChanged<T>(IViewSwitchedInvoker<T> sender, IViewSwitchedEventArgs<T> args) where T : IViewModel, new() { }
-        //public abstract void OnActionPerformed<T>(ActionPerformedEventArgs<T> args) where T : IDataTransferObject, new();
-
-        public virtual void PropagateChange() { }
-        public virtual void Enable() { }
-        public virtual void Disable() { }
-
-        public delegate bool RaiseActionEventDelegate(object args);
-
-        protected readonly IList<RaiseActionEventDelegate> RaiseActionEventDelegates = new List<RaiseActionEventDelegate>();
-
-        public bool OnActionPerformed<T>(ActionPerformedEventArgs<T> args) where T : IViewModel, new()
+        public bool SendBehaviorEvent<T>(BehaviorEvent<T> behaviorEvent) where T : IViewModel, new()
         {
             var success = false;
-            foreach (var raiseActionEventDelegate in this.RaiseActionEventDelegates)
+            foreach (var fireBehaviorEventDelegate in this.FireBehaviorEventDelegates)
             {
-                success = raiseActionEventDelegate.Invoke(args);
+                success = fireBehaviorEventDelegate.Invoke(behaviorEvent);
             }
 
             return success;
         }
+
+        public virtual void OnCatchTransition<T>(ITransitionEventSender<T> sender, TransitionEvent<T> transitionEvent) where T : IViewModel, new() { }
+        public virtual void PropagateChange() { }
+        public virtual void Enable() { }
+        public virtual void Disable() { }
+
+        protected bool FireBehaviorEvent<T>(BehaviorEventHandler<T> handler, BehaviorEvent<T> behaviorEvent) where T : IViewModel, new()
+        {
+            if (behaviorEvent == null) return false;
+            return handler != null && handler(this as IBehaviorEventSender<T>, behaviorEvent);
+        }
+        protected readonly IList<FireBehaviorEventDelegate> FireBehaviorEventDelegates = new List<FireBehaviorEventDelegate>();
     }
 }

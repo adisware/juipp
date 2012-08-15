@@ -1,4 +1,4 @@
-namespace juipp.Controllers
+namespace adisware.juipp.Controllers
 {
     public interface IDetermineNotificationViewName
     {

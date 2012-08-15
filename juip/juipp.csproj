@@ -8,10 +8,14 @@
     <ProjectGuid>{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>juipp</RootNamespace>
-    <AssemblyName>juip</AssemblyName>
+    <RootNamespace>adisware.juipp</RootNamespace>
+    <AssemblyName>adisware.juipp</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,8 +38,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Properties\adisware.juipp.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -48,14 +51,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behaviors\BehaviorAttribute.cs" />
-    <Compile Include="Behaviors\BehaviorBase.cs" />
-    <Compile Include="Behaviors\IApplicationContextAccessible.cs" />
     <Compile Include="Behaviors\IBehavior.cs" />
+    <Compile Include="Behaviors\IExecutableBehavior.cs" />
+    <Compile Include="ViewModels\CollectionViewModel.cs" />
     <Compile Include="Commons\IBindable.cs" />
-    <Compile Include="Commons\IHideable.cs" />
-    <Compile Include="Commons\IViewModel.cs" />
-    <Compile Include="Commons\IRetrieveable.cs" />
-    <Compile Include="Controllers\ContainerBase.cs">
+    <Compile Include="Commons\ICanChangeMyVisibility.cs" />
+    <Compile Include="ViewModels\IViewModel.cs" />
+    <Compile Include="Commons\IRefresher.cs" />
+    <Compile Include="Controllers\ApplicationBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controllers\ControllerBase.cs" />
@@ -63,50 +66,41 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controllers\ControllerAttribute.cs" />
-    <Compile Include="Controllers\IApplicationContext.cs" />
+    <Compile Include="Controllers\IBehaviorContext.cs" />
     <Compile Include="Controllers\IBehaviorNames.cs" />
     <Compile Include="Controllers\IContainBehaviorViewBinding.cs" />
     <Compile Include="Controllers\IDetermineInitialEvent.cs" />
     <Compile Include="Controllers\IDetermineModelTypes.cs" />
     <Compile Include="Controllers\IDetermineNotificationViewName.cs" />
     <Compile Include="Controllers\ILoadBehaviorViewBinding.cs" />
-    <Compile Include="Controllers\IViewSwitchedInvoker.cs" />
-    <Compile Include="Events\Arguments\ActionPerformedEventArgs.cs" />
-    <Compile Include="Events\Arguments\IViewSwitchedEventArgs.cs" />
+    <Compile Include="Controllers\ITransitionInvoker.cs" />
+    <Compile Include="Events\Arguments\BehaviorEvent.cs" />
     <Compile Include="Events\Arguments\OptionChangedEventArgs.cs" />
-    <Compile Include="Events\Arguments\ViewSwitchedEventArgs.cs" />
-    <Compile Include="Events\Handlers\ActionPerformedHandler.cs" />
+    <Compile Include="Events\Arguments\TransitionEvent.cs" />
+    <Compile Include="Events\Handlers\BehaviorEventHandler.cs" />
     <Compile Include="Events\Handlers\OptionChangedHandler.cs" />
-    <Compile Include="Events\Handlers\ViewSwitchedHandler.cs" />
-    <Compile Include="Events\Handlers\ViewSwitchedMethodDelegate.cs" />
+    <Compile Include="Events\Handlers\TransitionHandler.cs" />
+    <Compile Include="Events\Handlers\ViewTransitionMethodDelegate.cs" />
     <Compile Include="Events\Handlers\VisibilityChangedHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\IActionPerformer.cs" />
-    <Compile Include="Views\IActionPerformerParent.cs" />
-    <Compile Include="Views\ICanExplicitlyEnable.cs" />
-    <Compile Include="Views\ICanHandleActionPerformed.cs" />
-    <Compile Include="Views\ICanObserveActionPerformed.cs" />
-    <Compile Include="Views\ICanObserverViewSwitched.cs" />
-    <Compile Include="Views\ICanPropagateChange.cs" />
-    <Compile Include="Views\ICanRetainViewName.cs" />
-    <Compile Include="Views\IParentActionReferable.cs" />
-    <Compile Include="Views\IvisibilityChangeInvoker.cs" />
-    <Compile Include="Views\SectionViewBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Views\ViewBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Views\IBehaviorEventSender.cs" />
+    <Compile Include="Views\IBehaviorTriggererCollection.cs" />
+    <Compile Include="Commons\ICanChangeMyEnability.cs" />
+    <Compile Include="Views\ICanHandleBehaviorTrigger.cs" />
+    <Compile Include="Views\ICanCatchBehaviorEvent.cs" />
+    <Compile Include="Views\ICanCatchTransition.cs" />
+    <Compile Include="Views\ICanPropagateChange.cs" />
+    <Compile Include="Views\IDetermineCurrentViewReference.cs" />
+    <Compile Include="Views\ICanRetainBehaviorTriggerView.cs" />
+    <Compile Include="Views\IVisibilityChangeInvoker.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ExpressionBuilders\" />
-    <Folder Include="Routings\" />
+    <None Include="Properties\adisware.juipp.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>
-    </PreBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,8 +1,8 @@
-﻿using juipp.Events.Handlers;
+using adisware.juipp.Events.Handlers;
 
-namespace juipp.Views
+namespace adisware.juipp.Views
 {
-    public interface IVisibilityChangeInvoker
+    public interface IVisibilityChangedInvoker
     {
         event VisibilityChangedHandler VisibilityChanged;
         void OnVisibilityChanged(bool isVisible);

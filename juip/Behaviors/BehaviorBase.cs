@@ -7,13 +7,13 @@ using juipp.Controllers;
 
 namespace juipp.Behaviors
 {
-    //[Serializable]
-    //public abstract class BehaviorBase<T> : IBehavior<T> where T : IViewModel, new()
-    //{
-    //    public IApplicationContext ActionContext { get; set; }
+    [Serializable]
+    public abstract class BehaviorBase<T> : IBehavior<T> where T : IViewModel, new()
+    {
+        public IApplicationContext ActionContext { get; set; }
 
-    //    public virtual void Execute(Events.Arguments.ActionPerformedEventArgs<T> args)
-    //    {
-    //    }
-    //}
+        public virtual void Execute(Events.Arguments.ActionPerformedEventArgs<T> args)
+        {
+        }
+    }
 }

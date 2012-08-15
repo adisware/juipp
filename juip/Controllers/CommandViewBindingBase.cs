@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI;
-using juipp.Behaviors;
-using juipp.Views;
+using adisware.juipp.Behaviors;
+using adisware.juipp.Views;
 
-namespace juipp.Controllers
+namespace adisware.juipp.Controllers
 {
     public abstract class BehaviorViewBindingBase : UserControl, IContainBehaviorViewBinding, IBehaviorNames
     {
         public abstract string BehaviorAssemblyName { get; }
       
-        public IDictionary<string, IApplicationContextAccessible> Behaviors { get; set; }
+        public IDictionary<string, IBehavior> Behaviors { get; set; }
 
         public abstract IDictionary<string, ViewBase> Views { get; set; }
 
@@ -19,7 +19,7 @@ namespace juipp.Controllers
 
         public IList<string> Names { get; set; }
 
-        protected BehaviorViewBindingBase(IApplicationContext context, IApplicationContextAccessible contextAccessible)
+        protected BehaviorViewBindingBase(IBehaviorContext context, IBehavior contextAccessible)
         {
             var behaviorNames = new List<String>();
             
@@ -34,11 +34,11 @@ namespace juipp.Controllers
                 {
                     behaviorNames.Add(behaviorAttribute.Name);
 
-                    var behaviorType = behaviorAttribute.ViewModelName == null ? type : type.MakeGenericType(typeof(object));
-                    var ctor = behaviorType.GetConstructor(new[] { typeof(IApplicationContext) });
+                    var behaviorType = behaviorAttribute.ViewModelReference == null ? type : type.MakeGenericType(typeof(object));
+                    var ctor = behaviorType.GetConstructor(new[] { typeof(IBehaviorContext) });
                     if (ctor == null) continue;
                     var obj = ctor.Invoke(new object[] { context });
-                    Behaviors.Add(behaviorAttribute.Name, obj as IApplicationContextAccessible);
+                    Behaviors.Add(behaviorAttribute.Name, obj as IBehavior);
                 }
             }
         }

@@ -1,7 +1,8 @@
 using System.Collections.Generic;
-using juipp.Commons;
+using adisware.juipp.Commons;
+using adisware.juipp.ViewModels;
 
-namespace juipp.Controllers
+namespace adisware.juipp.Controllers
 {
     public interface IDetermineModels
     {

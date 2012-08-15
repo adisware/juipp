@@ -1,4 +1,4 @@
-namespace juipp.Commons
+namespace adisware.juipp.Commons
 {
     public interface IBindable<in T> 
     {

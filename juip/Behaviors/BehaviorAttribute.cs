@@ -1,7 +1,6 @@
 ﻿using System;
-using juipp.Commons;
 
-namespace juipp.Behaviors
+namespace adisware.juipp.Behaviors
 {
     [AttributeUsage(
         AttributeTargets.Class, 
@@ -10,6 +9,6 @@ namespace juipp.Behaviors
     public class BehaviorAttribute : Attribute
     {
         public string Name { get; set; }
-        public string ViewModelName { get; set; }
+        public string ViewModelReference { get; set; }
     }
 }

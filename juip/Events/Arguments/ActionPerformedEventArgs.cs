@@ -14,6 +14,6 @@ namespace juipp.Events.Arguments
             this.EventArgs = internalEventArgs;
         }
         public T DataItem { get; set; }
-        public string BehaviorReference { get; set; }
+        public string BehaviorName { get; set; }
     }
 }

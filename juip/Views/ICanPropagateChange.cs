@@ -1,4 +1,4 @@
-namespace juipp.Views
+namespace adisware.juipp.Views
 {
     public interface ICanPropagateChange
     {

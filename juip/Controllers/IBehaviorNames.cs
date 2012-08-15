@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace juipp.Controllers
+namespace adisware.juipp.Controllers
 {
     public interface IBehaviorNames
     {

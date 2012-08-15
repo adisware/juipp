@@ -1,6 +1,7 @@
 using System.Collections.Generic;
-using juipp.Behaviors;
-using juipp.Views;
+using adisware.juipp.Behaviors;
+using adisware.juipp.Commons;
+using adisware.juipp.Views;
 
 namespace juipp.Controllers
 {
@@ -9,6 +10,6 @@ namespace juipp.Controllers
         void LoadBehaviorViewBinding(
             IDictionary<string, ViewBase> views,
             IDictionary<string, string> binding,
-            IDictionary<string, IApplicationContextAccessible> behaviors);
+            IDictionary<string, IBehavior> behaviors);
     }
 }

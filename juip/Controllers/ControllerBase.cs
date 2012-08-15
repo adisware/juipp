@@ -2,31 +2,32 @@
 using System.Collections.Generic;
 using System.Reflection;
 using System.Web.UI.WebControls;
-using juipp.Behaviors;
-using juipp.Commons;
-using juipp.Events.Arguments;
-using juipp.Events.Handlers;
-using juipp.Views;
-using sp.jui.Events.Handlers;
+using adisware.juipp.Behaviors;
+using adisware.juipp.Commons;
+using adisware.juipp.Events.Arguments;
+using adisware.juipp.Events.Handlers;
+using adisware.juipp.ViewModels;
+using adisware.juipp.Views;
+using juipp.Controllers;
 
-namespace juipp.Controllers
+namespace adisware.juipp.Controllers
 {
 
     public abstract class ControllerBase :
         WebControl,
         ILoadBehaviorViewBinding,
-        IDetermineCurrentViewName,
+        IDetermineCurrentViewReference,
         IDetermineModels,
-        IApplicationContext
+        IBehaviorContext
     {
         protected IDictionary<string, ViewBase> Views;
         protected IDictionary<string, string> Mapping;
-        protected IDictionary<string, IApplicationContextAccessible> Behaviors;
+        protected IDictionary<string, IBehavior> Behaviors;
 
 
         private readonly IDictionary<string, object> _contextValues = new Dictionary<string, object>();
 
-        object IApplicationContext.this[string key]
+        object IBehaviorContext.this[string key]
         {
             get { return _contextValues.ContainsKey(key) == false ? null : _contextValues[key]; }
             set
@@ -36,52 +37,47 @@ namespace juipp.Controllers
             }
         }
 
-        public string CurrentViewName
+        public string CurrentViewReference
         {
             set
             {
-                var state = this.ViewState["LastViewMode"];
-                if (state != null) this.ViewState.Remove("LastViewMode");
-                this.ViewState.Add("LastViewMode", value);
+                var state = this.ViewState["CurrentViewReference"];
+                if (state != null) this.ViewState.Remove("CurrentViewReference");
+                this.ViewState.Add("CurrentViewReference", value);
             }
             get
             {
-                var state = this.ViewState["LastViewMode"];
+                var state = this.ViewState["CurrentViewReference"];
                 if (state == null) return null;
                 return (string) state;
             }
         }
 
-        private void SwitchView<T>(IHideable sender, string viewName, ActionPerformedEventArgs<T> args)
+        private void TransitionView<T>(ICanChangeMyVisibility sender, string viewName, BehaviorEvent<T> behaviorEvent)
             where T : IViewModel, new()
         {
-            this.SwitchView(sender, viewName);
+            this.TransitionView(sender, viewName);
 
-            this.RaiseViewSwitch(args, this.OnViewSwitch, viewName);
+            this.FireTransitionEvent(behaviorEvent, this.OnTransitionEvent, viewName);
 
-            if (sender is IActionPerformer<T>) this.CurrentViewName = viewName;
+            //if (sender is IBehaviorEventSender<T>) this.CurrentViewReference = viewName;
         }
 
-        protected void OnInitialActionPerformed<T>(string behaviorName) where T : IViewModel, new()
+        protected void OnInitialBehaviorEventFired<T>(string behaviorName) where T : IViewModel, new()
         {
-            this.OnActionPerformed(
-                null,
-                new ActionPerformedEventArgs<T>(
-                    new ViewSwitchedEventArgs<T>(null) {})
-                    {
-                        BehaviorReference = behaviorName
-                    });
+            this.OnBehaviorEventFired( null, new BehaviorEvent<T>() { BehaviorReference = behaviorName });
         }
 
         private ViewBase GetNextView(string viewName)
         {
             var nextView = Views[viewName];
-            nextView.CurrentViewName = viewName;
+            nextView.Reference = viewName;
             return nextView;
         }
 
-        private void SwitchView(IHideable sender, string viewName)
+        private void TransitionView(ICanChangeMyVisibility sender, string viewName)
         {
+            if (viewName == null) return;
             var nextView = this.GetNextView(viewName);
             if (sender != null && !sender.Equals(nextView))
             {
@@ -90,28 +86,27 @@ namespace juipp.Controllers
             nextView.Show();
         }
 
-        private void RaiseViewSwitch<T>(ActionPerformedEventArgs<T> args,
-                                        ViewSwitchedMethodDelegate<T> viewSwitchedMethod, string viewName)
+        private void FireTransitionEvent<T>(BehaviorEvent<T> args, TransitionEventDelegate<T> transitionEventDelegate, string viewName)
             where T : IViewModel, new()
         {
-            viewSwitchedMethod(new ViewSwitchedEventArgs<T>(args)
+            transitionEventDelegate(new TransitionEvent<T>(args)
                                    {
-                                       DataItem = args.DataItem,
-                                       CurrentViewName = viewName,
-                                       PreviousViewName = this.CurrentViewName
+                                       ViewModel = args.ViewModel,
+                                       ViewReference = viewName,
+                                       PreviousViewReference = this.CurrentViewReference
                                    });
 
-            this.CurrentViewName = viewName;
+            this.CurrentViewReference = viewName;
         }
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
-            if (this.CurrentViewName != null) return;
+            if (this.CurrentViewReference != null) return;
 
             var type = this.GetType();
-            var onInitialActionPerformed = type.GetMethod("OnInitialActionPerformed", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy);
+            var onInitialActionPerformed = type.GetMethod("OnInitialBehaviorEventFired", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy);
 
             var attribute = (ControllerAttribute) type.GetCustomAttributes(typeof(ControllerAttribute), false)[0];
 
@@ -130,91 +125,84 @@ namespace juipp.Controllers
             //onInitialActionPerformed.Invoke(this, new object[] {attribute.InitialBehaviorFullName});
         }
 
-        //protected void ShowNotification<T>(ICollection<T> list)
-        //{
-        //    var infoView = this.Views[this.NotificationViewName];
-        //    ((IBindable<ICollection<T>>) infoView).Bind(list);
-        //    infoView.Show();
-        //}
-
-        protected void FireViewSwitched<T>(ViewSwitchedEventArgs<T> args, ViewSwitchedHandler<T> viewSwitchedHandler)
+        protected void FireViewSwitched<T>(TransitionEvent<T> transitionEvent, TransitionEventHandler<T> transitionEventHandler)
             where T : IViewModel, new()
         {
-            if (args == null || viewSwitchedHandler == null) return;
+            if (transitionEvent == null || transitionEventHandler == null) return;
 
-            viewSwitchedHandler((IViewSwitchedInvoker<T>) this, args);
+            transitionEventHandler((ITransitionEventSender<T>) this, transitionEvent);
         }
 
-        protected abstract void OnViewSwitch<T>(ViewSwitchedEventArgs<T> args)
+        protected abstract void OnTransitionEvent<T>(TransitionEvent<T> transitionEvent)
             where T : IViewModel, new();
 
-        protected virtual void OnBeforeViewSwitch<T>(IDetermineCurrentViewName viewModeable, IBehavior<T> behavior)
+        protected virtual void OnBeforeTransitionEvent<T>(string viewReference, IExecutableBehavior<T> behavior)
             where T : IViewModel, new()
         {
         }
 
-        protected virtual void OnAfterViewSwitch<T>(IDetermineCurrentViewName viewModeable, IBehavior<T> behavior)
+        protected virtual void OnAfterTransitionEvent<T>(string viewReference, IExecutableBehavior<T> behavior)
             where T : IViewModel, new()
         {
         }
 
-        protected void BindOnActionPerformedEvent<T>()
+        protected void WireOnBehaviorEventFired<T>()
             where T : IViewModel, new()
         {
             foreach (var view in Views)
             {
-                view.Value.ActionContext = this;
+                view.Value.BehaviorContext = this;
 
-                if (view.Value is IActionPerformer<T>)
+                if (view.Value is IBehaviorEventSender<T>)
                 {
-                    var actionPerformer = ((IActionPerformer<T>) view.Value);
+                    var actionPerformer = ((IBehaviorEventSender<T>)view.Value);
 
-                    actionPerformer.ActionPerformed -= this.OnActionPerformed;
-                    actionPerformer.ActionPerformed += this.OnActionPerformed;
+                    actionPerformer.BehaviorEventFired -= this.OnBehaviorEventFired;
+                    actionPerformer.BehaviorEventFired += this.OnBehaviorEventFired;
 
-                    if (view.Value is IActionPerformerParent<T>)
+                    if (view.Value is IBehaviorEventSenderCollection<T>)
                     {
-                        var parent = (IActionPerformerParent<T>) view.Value;
-                        foreach (var c in parent.ChildActionPerformer)
+                        var parent = (IBehaviorEventSenderCollection<T>)view.Value;
+                        foreach (var c in parent.BehaviorTriggers)
                         {
-                            c.ActionPerformed -= this.OnActionPerformed;
-                            c.ActionPerformed += this.OnActionPerformed;
+                            c.BehaviorEventFired -= this.OnBehaviorEventFired;
+                            c.BehaviorEventFired += this.OnBehaviorEventFired;
                         }
                     }
                 }
 
-                var listenerView = view.Value as ICanObserverViewSwitched;
-                ((IViewSwitchedInvoker<T>) this).ViewSwitched += listenerView.OnViewModeChanged;
+                var listenerView = view.Value as ICanCatchTransition;
+                ((ITransitionEventSender<T>) this).TransitionEventFired += listenerView.OnCatchTransition;
             }
         }
 
-        public bool OnActionPerformed<T>(IActionPerformer<T> sender, ActionPerformedEventArgs<T> args)
+        public bool OnBehaviorEventFired<T>(IBehaviorEventSender<T> sender, BehaviorEvent<T> behaviorEvent)
             where T : IViewModel, new()
         {
-            if (this.Behaviors.ContainsKey(args.BehaviorReference) == false) return false;
+            if (this.Behaviors.ContainsKey(behaviorEvent.BehaviorReference) == false) return false;
 
-            var behavior = this.Behaviors[args.BehaviorReference] as IBehavior<T>;
+            var behavior = this.Behaviors[behaviorEvent.BehaviorReference] as IExecutableBehavior<T>;
             if (behavior == null) return false;
 
-            behavior.Execute(args);
+            behavior.Execute(behaviorEvent);
 
-            if (this.Mapping.ContainsKey(args.BehaviorReference) == false) return true;
-            var viewName = this.Mapping[args.BehaviorReference];
+            string viewName = null;
 
-            var nextView = this.GetNextView(viewName);
+            if (this.Mapping.ContainsKey(behaviorEvent.BehaviorReference))
+            {
+                viewName = this.Mapping[behaviorEvent.BehaviorReference];
+            }
 
-            this.OnBeforeViewSwitch(nextView, behavior);
-
-            this.SwitchView(sender as ViewBase, viewName, args);
-
-            this.OnAfterViewSwitch(nextView, behavior);
+            this.OnBeforeTransitionEvent(viewName, behavior);
+            this.TransitionView(sender as ViewBase, viewName, behaviorEvent);
+            this.OnAfterTransitionEvent(viewName, behavior);
 
             return true;
         }
 
         public void LoadBehaviorViewBinding(IDictionary<string, ViewBase> views,
                                            IDictionary<string, string> mapping,
-                                           IDictionary<string, IApplicationContextAccessible> behaviors)
+                                           IDictionary<string, IBehavior> behaviors)
         {
             this.Views = views;
             this.Behaviors = behaviors;
@@ -229,21 +217,15 @@ namespace juipp.Controllers
             foreach (var model in Models)
             {
                 var type = this.GetType();
-                var bindOnActionPerformedEventMethod = type.GetMethod("BindOnActionPerformedEvent", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy);
-                
-                var method = bindOnActionPerformedEventMethod.MakeGenericMethod(new[] { model.GetType() });
+                var wireOnBehaviorEventFiredMethod = type.GetMethod("WireOnBehaviorEventFired", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy);
+
+                var method = wireOnBehaviorEventFiredMethod.MakeGenericMethod(new[] { model.GetType() });
 
                 method.Invoke(this, new object[] {});
             }
         }
 
-        //public abstract string InitialViewName { get; }
-        //public abstract string InitialBehaviorName { get; }
-        //public abstract IViewModel InitialModel { get; }
-        //public abstract string NotificationViewName { get; }
-        public virtual void InitApplicationContext()
-        {
-        }
+        public virtual void InitApplicationContext() { }
 
         public abstract IList<IViewModel> Models { get; }
     }

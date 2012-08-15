@@ -1,10 +1,9 @@
-﻿using juipp.Commons;
-using juipp.Events.Arguments;
+﻿using adisware.juipp.Controllers;
 
-namespace juipp.Behaviors
+namespace adisware.juipp.Behaviors
 {
-    public interface IBehavior<T> : IApplicationContextAccessible where T : IViewModel, new()
+    public interface IBehavior
     {
-         void Execute(ActionPerformedEventArgs<T> args);
+        IBehaviorContext BehaviorContext { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using juipp.Events.Arguments;
 
 namespace juipp.Views
 {
-    public abstract class SectionViewBase<TD> : ViewBase, IBindable<TD> where TD : IViewModel, new()
+    public abstract class SectionViewBase<TD> : ApplicationViewBase, IBindable<TD> where TD : IViewModel, new()
     {
         protected TD DataItem
         {

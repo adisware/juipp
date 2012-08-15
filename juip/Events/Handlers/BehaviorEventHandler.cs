@@ -4,5 +4,5 @@ using adisware.juipp.Views;
 
 namespace adisware.juipp.Events.Handlers
 {
-    public delegate void OptionChangedHandler<TD>(ViewBase sender, OptionChangedEventArgs<TD> args)  where TD : IViewModel, new();
+    public delegate bool BehaviorEventHandler<TD>(IBehaviorEventSender<TD> sender, BehaviorEvent<TD> args) where TD : IViewModel, new();
 }

@@ -1,12 +1,13 @@
 using System.Collections.Generic;
-using juipp.Behaviors;
-using juipp.Views;
+using adisware.juipp.Behaviors;
+using adisware.juipp.Commons;
+using adisware.juipp.Views;
 
-namespace juipp.Controllers
+namespace adisware.juipp.Controllers
 {
     public interface IContainBehaviorViewBinding
     {
-        IDictionary<string, IApplicationContextAccessible> Behaviors { get; set; } 
+        IDictionary<string, IBehavior> Behaviors { get; set; }
         IDictionary<string, ViewBase> Views { get; set; }
         IDictionary<string, string> BehaviorBinding { get; set; }
     }
