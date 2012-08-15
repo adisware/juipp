@@ -19,7 +19,7 @@ namespace juipp.Controllers
         IDetermineModels,
         IApplicationContext
     {
-        protected IDictionary<string, ApplicationViewBase> Views;
+        protected IDictionary<string, ViewBase> Views;
         protected IDictionary<string, string> Mapping;
         protected IDictionary<string, IApplicationContextAccessible> Behaviors;
 
@@ -73,7 +73,7 @@ namespace juipp.Controllers
                     });
         }
 
-        private ApplicationViewBase GetNextView(string viewName)
+        private ViewBase GetNextView(string viewName)
         {
             var nextView = Views[viewName];
             nextView.CurrentViewName = viewName;
@@ -205,14 +205,14 @@ namespace juipp.Controllers
 
             this.OnBeforeViewSwitch(nextView, behavior);
 
-            this.SwitchView(sender as ApplicationViewBase, viewName, args);
+            this.SwitchView(sender as ViewBase, viewName, args);
 
             this.OnAfterViewSwitch(nextView, behavior);
 
             return true;
         }
 
-        public void LoadBehaviorViewBinding(IDictionary<string, ApplicationViewBase> views,
+        public void LoadBehaviorViewBinding(IDictionary<string, ViewBase> views,
                                            IDictionary<string, string> mapping,
                                            IDictionary<string, IApplicationContextAccessible> behaviors)
         {

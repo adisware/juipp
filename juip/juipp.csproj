@@ -90,7 +90,10 @@
     <Compile Include="Views\ICanPropagateChange.cs" />
     <Compile Include="Views\ICanRetainViewName.cs" />
     <Compile Include="Views\IParentActionReferable.cs" />
-    <Compile Include="Views\SectionViewBase.cs" />
+    <Compile Include="Views\IvisibilityChangeInvoker.cs" />
+    <Compile Include="Views\SectionViewBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Views\ViewBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

@@ -7,7 +7,7 @@ namespace juipp.Controllers
     public interface ILoadBehaviorViewBinding
     {
         void LoadBehaviorViewBinding(
-            IDictionary<string, ApplicationViewBase> views,
+            IDictionary<string, ViewBase> views,
             IDictionary<string, string> binding,
             IDictionary<string, IApplicationContextAccessible> behaviors);
     }

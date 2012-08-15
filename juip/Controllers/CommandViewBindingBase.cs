@@ -13,7 +13,7 @@ namespace juipp.Controllers
       
         public IDictionary<string, IApplicationContextAccessible> Behaviors { get; set; }
 
-        public abstract IDictionary<string, ApplicationViewBase> Views { get; set; }
+        public abstract IDictionary<string, ViewBase> Views { get; set; }
 
         public abstract IDictionary<string, string> BehaviorBinding { get; set; }
 
