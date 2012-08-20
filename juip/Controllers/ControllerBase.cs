@@ -8,7 +8,6 @@ using adisware.juipp.Events.Arguments;
 using adisware.juipp.Events.Handlers;
 using adisware.juipp.ViewModels;
 using adisware.juipp.Views;
-using juipp.Controllers;
 
 namespace adisware.juipp.Controllers
 {

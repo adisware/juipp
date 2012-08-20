@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using adisware.juipp.Behaviors;
-using adisware.juipp.Commons;
 using adisware.juipp.Views;
 
-namespace juipp.Controllers
+namespace adisware.juipp.Controllers
 {
     public interface ILoadBehaviorViewBinding
     {

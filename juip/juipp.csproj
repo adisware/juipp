@@ -58,7 +58,7 @@
     <Compile Include="Commons\ICanChangeMyVisibility.cs" />
     <Compile Include="ViewModels\IViewModel.cs" />
     <Compile Include="Commons\IRefresher.cs" />
-    <Compile Include="Controllers\ApplicationBase.cs">
+    <Compile Include="Controllers\ContainerBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controllers\ControllerBase.cs" />
@@ -75,7 +75,7 @@
     <Compile Include="Controllers\ILoadBehaviorViewBinding.cs" />
     <Compile Include="Controllers\ITransitionInvoker.cs" />
     <Compile Include="Events\Arguments\BehaviorEvent.cs" />
-    <Compile Include="Events\Arguments\OptionChangedEventArgs.cs" />
+    <Compile Include="Events\Arguments\DataChangedEvent.cs" />
     <Compile Include="Events\Arguments\TransitionEvent.cs" />
     <Compile Include="Events\Handlers\BehaviorEventHandler.cs" />
     <Compile Include="Events\Handlers\OptionChangedHandler.cs" />
@@ -94,7 +94,7 @@
     <Compile Include="Views\ICanCatchTransition.cs" />
     <Compile Include="Views\ICanPropagateChange.cs" />
     <Compile Include="Views\IDetermineCurrentViewReference.cs" />
-    <Compile Include="Views\ICanRetainBehaviorTriggerView.cs" />
+    <Compile Include="Views\ICanCollectBehaviorEventSender.cs" />
     <Compile Include="Views\IVisibilityChangeInvoker.cs" />
   </ItemGroup>
   <ItemGroup>

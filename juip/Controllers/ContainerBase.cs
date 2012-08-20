@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using juipp.Behaviors;
-using juipp.Views;
+using adisware.juipp.Behaviors;
+using adisware.juipp.Commons;
+using adisware.juipp.Views;
 
-namespace juipp.Controllers
+namespace adisware.juipp.Controllers
 {
     public abstract class ContainerBase : System.Web.UI.UserControl, IContainBehaviorViewBinding
     {
@@ -13,7 +12,7 @@ namespace juipp.Controllers
 
         public IDictionary<string, ViewBase> Views { get; set; }
         public IDictionary<string, string> BehaviorBinding { get; set; }
-        public IDictionary<string, IApplicationContextAccessible> Behaviors { get; set; }
+        public IDictionary<string, IBehavior> Behaviors { get; set; }
 
         protected override void OnInit(EventArgs e)
         {

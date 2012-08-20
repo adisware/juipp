@@ -150,7 +150,7 @@
   <ItemGroup>
     <ProjectReference Include="..\juip\juipp.csproj">
       <Project>{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}</Project>
-      <Name>juip</Name>
+      <Name>juipp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

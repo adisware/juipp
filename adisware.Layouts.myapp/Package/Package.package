@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="e33511c6-cb32-420c-9367-f6fe658a9a26" solutionId="e33511c6-cb32-420c-9367-f6fe658a9a26" resetWebServer="false" name="juipp.sharepoinit" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="293d0c8b-9629-4cf9-a0ce-7c775c7781ac" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="694b44b1-3976-42ad-b3ed-2f697fadac73" />
+  </projectItems>
+</package>
