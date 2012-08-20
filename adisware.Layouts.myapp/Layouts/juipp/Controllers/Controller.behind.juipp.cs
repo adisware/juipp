@@ -9,12 +9,12 @@ using adisware.Layouts.juipp.ViewModels;
 
 namespace adisware.Layouts.juipp.Controllers 
 { 
-    public partial class ApplicationController : ControllerBase
+    public partial class Controller : ControllerBase
     {
         protected override void OnTransitionEvent<T>(TransitionEvent<T> args)  
         {  
               
-            base.FireViewSwitched(args as TransitionEvent<MyViewModel>, _myViewModelViewSwitched);
+            base.FireTransitionEvent(args as TransitionEvent<MyViewModel>, _myViewModelViewSwitched);
              
         }
 
@@ -30,7 +30,7 @@ namespace adisware.Layouts.juipp.Controllers
     }
 
 
-     public partial class ApplicationController : ITransitionEventSender<MyViewModel>
+     public partial class Controller : ITransitionEventSender<MyViewModel>
     {
         private TransitionEventHandler<MyViewModel> _myViewModelViewSwitched;
         event TransitionEventHandler<MyViewModel> ITransitionEventSender<MyViewModel>.TransitionEventFired

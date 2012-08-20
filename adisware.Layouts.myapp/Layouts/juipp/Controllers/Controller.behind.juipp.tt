@@ -14,7 +14,7 @@ namespace <#= "TargetName@juipp.Controllers" #>
 <#
     var viewModels = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\")); 
 #>
-    public partial class <#= "ApplicationController" #> : ControllerBase
+    public partial class <#= "Controller" #> : ControllerBase
     {
         protected override void OnTransitionEvent<T>(TransitionEvent<T> args)  
         {  
@@ -26,7 +26,7 @@ namespace <#= "TargetName@juipp.Controllers" #>
                     var handlerName =  string.Format("_{0}ViewSwitched", char.ToLower(className[0]) + className.Substring(1));
                     if(fileName.EndsWith("ViewModel.cs") == false) continue;
              #> 
-            base.FireViewSwitched(args as TransitionEvent<<#= className #>>, <#= handlerName #>);
+            base.FireTransitionEvent(args as TransitionEvent<<#= className #>>, <#= handlerName #>);
              <#
                 }
              #>
@@ -63,7 +63,7 @@ namespace <#= "TargetName@juipp.Controllers" #>
         var handlerName =  string.Format("_{0}ViewSwitched", char.ToLower(className[0]) + className.Substring(1));
         if(fileName.EndsWith("ViewModel.cs") == false) continue;
  #>
-    public partial class ApplicationController : ITransitionEventSender<<#= className #>>
+    public partial class Controller : ITransitionEventSender<<#= className #>>
     {
         private TransitionEventHandler<<#= className #>> <#= handlerName #>;
         event TransitionEventHandler<<#= className #>> ITransitionEventSender<<#= className #>>.TransitionEventFired

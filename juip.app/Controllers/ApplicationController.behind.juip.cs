@@ -12,11 +12,11 @@ namespace TargetName@juip.Controllers
         protected override void OnViewSwitch<T>(ViewSwitchedEventArgs<T> args)  
         {  
               
-            base.FireViewSwitched(args as ViewSwitchedEventArgs<CourseViewModel>, _courseViewModelViewSwitched);
+            base.FireTransitionEvent(args as ViewSwitchedEventArgs<CourseViewModel>, _courseViewModelViewSwitched);
               
-            base.FireViewSwitched(args as ViewSwitchedEventArgs<RegistrationViewModel>, _registrationViewModelViewSwitched);
+            base.FireTransitionEvent(args as ViewSwitchedEventArgs<RegistrationViewModel>, _registrationViewModelViewSwitched);
               
-            base.FireViewSwitched(args as ViewSwitchedEventArgs<StudentViewModel>, _studentViewModelViewSwitched);
+            base.FireTransitionEvent(args as ViewSwitchedEventArgs<StudentViewModel>, _studentViewModelViewSwitched);
              
         }
 

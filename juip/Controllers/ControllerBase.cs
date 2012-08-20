@@ -124,7 +124,7 @@ namespace adisware.juipp.Controllers
             //onInitialActionPerformed.Invoke(this, new object[] {attribute.InitialBehaviorFullName});
         }
 
-        protected void FireViewSwitched<T>(TransitionEvent<T> transitionEvent, TransitionEventHandler<T> transitionEventHandler)
+        protected void FireTransitionEvent<T>(TransitionEvent<T> transitionEvent, TransitionEventHandler<T> transitionEventHandler)
             where T : IViewModel, new()
         {
             if (transitionEvent == null || transitionEventHandler == null) return;

@@ -24,7 +24,7 @@ namespace <#= "TargetName@juip.Controllers" #>
                     var handlerName =  string.Format("_{0}ViewSwitched", char.ToLower(className[0]) + className.Substring(1));
                     if(fileName.EndsWith("ViewModel.cs") == false) continue;
              #> 
-            base.FireViewSwitched(args as ViewSwitchedEventArgs<<#= className #>>, <#= handlerName #>);
+            base.FireTransitionEvent(args as ViewSwitchedEventArgs<<#= className #>>, <#= handlerName #>);
              <#
                 }
              #>
