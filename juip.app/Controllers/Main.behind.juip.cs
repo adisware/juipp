@@ -47,30 +47,30 @@ namespace TargetName@juip.Controllers
                                         new OpenStudentBrowseBehavior() { ActionContext = base.Controller } ));
              
 
-            base.Views = new Dictionary<string, ApplicationViewBase>();
+            base.Views = new Dictionary<string, ViewBase>();
 
               
-                 base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         View.HomeView,  
                                         this.HomeView ));
               
-                 base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         View.StudentBrowseView,  
                                         this.StudentBrowseView ));
               
-                 base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         View.StudentProfileAddView,  
                                         this.StudentProfileAddView ));
               
-                 base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         View.StudentProfileEditView,  
                                         this.StudentProfileEditView ));
               
-                 base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         View.StudentProfileView,  
                                         this.StudentProfileView ));
               
-                 base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         View.WorkView,  
                                         this.WorkView ));
                            this.Controller.LoadBehaviorViewBinding(this.Views, this.BehaviorBinding, this.Behaviors);

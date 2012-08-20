@@ -6,7 +6,7 @@ using TargetName@juip.ViewModels;
 namespace TargetName@juip.Views 
 {
    
-    public partial class ApplicationView : ApplicationViewBase {}
+    public partial class View : ViewBase {}
     
     public static class View
     {
@@ -19,7 +19,7 @@ namespace TargetName@juip.Views
                  }
 
      
-        public partial class ApplicationView : IActionPerformer<CourseViewModel> 
+        public partial class View : IActionPerformer<CourseViewModel> 
         {
             private ActionPerformedHandler<CourseViewModel> _courseViewModelActionPerformed;
             event ActionPerformedHandler<CourseViewModel> IActionPerformer<CourseViewModel>.ActionPerformed
@@ -33,7 +33,7 @@ namespace TargetName@juip.Views
             }
         }
      
-        public partial class ApplicationView : IActionPerformer<RegistrationViewModel> 
+        public partial class View : IActionPerformer<RegistrationViewModel> 
         {
             private ActionPerformedHandler<RegistrationViewModel> _registrationViewModelActionPerformed;
             event ActionPerformedHandler<RegistrationViewModel> IActionPerformer<RegistrationViewModel>.ActionPerformed
@@ -47,7 +47,7 @@ namespace TargetName@juip.Views
             }
         }
      
-        public partial class ApplicationView : IActionPerformer<StudentViewModel> 
+        public partial class View : IActionPerformer<StudentViewModel> 
         {
             private ActionPerformedHandler<StudentViewModel> _studentViewModelActionPerformed;
             event ActionPerformedHandler<StudentViewModel> IActionPerformer<StudentViewModel>.ActionPerformed

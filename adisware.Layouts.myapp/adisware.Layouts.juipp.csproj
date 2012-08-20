@@ -96,7 +96,6 @@
     </Compile>
     <Compile Include="Layouts\juipp\Views\MyView.ascx.cs">
       <DependentUpon>MyView.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Layouts\juipp\Views\MyView.ascx.designer.cs">
       <DependentUpon>MyView.ascx</DependentUpon>

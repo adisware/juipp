@@ -8,7 +8,7 @@
 namespace <#= "TargetName@juipp.Views" #> 
 {
    
-    public partial class <#= "ApplicationView" #> : ViewBase {}
+    public partial class <#= "View" #> : ViewBase {}
     
     public static class ViewReference
     {
@@ -31,7 +31,7 @@ namespace <#= "TargetName@juipp.Views" #>
         var handlerName =  string.Format("_{0}BehaviorEventFired", char.ToLower(className[0]) + className.Substring(1));
         if(className == "ViewModel") continue;
     #> 
-        public partial class ApplicationView : IBehaviorEventSender<<#= className #>> 
+        public partial class View : IBehaviorEventSender<<#= className #>> 
         {
             private BehaviorEventHandler<<#= className #>> <#= handlerName #>;
             event BehaviorEventHandler<<#= className #>> IBehaviorEventSender<<#= className #>>.BehaviorEventFired

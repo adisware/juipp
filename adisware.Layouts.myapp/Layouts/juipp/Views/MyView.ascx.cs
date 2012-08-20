@@ -1,7 +1,7 @@
 
 namespace adisware.Layouts.juipp.Views
 {
-    public partial class MyView : ApplicationView
+    public partial class MyView : View
     {
     }
 }

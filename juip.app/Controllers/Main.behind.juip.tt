@@ -47,7 +47,7 @@ namespace <#= "TargetName@juip.Controllers" #>
              #>
 
 
-            base.Views = new Dictionary<string, ApplicationViewBase>();
+            base.Views = new Dictionary<string, ViewBase>();
 
              <#
                 //var views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\"));
@@ -57,7 +57,7 @@ namespace <#= "TargetName@juip.Controllers" #>
                     var className =  fileName.Split('.')[0];
                     if(fileName.EndsWith("View.ascx.cs") == false) continue;
              #> 
-                 base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         View.<#= className #>,  
                                         this.<#= className #> ));
              <#

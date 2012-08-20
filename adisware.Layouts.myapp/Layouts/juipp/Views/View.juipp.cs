@@ -6,7 +6,7 @@ using adisware.Layouts.juipp.ViewModels;
 namespace adisware.Layouts.juipp.Views 
 {
    
-    public partial class ApplicationView : ViewBase {}
+    public partial class View : ViewBase {}
     
     public static class ViewReference
     {
@@ -14,7 +14,7 @@ namespace adisware.Layouts.juipp.Views
                  }
 
      
-        public partial class ApplicationView : IBehaviorEventSender<MyViewModel> 
+        public partial class View : IBehaviorEventSender<MyViewModel> 
         {
             private BehaviorEventHandler<MyViewModel> _myViewModelBehaviorEventFired;
             event BehaviorEventHandler<MyViewModel> IBehaviorEventSender<MyViewModel>.BehaviorEventFired
