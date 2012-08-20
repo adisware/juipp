@@ -5,7 +5,7 @@ using Microsoft.Build.Framework;
 
 namespace juipp.Build.Tasks
 {
-    public class ReplaceJuipToken : Microsoft.Build.Utilities.Task
+    public class ReplaceJuippToken : Microsoft.Build.Utilities.Task
     {
         [Required]
         public ITaskItem ProjectDir { get; set; }
@@ -70,6 +70,7 @@ namespace juipp.Build.Tasks
             var str4 = Path.Combine(folderPath, "ViewModels");
             this.ReplaceTokens(token, subPath, ".juipp.cs");
             this.ReplaceTokens(token, subPath, ".juipp.ascx");
+            this.ReplaceTokens(token, subPath, "Controller.cs");
             this.ReplaceTokens(token, str2, ".juipp.cs");
             this.ReplaceTokens(token, str3, ".juipp.cs");
             this.ReplaceTokens(token, str4, ".juipp.cs");

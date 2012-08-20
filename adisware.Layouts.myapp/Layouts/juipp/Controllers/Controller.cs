@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,8 +11,8 @@ namespace adisware.Layouts.juipp.Controllers
     [
         Controller
         (
-            InitialBehaviorFullName = "TargetName@juipp.Behaviors.MyBehavior",
-            InitialViewModel = "TargetName@juipp.ViewModels.MyViewModel"
+            InitialBehaviorFullName = "adisware.Layouts.juipp.Behaviors.MyBehavior",
+            InitialViewModel = "adisware.Layouts.juipp.ViewModels.MyViewModel"
         )
     ]
     public partial class Controller { }
