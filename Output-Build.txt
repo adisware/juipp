@@ -1,0 +1,6 @@
+﻿------ Rebuild All started: Project: adisware.juipp.sp, Configuration: Debug Any CPU ------
+  adisware.juipp.sp -> C:\Users\ngebremariam.OS\Documents\GitHub\juipp\adisware.juipp.sp\bin\Debug\ProjectTemplates\CSharp\1033\adisware.juipp.sp.zip
+  adisware.juipp.sp -> 
+  adisware.juipp.sp -> 
+C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets(58,5): error : Source.extension.vsixmanifest file not found in project. If a file with this name is present in the project, make sure the build action is set to "None".
+========== Rebuild All: 0 succeeded, 1 failed, 0 skipped ==========

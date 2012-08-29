@@ -1,21 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <UsingTask AssemblyFile="$(SolutionDir)..\\Tools\\JUIPP\\0.1\\bin\\juipp.Build.dll" TaskName="juipp.Build.Tasks.ReplaceJuippToken" />
+  <!--<UsingTask TaskName="juipp.Build.Tasks.ReplaceJuippToken" AssemblyFile="C:\\JUIPP\\0.1\\bin\\juipp.Build.dll" />-->
+  <UsingTask TaskName="juipp.Build.Tasks.ReplaceJuippToken" AssemblyName="juipp.Build" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{869003C7-F4DC-4044-8688-84D6E54FD2A7}</ProjectGuid>
+    <ProjectGuid>$guid1$</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>adisware</RootNamespace>
-    <AssemblyName>adisware.Layouts.juipp</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <RootNamespace>$safeprojectname$</RootNamespace>
+    <AssemblyName>$safeprojectname$</AssemblyName>
+    <TargetFrameworkVersion>v$targetframeworkversion$</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BB1F664B-9266-4fd6-B973-E1E44974B511};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <SandboxedSolution>False</SandboxedSolution>
-    <IncludeAssemblyInPackage>False</IncludeAssemblyInPackage>
+    <IncludeAssemblyInPackage>True</IncludeAssemblyInPackage>
   </PropertyGroup>
+  
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -43,14 +46,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
+    $if$ ($targetframeworkversion$ >= 3.5)
+    <Reference Include="System.Core"/>
+    <Reference Include="System.Xml.Linq"/>
+    <Reference Include="System.Data.DataSetExtensions"/>
+    $endif$
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="Microsoft.SharePoint" />
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
@@ -189,7 +194,7 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\TextTemplating\v10.0\Microsoft.TextTemplating.targets" />
   <ProjectExtensions />
   <Target Name="OnAfterTransform">
-    <ReplacejuippToken ProjectDir="$(ProjectDir)" TargetName="$(TargetName)" />
+    <juipp.Build.Tasks.ReplaceJuippToken ProjectDir="$(ProjectDir)" TargetName="$(TargetName)" />
   </Target>
   <PropertyGroup>
     <TransformOnBuild>true</TransformOnBuild>
@@ -197,4 +202,4 @@
     <OverwriteReadOnlyOuputFiles>true</OverwriteReadOnlyOuputFiles>
     <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
   </PropertyGroup>
-</Project>
+ </Project>
