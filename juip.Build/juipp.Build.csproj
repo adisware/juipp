@@ -8,8 +8,8 @@
     <ProjectGuid>{C2E7F288-4771-4E1F-A82A-18A834145852}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>juipp.Build</RootNamespace>
-    <AssemblyName>juipp.Build</AssemblyName>
+    <RootNamespace>adisware.juipp.build</RootNamespace>
+    <AssemblyName>adisware.juipp.build</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

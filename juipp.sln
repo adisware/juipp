@@ -7,9 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "juipp.Build", "juip.Build\j
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adisware.Layouts.juipp", "adisware.Layouts.myapp\adisware.Layouts.juipp.csproj", "{869003C7-F4DC-4044-8688-84D6E54FD2A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectTemplate1", "ProjectTemplate1\ProjectTemplate1.csproj", "{8878DE36-0AF5-43A4-98A9-54385EF17A7D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adisware.juipp.Behavior", "adisware.juipp.Behavior\adisware.juipp.Behavior.csproj", "{58774696-2C6F-4288-9303-B9AC1CE6857E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "adisware.juipp.Setup", "adisware.juipp.Setup\adisware.juipp.Setup.vdproj", "{81284DFD-B8D2-482B-9F2B-9C1A91DD897E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adisware.juipp.Web._layouts.app", "adisware.juipp.Web\adisware.juipp.Web._layouts.app.csproj", "{76505CC9-5B9D-4573-892F-DA24A0841705}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +33,16 @@ Global
 		{869003C7-F4DC-4044-8688-84D6E54FD2A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{869003C7-F4DC-4044-8688-84D6E54FD2A7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{869003C7-F4DC-4044-8688-84D6E54FD2A7}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{8878DE36-0AF5-43A4-98A9-54385EF17A7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8878DE36-0AF5-43A4-98A9-54385EF17A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8878DE36-0AF5-43A4-98A9-54385EF17A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8878DE36-0AF5-43A4-98A9-54385EF17A7D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{58774696-2C6F-4288-9303-B9AC1CE6857E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{58774696-2C6F-4288-9303-B9AC1CE6857E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{58774696-2C6F-4288-9303-B9AC1CE6857E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{58774696-2C6F-4288-9303-B9AC1CE6857E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81284DFD-B8D2-482B-9F2B-9C1A91DD897E}.Debug|Any CPU.ActiveCfg = Debug
+		{81284DFD-B8D2-482B-9F2B-9C1A91DD897E}.Release|Any CPU.ActiveCfg = Release
+		{76505CC9-5B9D-4573-892F-DA24A0841705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76505CC9-5B9D-4573-892F-DA24A0841705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76505CC9-5B9D-4573-892F-DA24A0841705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76505CC9-5B9D-4573-892F-DA24A0841705}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

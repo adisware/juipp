@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using Microsoft.Build.Framework;
 
-namespace juipp.Build.Tasks
+namespace adisware.juipp.build.Tasks
 {
     public class ReplaceJuippToken : Microsoft.Build.Utilities.Task
     {

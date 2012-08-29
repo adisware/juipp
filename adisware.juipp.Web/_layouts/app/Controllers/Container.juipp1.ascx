@@ -2,7 +2,7 @@
 <%@ Register TagPrefix="juipp" Namespace="TargetName@juipp.Controllers" Assembly="TargetName@juipp" %>
 
 
- <%@Register src="~/Views/MyView.ascx" tagName="MyView" tagPrefix="juipp" %>
+ <%@Register src="~/_layouts/app/Views/MyView.ascx" tagName="MyView" tagPrefix="juipp" %>
  
  <juipp:Controller runat="server" ID="Controller" />
 
