@@ -5,7 +5,7 @@ $endif$using System.Text;
 
 namespace $rootnamespace$
 {
-	public partial class $safeitemrootname$
+	public partial class $safeitemrootname$$juipp$
 	{
 	}
 }

@@ -6,7 +6,7 @@ using adisware.juipp.Web._layouts.app.ViewModels;
 
 namespace adisware.juipp.Web._layouts.app.Behaviors 
 {
-    public static class BehaviorReference 
+    public static partial class BehaviorReference 
     {
              public static string MyBehavior = "adisware.juipp.Web._layouts.app.Behaviors.MyBehavior";
                  }

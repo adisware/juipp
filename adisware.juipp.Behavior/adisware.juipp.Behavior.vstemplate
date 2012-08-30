@@ -27,7 +27,7 @@
     <ProjectItem ReplaceParameters="true"  TargetFileName="$fileinputname$.$fileinputextension$">Behavior.cs</ProjectItem>
   </TemplateContent>
   <WizardExtension>
-    <Assembly>Microsoft.VisualStudio.SharePoint.ProjectExtensions.Wizards, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
-    <FullClassName>Microsoft.VisualStudio.SharePoint.ProjectExtensions.Wizards.GenericMappedFolderWizard</FullClassName>
+    <Assembly>adisware.juipp.build, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2410bba4a1745095</Assembly>
+    <FullClassName>adisware.juipp.build.Wizards.BehaviorWizard</FullClassName>
   </WizardExtension>
 </VSTemplate>

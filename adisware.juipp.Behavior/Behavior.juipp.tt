@@ -4,9 +4,9 @@
 <#= "using adisware.juipp.Events.Handlers;" #>
 <#= "using adisware.juipp.Behaviors;" #>
 <#= "using adisware.juipp.Controllers;" #>
-<#= "using TargetName@juipp.ViewModels;" #>
+<#= "using $rootnamespace$.ViewModels;" #>
 
-namespace <#= "TargetName@juipp.Behaviors" #> 
+namespace <#= "$rootnamespace$.Behaviors" #> 
 {
     public static partial class BehaviorReference 
     {
@@ -17,7 +17,7 @@ namespace <#= "TargetName@juipp.Behaviors" #>
                     var fileName = System.IO.Path.GetFileName(behavior);
                     var className =  fileName.Split('.')[0];
                     if(fileName.EndsWith("Behavior.cs") == false) continue;
-             #>public static string <#= className #> = "TargetName@juipp.Behaviors.<#= className #>";
+             #>public static string <#= className #> = "$rootnamespace$.Behaviors.<#= className #>";
              <#}#>
     }
 	 <#

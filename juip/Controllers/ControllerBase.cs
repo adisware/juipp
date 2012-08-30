@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Reflection;
+using System.Web.UI;
 using System.Web.UI.WebControls;
 using adisware.juipp.Behaviors;
 using adisware.juipp.Commons;
@@ -11,7 +13,7 @@ using adisware.juipp.Views;
 
 namespace adisware.juipp.Controllers
 {
-
+    [ToolboxData("<{0}:Controller runat=\"server\"></{0}:Controller>")]
     public abstract class ControllerBase :
         WebControl,
         ILoadBehaviorViewBinding,
@@ -31,8 +33,30 @@ namespace adisware.juipp.Controllers
             get { return _contextValues.ContainsKey(key) == false ? null : _contextValues[key]; }
             set
             {
-                if (_contextValues.ContainsKey(key) != true) _contextValues.Remove(key);
+                if (_contextValues.ContainsKey(key) == true) _contextValues.Remove(key);
                 _contextValues.Add(key, value);
+            }
+        }
+
+        protected T RetrieveBindingElement<T>()
+        {
+            var name = typeof(T).FullName;
+            if (name != null)
+            {
+                var bindingItem = this.ViewState[name];
+                if (bindingItem == null) return default(T);
+                return (T)bindingItem;
+            }
+            return default(T);
+        }
+        protected void PersistBindingElement<T>(T element)
+        {
+            var name = typeof(T).FullName;
+            if (name != null)
+            {
+                var bindingItem = this.ViewState[name];
+                if (bindingItem != null) this.ViewState.Remove(name);
+                this.ViewState.Add(name, element);
             }
         }
 
@@ -48,7 +72,7 @@ namespace adisware.juipp.Controllers
             {
                 var state = this.ViewState["CurrentViewReference"];
                 if (state == null) return null;
-                return (string) state;
+                return (string)state;
             }
         }
 
@@ -59,12 +83,13 @@ namespace adisware.juipp.Controllers
 
             this.FireTransitionEvent(behaviorEvent, this.OnTransitionEvent, viewName);
 
+
             //if (sender is IBehaviorEventSender<T>) this.CurrentViewReference = viewName;
         }
 
         protected void OnInitialBehaviorEventFired<T>(string behaviorName) where T : IViewModel, new()
         {
-            this.OnBehaviorEventFired( null, new BehaviorEvent<T>() { BehaviorReference = behaviorName });
+            this.OnBehaviorEventFired(null, new BehaviorEvent<T>() { BehaviorReference = behaviorName });
         }
 
         private ViewBase GetNextView(string viewName)
@@ -89,38 +114,39 @@ namespace adisware.juipp.Controllers
             where T : IViewModel, new()
         {
             transitionEventDelegate(new TransitionEvent<T>(args)
-                                   {
-                                       ViewModel = args.ViewModel,
-                                       ViewReference = viewName,
-                                       PreviousViewReference = this.CurrentViewReference
-                                   });
+            {
+                ViewModel = args.ViewModel,
+                ViewReference = viewName,
+                PreviousViewReference = this.CurrentViewReference
+            });
 
-            this.CurrentViewReference = viewName;
+            if (viewName != null) this.CurrentViewReference = viewName;
         }
 
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
 
+            if (this.Page.IsPostBack) return;
             if (this.CurrentViewReference != null) return;
 
             var type = this.GetType();
             var onInitialActionPerformed = type.GetMethod("OnInitialBehaviorEventFired", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy);
 
-            var attribute = (ControllerAttribute) type.GetCustomAttributes(typeof(ControllerAttribute), false)[0];
+            var attribute = (ControllerAttribute)type.GetCustomAttributes(typeof(ControllerAttribute), false)[0];
 
             var assembly = type.Assembly;
             var behaviorType = assembly.GetType(attribute.InitialBehaviorFullName);
 
-            if (behaviorType.BaseType == null)  throw new ApplicationException("Behavior does not inherit BehaviorBase");
+            if (behaviorType.BaseType == null) throw new ApplicationException("Behavior does not inherit BehaviorBase");
 
-            
+
 
             //For Generic BehaviorBase<>
             var initalModelType = assembly.GetType(attribute.InitialViewModel); //behaviorType.BaseType.GetGenericArguments()[0];
             var method = onInitialActionPerformed.MakeGenericMethod(new[] { initalModelType });
             method.Invoke(this, new object[] { attribute.InitialBehaviorFullName });
-           
+
             //onInitialActionPerformed.Invoke(this, new object[] {attribute.InitialBehaviorFullName});
         }
 
@@ -129,11 +155,21 @@ namespace adisware.juipp.Controllers
         {
             if (transitionEvent == null || transitionEventHandler == null) return;
 
-            transitionEventHandler((ITransitionEventSender<T>) this, transitionEvent);
+            transitionEventHandler((ITransitionEventSender<T>)this, transitionEvent);
         }
 
         protected abstract void OnTransitionEvent<T>(TransitionEvent<T> transitionEvent)
             where T : IViewModel, new();
+
+        protected virtual void OnBeforeBehaviorEvent<T>(IBehaviorEventSender<T> sender, BehaviorEvent<T> behaviorEvent)
+            where T : IViewModel, new()
+        {
+        }
+
+        protected virtual void OnAfterBehaviorEvent<T>(IBehaviorEventSender<T> sender, BehaviorEvent<T> behaviorEvent)
+             where T : IViewModel, new()
+        {
+        }
 
         protected virtual void OnBeforeTransitionEvent<T>(string viewReference, IExecutableBehavior<T> behavior)
             where T : IViewModel, new()
@@ -144,6 +180,7 @@ namespace adisware.juipp.Controllers
             where T : IViewModel, new()
         {
         }
+
 
         protected void WireOnBehaviorEventFired<T>()
             where T : IViewModel, new()
@@ -171,7 +208,7 @@ namespace adisware.juipp.Controllers
                 }
 
                 var listenerView = view.Value as ICanCatchTransition;
-                ((ITransitionEventSender<T>) this).TransitionEventFired += listenerView.OnCatchTransition;
+                ((ITransitionEventSender<T>)this).TransitionEventFired += listenerView.OnCatchTransition;
             }
         }
 
@@ -183,7 +220,11 @@ namespace adisware.juipp.Controllers
             var behavior = this.Behaviors[behaviorEvent.BehaviorReference] as IExecutableBehavior<T>;
             if (behavior == null) return false;
 
+            behavior.BehaviorContext = this;
+
+            this.OnBeforeBehaviorEvent(sender, behaviorEvent);
             behavior.Execute(behaviorEvent);
+            this.OnAfterBehaviorEvent(sender, behaviorEvent);
 
             string viewName = null;
 
@@ -193,8 +234,16 @@ namespace adisware.juipp.Controllers
             }
 
             this.OnBeforeTransitionEvent(viewName, behavior);
-            this.TransitionView(sender as ViewBase, viewName, behaviorEvent);
+            var view = sender as ViewBase;
+            this.TransitionView(view, viewName, behaviorEvent);
+
             this.OnAfterTransitionEvent(viewName, behavior);
+
+            if (viewName != null)
+            {
+                var next = this.GetNextView(viewName);
+                if (next != null) next.OnAfterTransition(behaviorEvent);
+            }
 
             return true;
         }
@@ -220,7 +269,7 @@ namespace adisware.juipp.Controllers
 
                 var method = wireOnBehaviorEventFiredMethod.MakeGenericMethod(new[] { model.GetType() });
 
-                method.Invoke(this, new object[] {});
+                method.Invoke(this, new object[] { });
             }
         }
 

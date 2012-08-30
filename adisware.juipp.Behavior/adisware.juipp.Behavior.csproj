@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>adisware.juipp.Behavior</RootNamespace>
     <AssemblyName>adisware.juipp.Behavior</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
@@ -21,6 +21,7 @@
     <CopyVsixManifestToOutput>false</CopyVsixManifestToOutput>
     <CopyBuildOutputToOutputDirectory>false</CopyBuildOutputToOutputDirectory>
     <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,16 +50,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Behavior.juipp.cs">
+      <DependentUpon>Behavior.juipp.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </None>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Behavior.juipp.tt.ico" />
     <None Include="Behavior.cs" />
     <None Include="adisware.juipp.Behavior.ico" />
+    <Content Include="Behavior.juipp.tt.vstemplate">
+      <LastGenOutput>Behavior.juipp.tt1.cs</LastGenOutput>
+    </Content>
+    <None Include="Behavior.juipp.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Behavior.juipp.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <VSTemplate Include="adisware.juipp.Behavior.vstemplate">
       <SubType>Designer</SubType>
     </VSTemplate>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\VSSDK\Microsoft.VsSDK.targets" />

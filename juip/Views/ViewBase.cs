@@ -88,6 +88,7 @@ namespace adisware.juipp.Views
             return success;
         }
 
+        public virtual void OnAfterTransition<T>(BehaviorEvent<T> behaviorEvent) where T : IViewModel, new() { }
         public virtual void OnCatchTransition<T>(ITransitionEventSender<T> sender, TransitionEvent<T> transitionEvent) where T : IViewModel, new() { }
         public virtual void PropagateChange() { }
         public virtual void Enable() { }
