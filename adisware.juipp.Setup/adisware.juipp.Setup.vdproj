@@ -55,6 +55,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -71,6 +79,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -155,20 +171,20 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Adisware JUIPP 1.0"
-        "ProductCode" = "8:{D3B05B87-38F2-461C-B2D5-B0CAE4AD3742}"
-        "PackageCode" = "8:{BB488298-BBFD-4271-AB56-2785905B3428}"
+        "ProductName" = "8:Adisware JUIPP 1.0.2"
+        "ProductCode" = "8:{8C49C640-BDB5-4A1E-8D3E-25F732ECADEA}"
+        "PackageCode" = "8:{373F4A10-4409-4594-B8CD-F33B9608F4F8}"
         "UpgradeCode" = "8:{E643B981-D122-42E3-9905-9B58FB73140C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:0.1.0"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:Adisware"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Adisware JUIPP 1.0"
+        "Title" = "8:Adisware JUIPP 1.0.2"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Adisware"
         "Keywords" = "8:"
