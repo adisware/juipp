@@ -170,7 +170,11 @@ namespace adisware.juipp.Controllers
              where T : IViewModel, new()
         {
         }
-
+        protected virtual void OnBehaviorEvent<T>(IExecutableBehavior<T> executableBehavior, BehaviorEvent<T> behaviorEvent)
+            where T : IViewModel, new()
+        {
+            executableBehavior.Execute(behaviorEvent);
+        }
         protected virtual void OnBeforeTransitionEvent<T>(string viewReference, IExecutableBehavior<T> behavior)
             where T : IViewModel, new()
         {
@@ -223,7 +227,7 @@ namespace adisware.juipp.Controllers
             behavior.BehaviorContext = this;
 
             this.OnBeforeBehaviorEvent(sender, behaviorEvent);
-            behavior.Execute(behaviorEvent);
+            this.OnBehaviorEvent(behavior, behaviorEvent);
             this.OnAfterBehaviorEvent(sender, behaviorEvent);
 
             string viewName = null;
