@@ -261,7 +261,7 @@ namespace adisware.juipp.Controllers
             this.Mapping = mapping;
 
             this.OnLoadBehaviorViewBinding();
-            this.InitApplicationContext();
+            this.InitBehaviorContext();
         }
 
         public virtual void OnLoadBehaviorViewBinding()
@@ -277,7 +277,7 @@ namespace adisware.juipp.Controllers
             }
         }
 
-        public virtual void InitApplicationContext() { }
+        public virtual void InitBehaviorContext() { }
 
         public abstract IList<IViewModel> Models { get; }
     }
