@@ -15,12 +15,6 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_A9B61087742F4976A6A3DBA884CC10FD"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_F4A9CB77FDCF4B2A8BC2FB2FCC141DB8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -29,12 +23,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_F4A9CB77FDCF4B2A8BC2FB2FCC141DB8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A9B61087742F4976A6A3DBA884CC10FD"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -62,6 +50,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
         "Release"
@@ -173,7 +174,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Adisware JUIPP 1.0.2"
         "ProductCode" = "8:{8C49C640-BDB5-4A1E-8D3E-25F732ECADEA}"
-        "PackageCode" = "8:{373F4A10-4409-4594-B8CD-F33B9608F4F8}"
+        "PackageCode" = "8:{4466E25A-7A26-4A5B-A659-68FBECB40C9C}"
         "UpgradeCode" = "8:{E643B981-D122-42E3-9905-9B58FB73140C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -692,34 +693,6 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A9B61087742F4976A6A3DBA884CC10FD"
-            {
-            "SourcePath" = "8:..\\juip.Build\\obj\\Debug\\adisware.juipp.build.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_FDED6A6ED8754B61AFB3B633505BE079"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
-            "OutputProjectGuid" = "8:{C2E7F288-4771-4E1F-A82A-18A834145852}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_F4A9CB77FDCF4B2A8BC2FB2FCC141DB8"
             {
             "SourcePath" = "8:..\\juip\\obj\\Debug\\adisware.juipp.dll"
