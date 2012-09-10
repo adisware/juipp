@@ -166,6 +166,10 @@ namespace adisware.juipp.Controllers
         {
         }
 
+        protected virtual void OnBeforeBehaviorLookup<T>(BehaviorEvent<T> behaviorEvent)
+             where T : IViewModel, new()
+        {
+        }
         protected virtual void OnAfterBehaviorEvent<T>(IBehaviorEventSender<T> sender, BehaviorEvent<T> behaviorEvent)
              where T : IViewModel, new()
         {
@@ -219,6 +223,7 @@ namespace adisware.juipp.Controllers
         public bool OnBehaviorEventFired<T>(IBehaviorEventSender<T> sender, BehaviorEvent<T> behaviorEvent)
             where T : IViewModel, new()
         {
+            this.OnBeforeBehaviorLookup(behaviorEvent);
             if (this.Behaviors.ContainsKey(behaviorEvent.BehaviorReference) == false) return false;
 
             var behavior = this.Behaviors[behaviorEvent.BehaviorReference] as IExecutableBehavior<T>;
@@ -248,6 +253,8 @@ namespace adisware.juipp.Controllers
                 var next = this.GetNextView(viewName);
                 if (next != null) next.OnAfterTransition(behaviorEvent);
             }
+
+
 
             return true;
         }
