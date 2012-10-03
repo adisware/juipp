@@ -16,6 +16,7 @@ namespace adisware.juipp.Web._layouts.app.Views
             this.ButtonHello.Click += this.ButtonHelloClick;
         }
 
+
         protected void ButtonHelloClick(object sender, System.EventArgs e)
         {
             this.SendBehaviorEvent(new BehaviorEvent<MyViewModel>()

@@ -15,12 +15,18 @@ namespace adisware.juipp.Web._layouts.app.Controllers
             if (this.Page.IsPostBack) return;
 
             // create an instance of a viewModel
-            var viewModel = new MyViewModel() { Today = DateTime.Now.AddYears(300) };
+            var viewModel = new MyViewModel()
+                                {
+                                    Today = DateTime.Now.AddYears(300)
+                                };
 
-            // define a behaviorEvent containing a behavior reference and the viewModel
+            // grab the behavior reference
+            var behaviorReference = BehaviorReference.MyBehavior;
+
+            // define a behaviorEvent containing a behavior reference and a viewModel
             var behaviorEvent = new BehaviorEvent<MyViewModel>()
                         {
-                            BehaviorReference = BehaviorReference.MyBehavior,
+                            BehaviorReference = behaviorReference,
                             ViewModel = viewModel
                         };
 
