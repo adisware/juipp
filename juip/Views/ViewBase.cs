@@ -66,6 +66,7 @@ namespace adisware.juipp.Views
                 this.ViewState.Add(name, element);
             }
         }
+        
 
         public IBehaviorContext BehaviorContext { get; set; }
 
@@ -88,6 +89,7 @@ namespace adisware.juipp.Views
             return success;
         }
 
+        public virtual void Bind<T>(T viewModel) where T : IViewModel { }
         public virtual void OnAfterTransition<T>(BehaviorEvent<T> behaviorEvent) where T : IViewModel, new() { }
         public virtual void OnCatchTransition<T>(ITransitionEventSender<T> sender, TransitionEvent<T> transitionEvent) where T : IViewModel, new() { }
         public virtual void PropagateChange() { }

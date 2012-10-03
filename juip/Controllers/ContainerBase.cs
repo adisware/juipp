@@ -25,6 +25,9 @@ namespace adisware.juipp.Controllers
             base.OnLoad(e);
             if (Controller != null) this.Controller.LoadBehaviorViewBinding(this.Views, this.BehaviorBinding, this.Behaviors);
         }
-        protected abstract void OnBehaviorBinding();
+        protected virtual void OnBehaviorBinding()
+        {
+            this.BehaviorBinding = new Dictionary<string, string>();
+        }
     }
 }

@@ -7,9 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace adisware.juipp.Web._layouts.app.Views
-{
-    public partial class MyView
-    {
+namespace adisware.juipp.Web._layouts.app.Views {
+    
+    
+    public partial class MyView {
+        
+        /// <summary>
+        /// LabelDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelDate;
+        
+        /// <summary>
+        /// ButtonHello control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonHello;
     }
 }

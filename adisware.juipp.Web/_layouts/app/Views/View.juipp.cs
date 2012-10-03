@@ -13,6 +13,11 @@ namespace adisware.juipp.Web._layouts.app.Views
              public static string MyView = "adisware.juipp.Web._layouts.app.Views.MyView";
                  }
 
+
+
+	 
+        public partial class MyView : View {}
+    
      
         public partial class View : IBehaviorEventSender<MyViewModel> 
         {

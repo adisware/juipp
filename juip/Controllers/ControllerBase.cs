@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -89,7 +90,11 @@ namespace adisware.juipp.Controllers
 
         protected void OnInitialBehaviorEventFired<T>(string behaviorName) where T : IViewModel, new()
         {
-            this.OnBehaviorEventFired(null, new BehaviorEvent<T>() { BehaviorReference = behaviorName });
+            this.OnBehaviorEventFired(null, 
+                new BehaviorEvent<T>()
+                    {
+                        BehaviorReference = behaviorName
+                    });
         }
 
         private ViewBase GetNextView(string viewName)
@@ -110,6 +115,21 @@ namespace adisware.juipp.Controllers
             nextView.Show();
         }
 
+        private static void BindViewModel(ViewBase view, IViewModel viewModel)
+        {
+            if (viewModel == null) return;
+            
+            var viewType = view.GetType();
+            var modelType = viewModel.GetType();
+
+                var bind = viewType.GetMethods().FirstOrDefault(
+                    m => 
+                        m.Name == "Bind"
+                        && m.GetParameters().FirstOrDefault() != null
+                        && m.GetParameters()[0].ParameterType == modelType);
+
+            if (bind != null) bind.Invoke(view, new object[] { viewModel });
+        }
         private void FireTransitionEvent<T>(BehaviorEvent<T> args, TransitionEventDelegate<T> transitionEventDelegate, string viewName)
             where T : IViewModel, new()
         {
@@ -121,33 +141,6 @@ namespace adisware.juipp.Controllers
             });
 
             if (viewName != null) this.CurrentViewReference = viewName;
-        }
-
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            if (this.Page.IsPostBack) return;
-            if (this.CurrentViewReference != null) return;
-
-            var type = this.GetType();
-            var onInitialActionPerformed = type.GetMethod("OnInitialBehaviorEventFired", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy);
-
-            var attribute = (ControllerAttribute)type.GetCustomAttributes(typeof(ControllerAttribute), false)[0];
-
-            var assembly = type.Assembly;
-            var behaviorType = assembly.GetType(attribute.InitialBehaviorFullName);
-
-            if (behaviorType.BaseType == null) throw new ApplicationException("Behavior does not inherit BehaviorBase");
-
-
-
-            //For Generic BehaviorBase<>
-            var initalModelType = assembly.GetType(attribute.InitialViewModel); //behaviorType.BaseType.GetGenericArguments()[0];
-            var method = onInitialActionPerformed.MakeGenericMethod(new[] { initalModelType });
-            method.Invoke(this, new object[] { attribute.InitialBehaviorFullName });
-
-            //onInitialActionPerformed.Invoke(this, new object[] {attribute.InitialBehaviorFullName});
         }
 
         protected void FireTransitionEvent<T>(TransitionEvent<T> transitionEvent, TransitionEventHandler<T> transitionEventHandler)
@@ -230,7 +223,7 @@ namespace adisware.juipp.Controllers
             if (behavior == null) return false;
 
             behavior.BehaviorContext = this;
-
+  
             this.OnBeforeBehaviorEvent(sender, behaviorEvent);
             this.OnBehaviorEvent(behavior, behaviorEvent);
             this.OnAfterBehaviorEvent(sender, behaviorEvent);
@@ -244,17 +237,21 @@ namespace adisware.juipp.Controllers
 
             this.OnBeforeTransitionEvent(viewName, behavior);
             var view = sender as ViewBase;
-            this.TransitionView(view, viewName, behaviorEvent);
+            if(view != null) view.BehaviorContext = this;
 
+            this.TransitionView(view, viewName, behaviorEvent);
+          
             this.OnAfterTransitionEvent(viewName, behavior);
 
             if (viewName != null)
             {
                 var next = this.GetNextView(viewName);
-                if (next != null) next.OnAfterTransition(behaviorEvent);
+                if (next != null)
+                {
+                    next.OnAfterTransition(behaviorEvent);
+                    BindViewModel(next, behaviorEvent.ViewModel);
+                }
             }
-
-
 
             return true;
         }

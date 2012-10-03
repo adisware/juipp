@@ -23,6 +23,21 @@ namespace <#= "TargetName@juipp.Views" #>
              <#}#>
     }
 
+
+
+	<# 
+    views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\"));
+    foreach(var view in views)
+                {
+                    var fileName = System.IO.Path.GetFileName(view);
+                    var className =  fileName.Split('.')[0];
+                    if(fileName.EndsWith("View.ascx.cs") == false) continue;
+    #> 
+        public partial class <#= className #> : View {}
+    <#
+    }
+    #>
+
     <# 
     var models = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\")); 
     foreach(var model in models)

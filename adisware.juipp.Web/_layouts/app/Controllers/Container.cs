@@ -9,9 +9,9 @@ namespace adisware.juipp.Web._layouts.app.Controllers
 
         protected override void OnBehaviorBinding()
         {
-            base.BehaviorBinding = new Dictionary<string, string>();
-            base.BehaviorBinding.Add(new KeyValuePair<string, string>(BehaviorReference.MyBehavior,
-                                                                      ViewReference.MyView));
+            base.OnBehaviorBinding();
+
+            base.BehaviorBinding.Add(BehaviorReference.MyBehavior, ViewReference.MyView);
         }
     }
 }
