@@ -10,7 +10,7 @@ namespace adisware.juipp.Web._layouts.app.Controllers
         protected override void OnBehaviorBinding()
         {
             base.OnBehaviorBinding();
-
+          
             base.BehaviorBinding.Add(BehaviorReference.MyBehavior, ViewReference.MyView);
         }
     }

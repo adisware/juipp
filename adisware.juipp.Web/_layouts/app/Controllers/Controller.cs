@@ -14,15 +14,18 @@ namespace adisware.juipp.Web._layouts.app.Controllers
 
             if (this.Page.IsPostBack) return;
 
-            this.OnBehaviorEventFired( null,
-                new BehaviorEvent<MyViewModel>()
-                {
-                    BehaviorReference = BehaviorReference.MyBehavior,
-                    ViewModel = new MyViewModel()
-                                    {
-                                        Today = DateTime.Now.AddYears(300)
-                                    }
-                });
+            // create an instance of a viewModel
+            var viewModel = new MyViewModel() { Today = DateTime.Now.AddYears(300) };
+
+            // define a behaviorEvent containing a behavior reference and the viewModel
+            var behaviorEvent = new BehaviorEvent<MyViewModel>()
+                        {
+                            BehaviorReference = BehaviorReference.MyBehavior,
+                            ViewModel = viewModel
+                        };
+
+            //fire the behavior event
+            this.FireBehaviorEvent(behaviorEvent);
         }
     }
 }

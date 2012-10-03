@@ -183,7 +183,7 @@ namespace adisware.juipp.Controllers
         }
 
 
-        protected void WireOnBehaviorEventFired<T>()
+        private void WireOnBehaviorEventFired<T>()
             where T : IViewModel, new()
         {
             foreach (var view in Views)
@@ -213,7 +213,11 @@ namespace adisware.juipp.Controllers
             }
         }
 
-        public bool OnBehaviorEventFired<T>(IBehaviorEventSender<T> sender, BehaviorEvent<T> behaviorEvent)
+        public bool FireBehaviorEvent<T>(BehaviorEvent<T> behaviorEvent) where T : IViewModel, new()
+        {
+            return this.OnBehaviorEventFired(null, behaviorEvent);
+        }
+        private bool OnBehaviorEventFired<T>(IBehaviorEventSender<T> sender, BehaviorEvent<T> behaviorEvent)
             where T : IViewModel, new()
         {
             this.OnBeforeBehaviorLookup(behaviorEvent);
@@ -268,7 +272,7 @@ namespace adisware.juipp.Controllers
             this.InitBehaviorContext();
         }
 
-        public virtual void OnLoadBehaviorViewBinding()
+        protected virtual void OnLoadBehaviorViewBinding()
         {
             foreach (var model in Models)
             {
@@ -281,7 +285,7 @@ namespace adisware.juipp.Controllers
             }
         }
 
-        public virtual void InitBehaviorContext() { }
+        protected virtual void InitBehaviorContext() { }
 
         public abstract IList<IViewModel> Models { get; }
     }
