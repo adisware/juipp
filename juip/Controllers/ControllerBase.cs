@@ -264,9 +264,8 @@ namespace adisware.juipp.Controllers
                 if (next != null)
                 {
                     next.OnAfterTransition(behaviorEvent);
-                    foreach (var control in next.Controls.OfType<ViewBase>())
+                    foreach (var sub in next.Controls.OfType<ViewBase>())
                     {
-                        var sub = ((ViewBase) control);
                         sub.BehaviorContext = next.BehaviorContext;
                         sub.OnAfterTransition(behaviorEvent);
                     }

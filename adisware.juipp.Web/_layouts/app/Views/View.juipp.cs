@@ -1,16 +1,16 @@
 using adisware.juipp.Events.Arguments;
 using adisware.juipp.Events.Handlers;
 using adisware.juipp.Views;
-using adisware.juipp.Web._layouts.app.ViewModels;
+using TargetName@juipp.ViewModels;
 
-namespace adisware.juipp.Web._layouts.app.Views 
+namespace TargetName@juipp.Views 
 {
    
     public partial class View : ViewBase {}
     
     public static class ViewReference
     {
-             public static string MyView = "adisware.juipp.Web._layouts.app.Views.MyView";
+             public const string MyView = "TargetName@juipp.Views.MyView";
                  }
 
 

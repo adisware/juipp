@@ -19,7 +19,7 @@ namespace <#= "TargetName@juipp.Views" #>
                     var fileName = System.IO.Path.GetFileName(view);
                     var className =  fileName.Split('.')[0];
                     if(fileName.EndsWith("View.ascx.cs") == false) continue;
-             #>public static string <#= className #> = "TargetName@juipp.Views.<#= className #>";
+             #>public const string <#= className #> = "TargetName@juipp.Views.<#= className #>";
              <#}#>
     }
 

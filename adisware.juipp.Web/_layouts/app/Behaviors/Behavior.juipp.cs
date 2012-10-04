@@ -2,13 +2,13 @@ using adisware.juipp.Events.Arguments;
 using adisware.juipp.Events.Handlers;
 using adisware.juipp.Behaviors;
 using adisware.juipp.Controllers;
-using adisware.juipp.Web._layouts.app.ViewModels;
+using TargetName@juipp.ViewModels;
 
-namespace adisware.juipp.Web._layouts.app.Behaviors 
+namespace TargetName@juipp.Behaviors 
 {
     public static partial class BehaviorReference 
     {
-             public static string MyBehavior = "adisware.juipp.Web._layouts.app.Behaviors.MyBehavior";
+             public const string MyBehavior = "MyBehavior";
                  }
 	 public partial class MyBehavior : BehaviorBase{}
     

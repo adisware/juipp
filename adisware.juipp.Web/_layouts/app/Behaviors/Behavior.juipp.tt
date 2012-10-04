@@ -17,7 +17,7 @@ namespace <#= "TargetName@juipp.Behaviors" #>
                     var fileName = System.IO.Path.GetFileName(behavior);
                     var className =  fileName.Split('.')[0];
                     if(fileName.EndsWith("Behavior.cs") == false) continue;
-             #>public static string <#= className #> = "TargetName@juipp.Behaviors.<#= className #>";
+             #>public const string <#= className #> = "<#= className #>";
              <#}#>
     }
 	 <#

@@ -14,7 +14,7 @@ namespace <#= "TargetName@juipp.ViewModels" #>
                     var fileName = System.IO.Path.GetFileName(viewModel);
                     var className =  fileName.Split('.')[0];
                     if(fileName.EndsWith("ViewModel.cs") == false) continue;
-             #>public static string <#= className #> = "TargetName@juipp.ViewModels.<#= className #>";
+             #>public const string <#= className #> = "TargetName@juipp.ViewModels.<#= className #>";
              <#}#>
     }
 

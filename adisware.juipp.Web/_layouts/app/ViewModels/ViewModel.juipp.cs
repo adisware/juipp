@@ -1,11 +1,11 @@
 using System;
 using adisware.juipp.ViewModels;
 
-namespace adisware.juipp.Web._layouts.app.ViewModels 
+namespace TargetName@juipp.ViewModels 
 {
     public static class ViewModelReference
     {
-             public static string MyViewModel = "adisware.juipp.Web._layouts.app.ViewModels.MyViewModel";
+             public const string MyViewModel = "TargetName@juipp.ViewModels.MyViewModel";
                  }
 
      
