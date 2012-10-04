@@ -87,6 +87,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
     }
@@ -172,20 +185,20 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Adisware JUIPP 1.0.2"
-        "ProductCode" = "8:{8C49C640-BDB5-4A1E-8D3E-25F732ECADEA}"
-        "PackageCode" = "8:{4466E25A-7A26-4A5B-A659-68FBECB40C9C}"
+        "ProductName" = "8:Adisware JUIPP 1.0.3"
+        "ProductCode" = "8:{9B4B12E5-ABCE-4666-8B6C-54782C87453C}"
+        "PackageCode" = "8:{9AC258DC-D687-42E5-B7D6-C740B7098EE8}"
         "UpgradeCode" = "8:{E643B981-D122-42E3-9905-9B58FB73140C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.2"
+        "ProductVersion" = "8:1.0.3"
         "Manufacturer" = "8:Adisware"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Adisware JUIPP 1.0.2"
+        "Title" = "8:Adisware JUIPP 1.0.3"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Adisware"
         "Keywords" = "8:"

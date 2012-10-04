@@ -129,6 +129,11 @@ namespace adisware.juipp.Controllers
                         && m.GetParameters()[0].ParameterType == modelType);
 
             if (bind != null) bind.Invoke(view, new object[] { viewModel });
+
+            foreach (var control in view.Controls.OfType<ViewBase>())
+            {
+                BindViewModel(control as ViewBase, viewModel);
+            }
         }
         private void FireTransitionEvent<T>(BehaviorEvent<T> args, TransitionEventDelegate<T> transitionEventDelegate, string viewName)
             where T : IViewModel, new()
@@ -183,7 +188,7 @@ namespace adisware.juipp.Controllers
         }
 
 
-        private void WireOnBehaviorEventFired<T>()
+        protected void WireOnBehaviorEventFired<T>()
             where T : IViewModel, new()
         {
             foreach (var view in Views)
@@ -247,12 +252,25 @@ namespace adisware.juipp.Controllers
           
             this.OnAfterTransitionEvent(viewName, behavior);
 
-            if (viewName != null)
+
+
+            if (viewName == null && sender is ViewBase)
+            {
+                BindViewModel(sender as ViewBase, behaviorEvent.ViewModel);
+            }
+            else if (viewName != null)
             {
                 var next = this.GetNextView(viewName);
                 if (next != null)
                 {
                     next.OnAfterTransition(behaviorEvent);
+                    foreach (var control in next.Controls.OfType<ViewBase>())
+                    {
+                        var sub = ((ViewBase) control);
+                        sub.BehaviorContext = next.BehaviorContext;
+                        sub.OnAfterTransition(behaviorEvent);
+                    }
+
                     BindViewModel(next, behaviorEvent.ViewModel);
                 }
             }
@@ -272,7 +290,7 @@ namespace adisware.juipp.Controllers
             this.InitBehaviorContext();
         }
 
-        protected virtual void OnLoadBehaviorViewBinding()
+        protected void OnLoadBehaviorViewBinding()
         {
             foreach (var model in Models)
             {

@@ -10,7 +10,6 @@ namespace adisware.juipp.Views
 {
     public abstract class ViewBase : 
         UserControl, 
-        ICanSendBehaviorEvent,  
         ICanChangeMyVisibility,  
         ICanCatchTransition
     {
@@ -73,7 +72,7 @@ namespace adisware.juipp.Views
         public delegate bool FireBehaviorEventDelegate(object behaviorEvent);
         public event VisibilityChangedHandler  VisibilityChanged;
 
-        public void OnVisibilityChanged(bool visibility)
+        protected void OnVisibilityChanged(bool visibility)
         {
             var handler = VisibilityChanged;
             if (handler != null) handler(this, visibility);
