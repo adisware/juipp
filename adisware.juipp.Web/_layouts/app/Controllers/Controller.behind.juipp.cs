@@ -15,6 +15,8 @@ namespace adisware.juipp.Web._layouts.app.Controllers
         {  
               
             base.FireTransitionEvent(args as TransitionEvent<MyViewModel>, _myViewModelViewSwitched);
+              
+            base.FireTransitionEvent(args as TransitionEvent<StudentViewModel>, _studentViewModelViewSwitched);
              
         }
 
@@ -24,6 +26,7 @@ namespace adisware.juipp.Web._layouts.app.Controllers
             {
                 var list = new List<IViewModel>();
                                  list.Add(new MyViewModel());
+                                 list.Add(new StudentViewModel());
                                  return list; 
             }
         }
@@ -37,6 +40,15 @@ namespace adisware.juipp.Web._layouts.app.Controllers
         {
             add { _myViewModelViewSwitched += value; }
             remove { if (_myViewModelViewSwitched != null) _myViewModelViewSwitched -= value; }
+        }
+    }
+     public partial class Controller : ITransitionEventSender<StudentViewModel>
+    {
+        private TransitionEventHandler<StudentViewModel> _studentViewModelViewSwitched;
+        event TransitionEventHandler<StudentViewModel> ITransitionEventSender<StudentViewModel>.TransitionEventFired
+        {
+            add { _studentViewModelViewSwitched += value; }
+            remove { if (_studentViewModelViewSwitched != null) _studentViewModelViewSwitched -= value; }
         }
     }
  

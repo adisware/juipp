@@ -2,15 +2,17 @@ using adisware.juipp.Events.Arguments;
 using adisware.juipp.Events.Handlers;
 using adisware.juipp.Behaviors;
 using adisware.juipp.Controllers;
-using TargetName@juipp.ViewModels;
+using adisware.juipp.Web._layouts.app.ViewModels;
 
-namespace TargetName@juipp.Behaviors 
+namespace adisware.juipp.Web._layouts.app.Behaviors 
 {
     public static partial class BehaviorReference 
     {
              public const string MyBehavior = "MyBehavior";
+             public const string OpenStudentProfileBehavior = "OpenStudentProfileBehavior";
                  }
 	 public partial class MyBehavior : BehaviorBase{}
+    public partial class OpenStudentProfileBehavior : BehaviorBase{}
     
 
 
@@ -23,6 +25,10 @@ namespace TargetName@juipp.Behaviors
 	   public partial class BehaviorBase : IExecutableBehavior<MyViewModel>
    {
 		public virtual void Execute(BehaviorEvent<MyViewModel> args) {}
+   }
+   public partial class BehaviorBase : IExecutableBehavior<StudentViewModel>
+   {
+		public virtual void Execute(BehaviorEvent<StudentViewModel> args) {}
    }
 } 
 

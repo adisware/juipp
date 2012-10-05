@@ -3,8 +3,10 @@
 
 
  <%@Register src="~/_layouts/app/Views/MyView.ascx" tagName="MyView" tagPrefix="juipp" %>
+ <%@Register src="~/_layouts/app/Views/StudentProfileView.ascx" tagName="StudentProfileView" tagPrefix="juipp" %>
  
  <juipp:Controller runat="server" ID="Controller" />
 
   <juipp:MyView  Visible="false" ID="MyView" runat="server" />   
+  <juipp:StudentProfileView  Visible="false" ID="StudentProfileView" runat="server" />   
  
