@@ -15,14 +15,14 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_F4A9CB77FDCF4B2A8BC2FB2FCC141DB8"
+        "MsmKey" = "8:_E5D9B0D14BC74446927764FF335C0C43"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F4A9CB77FDCF4B2A8BC2FB2FCC141DB8"
+        "OwnerKey" = "8:_E5D9B0D14BC74446927764FF335C0C43"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -158,6 +158,17 @@
                 {
                 }
             }
+            "{C7E34266-2C30-44B9-A9A3-4E394ABD6E18}:_E971DA6586494E93849F7437A59F1727"
+            {
+            "Name" = "8:#1927"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:GAC"
+                "Folders"
+                {
+                }
+            }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_FDED6A6ED8754B61AFB3B633505BE079"
             {
             "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
@@ -185,20 +196,20 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Adisware JUIPP 1.0.3"
-        "ProductCode" = "8:{9B4B12E5-ABCE-4666-8B6C-54782C87453C}"
-        "PackageCode" = "8:{9AC258DC-D687-42E5-B7D6-C740B7098EE8}"
+        "ProductName" = "8:Adisware JUIPP 1.0.4"
+        "ProductCode" = "8:{8EBB7A82-50D0-4CD7-888F-9E695CB7E7EE}"
+        "PackageCode" = "8:{DB29A603-1F05-4A19-8162-1DF95BDD302D}"
         "UpgradeCode" = "8:{E643B981-D122-42E3-9905-9B58FB73140C}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.3"
+        "ProductVersion" = "8:1.0.4"
         "Manufacturer" = "8:Adisware"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:Adisware JUIPP 1.0.3"
+        "Title" = "8:Adisware JUIPP 1.0.4"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Adisware"
         "Keywords" = "8:"
@@ -706,12 +717,12 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_F4A9CB77FDCF4B2A8BC2FB2FCC141DB8"
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_E5D9B0D14BC74446927764FF335C0C43"
             {
-            "SourcePath" = "8:..\\juip\\obj\\Debug\\adisware.juipp.dll"
+            "SourcePath" = "8:..\\juip\\obj\\Debug\\Adisware.juipp.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
-            "Folder" = "8:_FDED6A6ED8754B61AFB3B633505BE079"
+            "Folder" = "8:_E971DA6586494E93849F7437A59F1727"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"

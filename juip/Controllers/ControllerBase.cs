@@ -31,12 +31,26 @@ namespace adisware.juipp.Controllers
 
         object IBehaviorContext.this[string key]
         {
-            get { return _contextValues.ContainsKey(key) == false ? null : _contextValues[key]; }
+            get { return _contextValues.ContainsKey(key) == false ? this.RetrieveBindingElement(key) : _contextValues[key]; }
             set
             {
-                if (_contextValues.ContainsKey(key) == true) _contextValues.Remove(key);
+                if (_contextValues.ContainsKey(key)) _contextValues.Remove(key);
                 _contextValues.Add(key, value);
+                this.PersistBindingElement(key, value);
             }
+        }
+
+        protected object RetrieveBindingElement(string key)
+        {
+            var bindingItem = this.ViewState[key];
+            return bindingItem;
+        }
+
+        protected void PersistBindingElement(string key, object element)
+        {
+            var bindingItem = this.ViewState[key];
+            if (bindingItem != null) this.ViewState.Remove(key);
+            this.ViewState.Add(key, element);
         }
 
         protected T RetrieveBindingElement<T>()

@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <UsingTask AssemblyFile="C:\Program Files (x86)\Adisware\Adisware JUIPP 1.0\adisware.juipp.build.dll" TaskName="adisware.juipp.build.Tasks.ReplaceJuippToken" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -42,9 +41,7 @@
     <AssemblyOriginatorKeyFile>juipp.demo.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="adisware.juipp_v103">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Adisware\Adisware JUIPP 1.0.3\adisware.juipp_v103.dll</HintPath>
-    </Reference>
+    <Reference Include="Adisware.juipp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=2410bba4a1745095" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -58,84 +55,36 @@
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Layouts\app\Behaviors\Behaviors.cs">
+    <Compile Include="Layouts\application\Admin\Behaviors\Behaviors.juipp.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Behaviors.tt</DependentUpon>
+      <DependentUpon>Behaviors.juipp.tt</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\app\Behaviors\MyBehavior.cs" />
-    <Compile Include="Layouts\app\Controllers\Container.cs">
+    <Compile Include="Layouts\application\Admin\Controllers\Container.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Layouts\app\Controllers\ContainerBehind.cs">
+    <Compile Include="Layouts\application\Admin\Controllers\ContainerBehind.juipp.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ContainerBehind.tt</DependentUpon>
+      <DependentUpon>ContainerBehind.juipp.tt</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Layouts\app\Controllers\Controller.cs" />
-    <Compile Include="Layouts\app\Controllers\ControllerBehind.cs">
+    <Compile Include="Layouts\application\Admin\Controllers\Controller.cs" />
+    <Compile Include="Layouts\application\Admin\Controllers\ControllerBehind.juipp.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ControllerBehind.tt</DependentUpon>
+      <DependentUpon>ControllerBehind.juipp.tt</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\app\ViewModels\MyViewModel.cs" />
-    <Compile Include="Layouts\app\ViewModels\ViewModels.cs">
+    <Compile Include="Layouts\application\Admin\ViewModels\ViewModels.juipp.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ViewModels.tt</DependentUpon>
+      <DependentUpon>ViewModels.juipp.tt</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\app\Views\Views.cs">
+    <Compile Include="Layouts\application\Admin\Views\Views.juipp.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Views.tt</DependentUpon>
+      <DependentUpon>Views.juipp.tt</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\juipp\Behaviors\Behavior.juipp.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Behavior.juipp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\juipp\Behaviors\MyBehavior.cs" />
-    <Compile Include="Layouts\juipp\Controllers\Container.behind.juipp.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Container.behind.juipp.tt</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\juipp\Controllers\Container.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\juipp\Controllers\Controller.behind.juipp.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Controller.behind.juipp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\juipp\Controllers\Controller.cs" />
-    <Compile Include="Layouts\juipp\Pages\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\juipp\Pages\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\juipp\ViewModels\MyViewModel.cs" />
-    <Compile Include="Layouts\juipp\ViewModels\ViewModel.juipp.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ViewModel.juipp.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\juipp\Views\View.juipp.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>View.juipp.tt</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\juipp\Views\MyView.ascx.cs">
-      <DependentUpon>MyView.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Layouts\juipp\Views\MyView.ascx.designer.cs">
-      <DependentUpon>MyView.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -144,75 +93,30 @@
       <FeatureId>{293d0c8b-9629-4cf9-a0ce-7c775c7781ac}</FeatureId>
     </None>
     <None Include="juipp.demo.snk" />
-    <None Include="Layouts\app\Behaviors\Behaviors.tt">
+    <None Include="Layouts\application\Admin\Behaviors\Behaviors.juipp.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Behaviors.cs</LastGenOutput>
+      <LastGenOutput>Behaviors.juipp.cs</LastGenOutput>
     </None>
-    <None Include="Layouts\app\Controllers\Container.tt">
+    <None Include="Layouts\application\Admin\Controllers\Container.juipp.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Container.ascx</LastGenOutput>
+      <LastGenOutput>Container.juipp.ascx</LastGenOutput>
     </None>
-    <None Include="Layouts\app\Controllers\ContainerBehind.tt">
+    <None Include="Layouts\application\Admin\Controllers\ContainerBehind.juipp.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ContainerBehind.cs</LastGenOutput>
+      <LastGenOutput>ContainerBehind.juipp.cs</LastGenOutput>
     </None>
-    <None Include="Layouts\app\Controllers\ControllerBehind.tt">
+    <None Include="Layouts\application\Admin\Controllers\ControllerBehind.juipp.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ControllerBehind.cs</LastGenOutput>
+      <LastGenOutput>ControllerBehind.juipp.cs</LastGenOutput>
     </None>
-    <None Include="Layouts\app\ViewModels\ViewModels.tt">
+    <None Include="Layouts\application\Admin\ViewModels\ViewModels.juipp.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ViewModels.cs</LastGenOutput>
+      <LastGenOutput>ViewModels.juipp.cs</LastGenOutput>
     </None>
-    <None Include="Layouts\app\Views\Views.tt">
+    <None Include="Layouts\application\Admin\Views\Views.juipp.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Views.cs</LastGenOutput>
+      <LastGenOutput>Views.juipp.cs</LastGenOutput>
     </None>
-    <None Include="Layouts\juipp\Behaviors\Behavior.juipp.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Behavior.juipp.cs</LastGenOutput>
-    </None>
-    <None Include="Layouts\juipp\Controllers\Container.behind.juipp.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Container.cs</DependentUpon>
-      <LastGenOutput>Container.behind.juipp.cs</LastGenOutput>
-    </None>
-    <None Include="Layouts\juipp\Controllers\Container.juipp.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Container.cs</DependentUpon>
-      <LastGenOutput>Container.juipp1.ascx</LastGenOutput>
-    </None>
-    <None Include="Layouts\juipp\Controllers\Controller.behind.juipp.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Controller.cs</DependentUpon>
-      <LastGenOutput>Controller.behind.juipp.cs</LastGenOutput>
-    </None>
-    <None Include="Layouts\juipp\ViewModels\ViewModel.juipp.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ViewModel.juipp.cs</LastGenOutput>
-    </None>
-    <None Include="Layouts\juipp\Views\View.juipp.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>View.juipp.cs</LastGenOutput>
-    </None>
-    <Content Include="Layouts\app\Controllers\Container.ascx">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Container.tt</DependentUpon>
-    </Content>
-    <Content Include="Layouts\juipp\Pages\Default.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="Layouts\juipp\Views\MyView.ascx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="Layouts\juipp\Web.config" />
-    <Content Include="Layouts\juipp\Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Layouts\juipp\Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <None Include="Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{694b44b1-3976-42ad-b3ed-2f697fadac73}</SharePointProjectItemId>
     </None>
@@ -227,7 +131,7 @@
     <Content Include="Features\juipp\juipp.Template.xml">
       <DependentUpon>juipp.feature</DependentUpon>
     </Content>
-    <Content Include="Layouts\juipp\Controllers\Container.juipp.ascx">
+    <Content Include="Layouts\application\Admin\Controllers\Container.juipp.ascx">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Container.juipp.tt</DependentUpon>
@@ -239,15 +143,10 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\TextTemplating\v10.0\Microsoft.TextTemplating.targets" />
   <ProjectExtensions />
-  <Target Name="OnAfterTransform">
-    <adisware.juipp.build.Tasks.ReplaceJuippToken ProjectDir="$(ProjectDir)" TargetName="$(TargetName)" />
-  </Target>
   <PropertyGroup>
     <TransformOnBuild>true</TransformOnBuild>
-    <AfterTransform>OnAfterTransform</AfterTransform>
     <OverwriteReadOnlyOuputFiles>true</OverwriteReadOnlyOuputFiles>
     <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
   </PropertyGroup>

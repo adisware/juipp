@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>adisware.juipp.vsix</RootNamespace>
-    <AssemblyName>Adisware JUIPP 1.0.3 Developer Tools</AssemblyName>
+    <AssemblyName>Adisware JUIPP 1.0.4 Developer Tools</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
