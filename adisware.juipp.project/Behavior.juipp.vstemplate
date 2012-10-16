@@ -1,0 +1,19 @@
+﻿<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>Behavior.juipp.tt</DefaultName>
+    <Name>Behavior.juipp</Name>
+    <Description>JUIPP 1.0.3 Behavior T4 Template</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+      <Reference>
+        <Assembly>adisware.juipp_v103</Assembly>
+      </Reference>
+    </References>
+    <ProjectItem SubType="" TargetFileName="Behavior.juipp.tt" ReplaceParameters="true">Behavior.juipp.tt</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="Behavior.juipp.cs" ReplaceParameters="true">Behavior.juipp.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

@@ -3,7 +3,7 @@
 <#= "using System;" #>
 <#= "using adisware.juipp.ViewModels;" #>
 
-namespace <#= "TargetName@juipp.ViewModels" #> 
+namespace <#= "adisware.juipp.Web._layouts.app.ViewModels" #> 
 {
     public static class ViewModelReference
     {
@@ -14,7 +14,7 @@ namespace <#= "TargetName@juipp.ViewModels" #>
                     var fileName = System.IO.Path.GetFileName(viewModel);
                     var className =  fileName.Split('.')[0];
                     if(fileName.EndsWith("ViewModel.cs") == false) continue;
-             #>public const string <#= className #> = "TargetName@juipp.ViewModels.<#= className #>";
+             #>public const string <#= className #> = "adisware.juipp.Web._layouts.app.ViewModels.<#= className #>";
              <#}#>
     }
 

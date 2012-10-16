@@ -7,6 +7,7 @@ namespace adisware.juipp.Web._layouts.app.ViewModels
     {
              public const string MyViewModel = "adisware.juipp.Web._layouts.app.ViewModels.MyViewModel";
              public const string StudentViewModel = "adisware.juipp.Web._layouts.app.ViewModels.StudentViewModel";
+             public const string UserViewModel = "adisware.juipp.Web._layouts.app.ViewModels.UserViewModel";
                  }
 
      
@@ -17,5 +18,9 @@ namespace adisware.juipp.Web._layouts.app.ViewModels
     
     [Serializable]
     public partial class StudentViewModel : IViewModel {}
+  
+    
+    [Serializable]
+    public partial class UserViewModel : IViewModel {}
  } 
 

@@ -13,6 +13,10 @@ namespace adisware.juipp.Web._layouts.app.Controllers
     public partial class Container : ContainerBase
     {
             
+             protected global::adisware.juipp.Web._layouts.app.Views.HomeAdminView HomeAdminView;
+              
+             protected global::adisware.juipp.Web._layouts.app.Views.HomeView HomeView;
+              
              protected global::adisware.juipp.Web._layouts.app.Views.MyView MyView;
               
              protected global::adisware.juipp.Web._layouts.app.Views.StudentProfileView StudentProfileView;
@@ -28,12 +32,24 @@ namespace adisware.juipp.Web._layouts.app.Controllers
                                         new MyBehavior() { BehaviorContext = base.Controller } ));
               
                  base.Behaviors.Add(new KeyValuePair<string, IBehavior>(
+                                        BehaviorReference.OpenHomeBehavior, 
+                                        new OpenHomeBehavior() { BehaviorContext = base.Controller } ));
+              
+                 base.Behaviors.Add(new KeyValuePair<string, IBehavior>(
                                         BehaviorReference.OpenStudentProfileBehavior, 
                                         new OpenStudentProfileBehavior() { BehaviorContext = base.Controller } ));
              
 
             base.Views = new Dictionary<string, ViewBase>();
 
+              
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
+                                        ViewReference.HomeAdminView,  
+                                        this.HomeAdminView ));
+              
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
+                                        ViewReference.HomeView,  
+                                        this.HomeView ));
               
                  base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         ViewReference.MyView,  

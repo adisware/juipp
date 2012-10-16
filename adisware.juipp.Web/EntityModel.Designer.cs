@@ -11,7 +11,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 
 // Original file name:
-// Generation date: 10/5/2012 2:24:05 PM
+// Generation date: 10/11/2012 1:32:09 PM
 namespace adisware.juipp.Web
 {
     

@@ -42,9 +42,8 @@
     <AssemblyOriginatorKeyFile>juipp.demo.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="adisware.juipp, Version=0.9.0.0, Culture=neutral, PublicKeyToken=2410bba4a1745095, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Adisware\Adisware JUIPP 1.0\adisware.juipp.dll</HintPath>
+    <Reference Include="adisware.juipp_v103">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Adisware\Adisware JUIPP 1.0.3\adisware.juipp_v103.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -59,6 +58,39 @@
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Layouts\app\Behaviors\Behaviors.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Behaviors.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\app\Behaviors\MyBehavior.cs" />
+    <Compile Include="Layouts\app\Controllers\Container.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\app\Controllers\ContainerBehind.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContainerBehind.tt</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Layouts\app\Controllers\Controller.cs" />
+    <Compile Include="Layouts\app\Controllers\ControllerBehind.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControllerBehind.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\app\ViewModels\MyViewModel.cs" />
+    <Compile Include="Layouts\app\ViewModels\ViewModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\app\Views\Views.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Views.tt</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Layouts\juipp\Behaviors\Behavior.juipp.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -112,6 +144,30 @@
       <FeatureId>{293d0c8b-9629-4cf9-a0ce-7c775c7781ac}</FeatureId>
     </None>
     <None Include="juipp.demo.snk" />
+    <None Include="Layouts\app\Behaviors\Behaviors.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Behaviors.cs</LastGenOutput>
+    </None>
+    <None Include="Layouts\app\Controllers\Container.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Container.ascx</LastGenOutput>
+    </None>
+    <None Include="Layouts\app\Controllers\ContainerBehind.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ContainerBehind.cs</LastGenOutput>
+    </None>
+    <None Include="Layouts\app\Controllers\ControllerBehind.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ControllerBehind.cs</LastGenOutput>
+    </None>
+    <None Include="Layouts\app\ViewModels\ViewModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ViewModels.cs</LastGenOutput>
+    </None>
+    <None Include="Layouts\app\Views\Views.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Views.cs</LastGenOutput>
+    </None>
     <None Include="Layouts\juipp\Behaviors\Behavior.juipp.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Behavior.juipp.cs</LastGenOutput>
@@ -139,6 +195,11 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>View.juipp.cs</LastGenOutput>
     </None>
+    <Content Include="Layouts\app\Controllers\Container.ascx">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Container.tt</DependentUpon>
+    </Content>
     <Content Include="Layouts\juipp\Pages\Default.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>

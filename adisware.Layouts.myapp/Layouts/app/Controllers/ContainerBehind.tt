@@ -1,0 +1,73 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#= "using System;" #>
+<#= "using System.Collections.Generic;" #>
+<#= "using adisware.juipp.Behaviors;" #>
+<#= "using adisware.Layouts.app.Views;" #>
+<#= "using adisware.Layouts.app.Behaviors;" #>
+<#= "using adisware.Layouts.app.Controllers;" #>
+<#= "using adisware.juipp.Views;" #>
+<#= "using adisware.juipp.Controllers;" #>
+
+namespace <#= "adisware.Layouts.app.Controllers" #> 
+{ 
+
+    public partial class <#= "Container" #> : ContainerBase
+    {
+           <#
+                var views = System.IO.File.Exists(@"..\Views\") ? System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\")) : null;
+				if(views != null && views.Length > 0)
+                 foreach(var view in views)
+                 {
+                    var fileName = System.IO.Path.GetFileName(view);
+                    var className =  fileName.Split('.')[0];
+                    if(fileName.EndsWith("View.ascx.cs") == false) continue;
+              #> 
+              protected global::adisware.Layouts.app.Views.<#= className #> <#= className #>;
+              <#
+                 }
+              #>
+
+        protected override void OnInit(EventArgs e) 
+        { 
+             base.OnInit(e);
+             base.Behaviors = new Dictionary<String, IBehavior>();
+
+             <# 
+                var behaviors = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Behaviors\"));
+				if(behaviors != null && behaviors.Length > 0)
+                foreach(var behavior in behaviors)
+                {
+                    var fileName =  System.IO.Path.GetFileName(behavior);
+                    var className =  fileName.Split('.')[0];
+                    if(fileName.EndsWith("Behavior.cs") == false) continue;
+             #> 
+                 base.Behaviors.Add(new KeyValuePair<string, IBehavior>(
+                                        BehaviorReference.<#= className #>, 
+                                        new <#= className #>() { BehaviorContext = base.Controller } ));
+             <#
+                }
+             #>
+
+
+            base.Views = new Dictionary<string, ViewBase>();
+
+             <#
+                //var views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\"));
+				if(views != null && views.Length > 0)
+                foreach(var view in views)
+                {
+                    var fileName = System.IO.Path.GetFileName(view);
+                    var className =  fileName.Split('.')[0];
+                    if(fileName.EndsWith("View.ascx.cs") == false) continue;
+             #> 
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
+                                        ViewReference.<#= className #>,  
+                                        this.<#= className #> ));
+              <#
+			  }
+			  #>
+        }
+    }
+} 
+

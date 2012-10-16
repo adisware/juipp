@@ -10,13 +10,19 @@ namespace adisware.juipp.Web._layouts.app.Views
     
     public static class ViewReference
     {
-             public const string MyView = "adisware.juipp.Web._layouts.app.Views.MyView";
-             public const string StudentProfileView = "adisware.juipp.Web._layouts.app.Views.StudentProfileView";
-                 }
+             public const string HomeAdminView = "HomeAdminView";
+             public const string HomeView = "HomeView";
+             public const string MyView = "MyView";
+             public const string StudentProfileView = "StudentProfileView";
+             }
 
 
 
 	 
+        public partial class HomeAdminView : View {}
+     
+        public partial class HomeView : View {}
+     
         public partial class MyView : View {}
      
         public partial class StudentProfileView : View {}
@@ -47,6 +53,20 @@ namespace adisware.juipp.Web._layouts.app.Views
                     base.FireBehaviorEventDelegates.Add(args => base.FireBehaviorEvent(_studentViewModelBehaviorEventFired, args as BehaviorEvent<StudentViewModel>));
                 }
                 remove { if (_studentViewModelBehaviorEventFired != null) _studentViewModelBehaviorEventFired -= value; }
+            }
+        }
+     
+        public partial class View : IBehaviorEventSender<UserViewModel> 
+        {
+            private BehaviorEventHandler<UserViewModel> _userViewModelBehaviorEventFired;
+            event BehaviorEventHandler<UserViewModel> IBehaviorEventSender<UserViewModel>.BehaviorEventFired
+            {
+                add
+                {
+                    _userViewModelBehaviorEventFired += value;
+                    base.FireBehaviorEventDelegates.Add(args => base.FireBehaviorEvent(_userViewModelBehaviorEventFired, args as BehaviorEvent<UserViewModel>));
+                }
+                remove { if (_userViewModelBehaviorEventFired != null) _userViewModelBehaviorEventFired -= value; }
             }
         }
     } 

@@ -3,13 +3,13 @@
 <#= "using System;" #>
 <#= "using System.Collections.Generic;" #>
 <#= "using adisware.juipp.Behaviors;" #>
-<#= "using TargetName@juipp.Views;" #>
-<#= "using TargetName@juipp.Behaviors;" #>
-<#= "using TargetName@juipp.Controllers;" #>
+<#= "using adisware.juipp.Web._layouts.app.Views;" #>
+<#= "using adisware.juipp.Web._layouts.app.Behaviors;" #>
+<#= "using adisware.juipp.Web._layouts.app.Controllers;" #>
 <#= "using adisware.juipp.Views;" #>
 <#= "using adisware.juipp.Controllers;" #>
 
-namespace <#= "TargetName@juipp.Controllers" #> 
+namespace <#= "adisware.juipp.Web._layouts.app.Controllers" #> 
 { 
 
     public partial class <#= "Container" #> : ContainerBase
@@ -22,7 +22,7 @@ namespace <#= "TargetName@juipp.Controllers" #>
                     var className =  fileName.Split('.')[0];
                     if(fileName.EndsWith("View.ascx.cs") == false) continue;
              #> 
-             protected global::TargetName@juipp.Views.<#= className #> <#= className #>;
+             protected global::adisware.juipp.Web._layouts.app.Views.<#= className #> <#= className #>;
              <#
                 }
              #>

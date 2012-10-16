@@ -3,9 +3,9 @@
 <#= "using adisware.juipp.Events.Arguments;" #>
 <#= "using adisware.juipp.Events.Handlers;" #>
 <#= "using adisware.juipp.Views;" #>
-<#= "using TargetName@juipp.ViewModels;" #>
+<#= "using adisware.juipp.Web._layouts.app.ViewModels;" #>
 
-namespace <#= "TargetName@juipp.Views" #> 
+namespace <#= "adisware.juipp.Web._layouts.app.Views" #> 
 {
    
     public partial class <#= "View" #> : ViewBase {}
@@ -19,9 +19,9 @@ namespace <#= "TargetName@juipp.Views" #>
                     var fileName = System.IO.Path.GetFileName(view);
                     var className =  fileName.Split('.')[0];
                     if(fileName.EndsWith("View.ascx.cs") == false) continue;
-             #>public const string <#= className #> = "TargetName@juipp.Views.<#= className #>";
+             #>public const string <#= className #> = "<#= className #>";
              <#}#>
-    }
+}
 
 
 

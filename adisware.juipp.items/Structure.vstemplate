@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  
+  <TemplateData>
+    <Name>JUIPP 1.0.3 Structure</Name>
+    <Description>Creates Juicy Presentation Pattern folder structure and catalyst items</Description>
+    <Icon>structure.items.ico</Icon>
+    <TemplateID>9b822f7a-823f-4174-8f69-faba3743068f</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>0</NumberOfParentCategoriesToRollUp>
+    <DefaultName>Structure</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+		<References>
+			<Reference>
+        <Assembly>adisware.juipp_v103</Assembly>
+      </Reference>
+		</References>
+    <ProjectItem SubType="Code" TargetFileName="Controllers\Container.cs" ReplaceParameters="true">Container.cs</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="Controllers\ContainerBehind.juipp.tt" ReplaceParameters="true">ContainerBehind.juipp.tt</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="Controllers\Container.juipp.tt" ReplaceParameters="true">Container.juipp.tt</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="Controllers\Controller.cs" ReplaceParameters="true">Controller.cs</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="Controllers\ControllerBehind.juipp.tt" ReplaceParameters="true">ControllerBehind.juipp.tt</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="ViewModels\ViewModels.juipp.tt" ReplaceParameters="true">ViewModels.juipp.tt</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="Views\Views.juipp.tt" ReplaceParameters="true">Views.juipp.tt</ProjectItem>
+    <ProjectItem SubType="" TargetFileName="Behaviors\Behaviors.juipp.tt" ReplaceParameters="true">Behaviors.juipp.tt</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

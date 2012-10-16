@@ -9,6 +9,21 @@ namespace adisware.juipp.Web._layouts.app.Behaviors
 {
 public partial class OpenStudentProfileBehavior
 {
+    public override void Execute(BehaviorEvent<MyViewModel> args)
+    {
+        base.Execute(args);
+
+        var userViewModel = 
+            this.BehaviorContext["UserViewModel"] as UserViewModel;
+
+        if (userViewModel != null)
+        {
+            var loginName = userViewModel.LoginName;
+            var role = userViewModel.Role;
+        }
+    }
+
+
     public override void Execute(
         BehaviorEvent<StudentViewModel> behaviorEvent)
     {

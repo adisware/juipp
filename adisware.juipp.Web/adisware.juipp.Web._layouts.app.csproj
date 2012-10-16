@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <UsingTask AssemblyFile="C:\Program Files (x86)\Adisware\Adisware JUIPP 1.0\adisware.juipp.build.dll" TaskName="adisware.juipp.build.Tasks.ReplaceJuippToken" />
+  <!--<UsingTask AssemblyFile="C:\Program Files (x86)\Adisware\Adisware JUIPP 1.0\adisware.juipp.build.dll" TaskName="adisware.juipp.build.Tasks.ReplaceJuippToken" />-->
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="adisware.juipp_v103">
+      <HintPath>..\juip\bin\Debug\adisware.juipp_v103.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -72,6 +75,8 @@
       <DependentUpon>Container.juipp.tt</DependentUpon>
     </Content>
     <Content Include="_layouts\app\Pages\Default.aspx" />
+    <Content Include="_layouts\app\Views\HomeAdminView.ascx" />
+    <Content Include="_layouts\app\Views\HomeView.ascx" />
     <Content Include="_layouts\app\Views\MyView.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -82,6 +87,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Layouts\Behaviors\BehaviorCatalyst.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BehaviorCatalyst.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_layouts\app\Behaviors\Behavior.juipp.cs">
       <DependentUpon>Behavior.juipp.tt</DependentUpon>
@@ -89,6 +99,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="_layouts\app\Behaviors\MyBehavior.cs" />
+    <Compile Include="_layouts\app\Behaviors\OpenHomeBehavior.cs" />
     <Compile Include="_layouts\app\Behaviors\OpenStudentProfileBehavior.cs" />
     <Compile Include="_layouts\app\Controllers\Container.behind.juipp.cs">
       <DependentUpon>Container.behind.juipp.tt</DependentUpon>
@@ -114,10 +125,25 @@
     </Compile>
     <Compile Include="_layouts\app\ViewModels\MyViewModel.cs" />
     <Compile Include="_layouts\app\ViewModels\StudentViewModel.cs" />
+    <Compile Include="_layouts\app\ViewModels\UserViewModel.cs" />
     <Compile Include="_layouts\app\ViewModels\ViewModel.juipp.cs">
       <DependentUpon>ViewModel.juipp.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="_layouts\app\Views\HomeAdminView.ascx.cs">
+      <DependentUpon>HomeAdminView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_layouts\app\Views\HomeAdminView.ascx.designer.cs">
+      <DependentUpon>HomeAdminView.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="_layouts\app\Views\HomeView.ascx.cs">
+      <DependentUpon>HomeView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_layouts\app\Views\HomeView.ascx.designer.cs">
+      <DependentUpon>HomeView.ascx</DependentUpon>
     </Compile>
     <Compile Include="_layouts\app\Views\MyView.ascx.cs">
       <DependentUpon>MyView.ascx</DependentUpon>
@@ -141,16 +167,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\juip\juipp.csproj">
-      <Project>{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}</Project>
-      <Name>juipp</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EntityDeploy Include="EntityModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Layouts\Behaviors\BehaviorCatalyst.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>BehaviorCatalyst.cs</LastGenOutput>
+    </None>
     <None Include="_layouts\app\Behaviors\Behavior.juipp.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Behavior.juipp.cs</LastGenOutput>
@@ -213,7 +238,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="OnAfterTransform">
-    <adisware.juipp.build.Tasks.ReplaceJuippToken ProjectDir="$(ProjectDir)" TargetName="$(TargetName)" />
+    <!--<adisware.juipp.build.Tasks.ReplaceJuippToken ProjectDir="$(ProjectDir)" TargetName="$(TargetName)" />-->
   </Target>
   <PropertyGroup>
     <TransformOnBuild>true</TransformOnBuild>

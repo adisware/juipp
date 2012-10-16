@@ -7,9 +7,9 @@
 <#= "using adisware.juipp.Events.Handlers;" #>
 <#= "using adisware.juipp.ViewModels;" #>
 
-<#= "using TargetName@juipp.ViewModels;" #>
+<#= "using adisware.juipp.Web._layouts.app.ViewModels;" #>
 
-namespace <#= "TargetName@juipp.Controllers" #> 
+namespace <#= "adisware.juipp.Web._layouts.app.Controllers" #> 
 { 
 <#
     var viewModels = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\")); 
