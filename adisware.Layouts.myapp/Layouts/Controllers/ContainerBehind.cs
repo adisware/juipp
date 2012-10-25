@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using adisware.juipp.Behaviors;
-using adisware.Layouts.application.Admin.Views;
-using adisware.Layouts.application.Admin.Behaviors;
-using adisware.Layouts.application.Admin.Controllers;
+using adisware.Layouts.Views;
+using adisware.Layouts.Behaviors;
+using adisware.Layouts.Controllers;
 using adisware.juipp.Views;
 using adisware.juipp.Controllers;
 
-namespace adisware.Layouts.application.Admin.Controllers 
+namespace adisware.Layouts.Controllers 
 { 
 
     public partial class Container : ContainerBase

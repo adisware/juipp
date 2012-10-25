@@ -2,9 +2,9 @@
 using adisware.juipp.Events.Handlers;
 using adisware.juipp.Behaviors;
 using adisware.juipp.Controllers;
-using adisware.Layouts.application.Admin.ViewModels;
+using adisware.Layouts.ViewModels;
 
-namespace adisware.Layouts.application.Admin.Behaviors 
+namespace adisware.Layouts.Behaviors 
 {
     public static partial class BehaviorReference 
     {

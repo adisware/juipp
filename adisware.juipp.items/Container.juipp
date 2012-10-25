@@ -1,7 +1,6 @@
 <#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ output extension=".ascx" #>
-<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Container.behind.juipp.cs" Inherits="adisware.Layouts.application.Admin.Controllers.Container" %>
-<%@ Register TagPrefix="juipp" Namespace="adisware.Layouts.application.Admin.Controllers" Assembly="$projectname$" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Container.behind.juipp.cs" Inherits="$rootnamespace$.Controllers.Container" %>
 
 <#
 	var views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\"));
@@ -19,8 +18,6 @@
  <#
     }
  #>
-
- <juipp:Controller runat="server" ID="Controller" />
 
  <#
     if(views != null && views.Length > 0)

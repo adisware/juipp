@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Web.UI;
 using adisware.juipp.Commons;
@@ -13,6 +14,21 @@ namespace adisware.juipp.Views
         ICanChangeMyVisibility,  
         ICanCatchTransition
     {
+        public string Title
+        {
+            set
+            {
+                var state = this.ViewState["Title"];
+                if (state != null) this.ViewState.Remove("Title");
+                this.ViewState.Add("Title", value);
+            }
+            get
+            {
+                var state = this.ViewState["Title"];
+                if (state == null) return null;
+                return (string)state;
+            }
+        }
         public string Reference
         {
             set
@@ -71,12 +87,20 @@ namespace adisware.juipp.Views
 
         public delegate bool FireBehaviorEventDelegate(object behaviorEvent);
         public event VisibilityChangedHandler  VisibilityChanged;
+        public event EventHandler BackTriggered;
+
+        public void OnBackTriggered(object sender, EventArgs e)
+        {
+            var handler = BackTriggered;
+            if (handler != null) handler(this, e);
+        }
 
         protected void OnVisibilityChanged(bool visibility)
         {
             var handler = VisibilityChanged;
             if (handler != null) handler(this, visibility);
         }
+
         public bool SendBehaviorEvent<T>(BehaviorEvent<T> behaviorEvent) where T : IViewModel, new()
         {
             var success = false;

@@ -8,7 +8,8 @@ namespace adisware.juipp.Controllers
     {
         void LoadBehaviorViewBinding(
             IDictionary<string, ViewBase> views,
-            IDictionary<string, string> binding,
-            IDictionary<string, IBehavior> behaviors);
+            IDictionary<string, IBehavior> behaviors,
+            IDictionary<string, string> behaviorBinding,
+            IDictionary<string, string> viewControllerBinding);
     }
 }

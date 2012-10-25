@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using adisware.Layouts.application.Admin.Behaviors;
-using adisware.Layouts.application.Admin.Views;
+using adisware.Layouts.Behaviors;
+using adisware.Layouts.Views;
 
-namespace adisware.Layouts.application.Admin.Controllers
+namespace adisware.Layouts.Controllers
 {
     public partial class Container
     {

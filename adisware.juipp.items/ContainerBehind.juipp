@@ -3,13 +3,13 @@
 <#= "using System;" #>
 <#= "using System.Collections.Generic;" #>
 <#= "using adisware.juipp.Behaviors;" #>
-<#= "using adisware.Layouts.application.Admin.Views;" #>
-<#= "using adisware.Layouts.application.Admin.Behaviors;" #>
-<#= "using adisware.Layouts.application.Admin.Controllers;" #>
+<#= "using $rootnamespace$.Views;" #>
+<#= "using $rootnamespace$.Behaviors;" #>
+<#= "using $rootnamespace$.Controllers;" #>
 <#= "using adisware.juipp.Views;" #>
 <#= "using adisware.juipp.Controllers;" #>
 
-namespace <#= "adisware.Layouts.application.Admin.Controllers" #> 
+namespace <#= "$rootnamespace$.Controllers" #> 
 { 
 
     public partial class <#= "Container" #> : ContainerBase
@@ -23,7 +23,7 @@ namespace <#= "adisware.Layouts.application.Admin.Controllers" #>
                     var className =  fileName.Split('.')[0];
                     if(fileName.EndsWith("View.ascx.cs") == false) continue;
               #> 
-              protected global::adisware.Layouts.application.Admin.Views.<#= className #> <#= className #>;
+              protected global::$rootnamespace$.Views.<#= className #> <#= className #>;
               <#
                  }
               #>
@@ -31,6 +31,7 @@ namespace <#= "adisware.Layouts.application.Admin.Controllers" #>
         protected override void OnInit(EventArgs e) 
         { 
              base.OnInit(e);
+			 base.Controller = new Controller(){ ID="Controller" };
              base.Behaviors = new Dictionary<String, IBehavior>();
 
              <# 

@@ -35,9 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="adisware.juipp_v103">
-      <HintPath>..\juip\bin\Debug\adisware.juipp_v103.dll</HintPath>
-    </Reference>
+    <Reference Include="adisware.juipp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=2410bba4a1745095" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -86,11 +84,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Layouts\Behaviors\BehaviorCatalyst.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BehaviorCatalyst.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_layouts\app\Behaviors\Behavior.juipp.cs">
@@ -171,11 +164,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Layouts\Behaviors\BehaviorCatalyst.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>BehaviorCatalyst.cs</LastGenOutput>
-    </None>
     <None Include="_layouts\app\Behaviors\Behavior.juipp.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Behavior.juipp.cs</LastGenOutput>

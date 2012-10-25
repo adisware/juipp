@@ -30,6 +30,7 @@ namespace <#= "adisware.juipp.Web._layouts.app.Controllers" #>
         protected override void OnInit(EventArgs e) 
         { 
              base.OnInit(e);
+			 base.Controller = new Controller(){ ID="Controller" };
              base.Behaviors = new Dictionary<String, IBehavior>();
 
              <# 

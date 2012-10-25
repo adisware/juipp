@@ -4,8 +4,9 @@
   <TemplateData>
     <Name>JUIPP 1.0.4.0 Structure</Name>
     <Description>Creates Juicy Presentation Pattern folder structure and catalyst items</Description>
-    <Icon>structure.items.ico</Icon>
+    <Icon>48_structure.ico</Icon>
     <TemplateID>9b822f7a-823f-4174-8f69-faba3743068f</TemplateID>
+    <TemplateGroupID>Adisware</TemplateGroupID>
     <ProjectType>CSharp</ProjectType>
     <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
     <DefaultName>Structure</DefaultName>
@@ -13,16 +14,16 @@
   <TemplateContent>
 		<References>
 			<Reference>
-        <Assembly>Adisware.juipp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=2410bba4a1745095</Assembly>
+        <Assembly>adisware.juipp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=2410bba4a1745095</Assembly>
       </Reference>
 		</References>
     <ProjectItem SubType="Code" TargetFileName="Controllers\Container.cs" ReplaceParameters="true">Container.cs</ProjectItem>
-    <ProjectItem SubType="" TargetFileName="Controllers\ContainerBehind.juipp.tt" ReplaceParameters="true">ContainerBehind.juipp.tt</ProjectItem>
-    <ProjectItem SubType="" TargetFileName="Controllers\Container.juipp.tt" ReplaceParameters="true">Container.juipp.tt</ProjectItem>
+    <ProjectItem CustomTool="TextTemplatingFileGenerator" SubType="" TargetFileName="Controllers\ContainerBehind.juipp" ReplaceParameters="true">ContainerBehind.juipp</ProjectItem>
+    <ProjectItem CustomTool="TextTemplatingFileGenerator" SubType="" TargetFileName="Controllers\Container.juipp" ReplaceParameters="true">Container.juipp</ProjectItem>
     <ProjectItem SubType="Code" TargetFileName="Controllers\Controller.cs" ReplaceParameters="true">Controller.cs</ProjectItem>
-    <ProjectItem SubType="" TargetFileName="Controllers\ControllerBehind.juipp.tt" ReplaceParameters="true">ControllerBehind.juipp.tt</ProjectItem>
-    <ProjectItem SubType="" TargetFileName="ViewModels\ViewModels.juipp.tt" ReplaceParameters="true">ViewModels.juipp.tt</ProjectItem>
-    <ProjectItem SubType="" TargetFileName="Views\Views.juipp.tt" ReplaceParameters="true">Views.juipp.tt</ProjectItem>
-    <ProjectItem SubType="" TargetFileName="Behaviors\Behaviors.juipp.tt" ReplaceParameters="true">Behaviors.juipp.tt</ProjectItem>
+    <ProjectItem CustomTool="TextTemplatingFileGenerator" SubType="" TargetFileName="Controllers\ControllerBehind.juipp" ReplaceParameters="true">ControllerBehind.juipp</ProjectItem>
+    <ProjectItem CustomTool="TextTemplatingFileGenerator" SubType="" TargetFileName="ViewModels\ViewModels.juipp" ReplaceParameters="true">ViewModels.juipp</ProjectItem>
+    <ProjectItem CustomTool="TextTemplatingFileGenerator" SubType="" TargetFileName="Views\Views.juipp" ReplaceParameters="true">Views.juipp</ProjectItem>
+    <ProjectItem CustomTool="TextTemplatingFileGenerator" SubType="" TargetFileName="Behaviors\Behaviors.juipp" ReplaceParameters="true">Behaviors.juipp</ProjectItem>
   </TemplateContent>
 </VSTemplate>

@@ -41,7 +41,7 @@
     <AssemblyOriginatorKeyFile>juipp.demo.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Adisware.juipp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=2410bba4a1745095" />
+    <Reference Include="adisware.juipp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=2410bba4a1745095" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -55,35 +55,35 @@
     <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Layouts\application\Admin\Behaviors\Behaviors.juipp.cs">
+    <Compile Include="Layouts\Behaviors\Behaviors.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Behaviors.juipp.tt</DependentUpon>
+      <DependentUpon>Behaviors.juipp</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\application\Admin\Controllers\Container.cs">
+    <Compile Include="Layouts\Controllers\Container.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Layouts\application\Admin\Controllers\ContainerBehind.juipp.cs">
+    <Compile Include="Layouts\Controllers\ContainerBehind.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ContainerBehind.juipp.tt</DependentUpon>
+      <DependentUpon>ContainerBehind.juipp</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Layouts\application\Admin\Controllers\Controller.cs" />
-    <Compile Include="Layouts\application\Admin\Controllers\ControllerBehind.juipp.cs">
+    <Compile Include="Layouts\Controllers\Controller.cs" />
+    <Compile Include="Layouts\Controllers\ControllerBehind.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ControllerBehind.juipp.tt</DependentUpon>
+      <DependentUpon>ControllerBehind.juipp</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\application\Admin\ViewModels\ViewModels.juipp.cs">
+    <Compile Include="Layouts\ViewModels\ViewModels.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ViewModels.juipp.tt</DependentUpon>
+      <DependentUpon>ViewModels.juipp</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\application\Admin\Views\Views.juipp.cs">
+    <Compile Include="Layouts\Views\Views.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Views.juipp.tt</DependentUpon>
+      <DependentUpon>Views.juipp</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,32 +93,32 @@
       <FeatureId>{293d0c8b-9629-4cf9-a0ce-7c775c7781ac}</FeatureId>
     </None>
     <None Include="juipp.demo.snk" />
-    <None Include="Layouts\application\Admin\Behaviors\Behaviors.juipp.tt">
+    <None Include="Layouts\Behaviors\Behaviors.juipp">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Behaviors.juipp.cs</LastGenOutput>
+      <LastGenOutput>Behaviors.cs</LastGenOutput>
     </None>
-    <None Include="Layouts\application\Admin\Controllers\Container.juipp.tt">
+    <None Include="Layouts\Controllers\Container.juipp">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Container.juipp.ascx</LastGenOutput>
+      <LastGenOutput>Container.ascx</LastGenOutput>
     </None>
-    <None Include="Layouts\application\Admin\Controllers\ContainerBehind.juipp.tt">
+    <None Include="Layouts\Controllers\ContainerBehind.juipp">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ContainerBehind.juipp.cs</LastGenOutput>
+      <LastGenOutput>ContainerBehind.cs</LastGenOutput>
     </None>
-    <None Include="Layouts\application\Admin\Controllers\ControllerBehind.juipp.tt">
+    <None Include="Layouts\Controllers\ControllerBehind.juipp">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ControllerBehind.juipp.cs</LastGenOutput>
-    </None>
-    <None Include="Layouts\application\Admin\ViewModels\ViewModels.juipp.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ViewModels.juipp.cs</LastGenOutput>
-    </None>
-    <None Include="Layouts\application\Admin\Views\Views.juipp.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Views.juipp.cs</LastGenOutput>
+      <LastGenOutput>ControllerBehind.cs</LastGenOutput>
     </None>
     <None Include="Layouts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{694b44b1-3976-42ad-b3ed-2f697fadac73}</SharePointProjectItemId>
+    </None>
+    <None Include="Layouts\ViewModels\ViewModels.juipp">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ViewModels.cs</LastGenOutput>
+    </None>
+    <None Include="Layouts\Views\Views.juipp">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Views.cs</LastGenOutput>
     </None>
     <None Include="Package\Package.package">
       <PackageId>{e33511c6-cb32-420c-9367-f6fe658a9a26}</PackageId>
@@ -131,16 +131,17 @@
     <Content Include="Features\juipp\juipp.Template.xml">
       <DependentUpon>juipp.feature</DependentUpon>
     </Content>
-    <Content Include="Layouts\application\Admin\Controllers\Container.juipp.ascx">
+    <Content Include="Layouts\Controllers\Container.ascx">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Container.juipp.tt</DependentUpon>
+      <DependentUpon>Container.juipp</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\TextTemplating\v10.0\Microsoft.TextTemplating.targets" />

@@ -5,9 +5,9 @@ using adisware.juipp.Events.Arguments;
 using adisware.juipp.Events.Handlers;
 using adisware.juipp.ViewModels;
 
-using adisware.Layouts.application.Admin.ViewModels;
+using adisware.Layouts.ViewModels;
 
-namespace adisware.Layouts.application.Admin.Controllers 
+namespace adisware.Layouts.Controllers 
 { 
     public partial class Controller : ControllerBase
     {

@@ -23,6 +23,16 @@ public partial class Controller
                 };
     }
 
+
+    protected override void OnLoad(EventArgs e)
+    {
+        if (this.Page.IsPostBack) return;
+
+        this.FireBehaviorEvent(new BehaviorEvent<MyViewModel>()
+        {
+            BehaviorReference = BehaviorReference.OpenHomeBehavior
+        });
+    }
     protected override void OnBeforeBehaviorEvent<T>(IBehaviorEventSender<T> sender, BehaviorEvent<T> behaviorEvent)
     {
         base.OnBeforeBehaviorEvent<T>(sender, behaviorEvent);

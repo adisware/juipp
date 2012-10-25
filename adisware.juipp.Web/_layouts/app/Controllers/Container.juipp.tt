@@ -1,7 +1,6 @@
 <#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ output extension=".ascx" #>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Application.ascx.cs" Inherits="adisware.juipp.Web._layouts.app.Controllers.Container" %>
-<%@ Register TagPrefix="juipp" Namespace="adisware.juipp.Web._layouts.app.Controllers" Assembly="adisware.juipp.Web._layouts.app" %>
 
 <#
     var views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\")); 
@@ -18,8 +17,6 @@
  <#
     }
  #>
-
- <juipp:Controller runat="server" ID="Controller" />
 
  <#
     foreach(var view in views)
