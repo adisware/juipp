@@ -60,14 +60,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Behaviors.juipp</DependentUpon>
     </Compile>
-    <Compile Include="Layouts\Controllers\Container.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="Layouts\Controllers\Container.cs" />
     <Compile Include="Layouts\Controllers\ContainerBehind.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ContainerBehind.juipp</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Layouts\Controllers\Controller.cs" />
     <Compile Include="Layouts\Controllers\ControllerBehind.cs">
@@ -84,7 +81,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Views.juipp</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

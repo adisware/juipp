@@ -98,11 +98,8 @@
       <DependentUpon>Container.behind.juipp.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="_layouts\app\Controllers\Container.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="_layouts\app\Controllers\Container.cs" />
     <Compile Include="_layouts\app\Controllers\Controller.behind.juipp.cs">
       <DependentUpon>Controller.behind.juipp.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -126,28 +123,24 @@
     </Compile>
     <Compile Include="_layouts\app\Views\HomeAdminView.ascx.cs">
       <DependentUpon>HomeAdminView.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="_layouts\app\Views\HomeAdminView.ascx.designer.cs">
       <DependentUpon>HomeAdminView.ascx</DependentUpon>
     </Compile>
     <Compile Include="_layouts\app\Views\HomeView.ascx.cs">
       <DependentUpon>HomeView.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="_layouts\app\Views\HomeView.ascx.designer.cs">
       <DependentUpon>HomeView.ascx</DependentUpon>
     </Compile>
     <Compile Include="_layouts\app\Views\MyView.ascx.cs">
       <DependentUpon>MyView.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="_layouts\app\Views\MyView.ascx.designer.cs">
       <DependentUpon>MyView.ascx</DependentUpon>
     </Compile>
     <Compile Include="_layouts\app\Views\StudentProfileView.ascx.cs">
       <DependentUpon>StudentProfileView.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="_layouts\app\Views\StudentProfileView.ascx.designer.cs">
       <DependentUpon>StudentProfileView.ascx</DependentUpon>
@@ -156,7 +149,6 @@
       <DependentUpon>View.juipp.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
