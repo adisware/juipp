@@ -24,12 +24,12 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("JUIPP 1.0.5 Core")]
-[assembly: AssemblyDescription("Juicy Presentation Pattern - ASP.NET Web Forms Framework")]
+[assembly: AssemblyTitle("JUIPP.Core 1.0.6")]
+[assembly: AssemblyDescription("Juicy Presentation Pattern - ASP.NET WebForms Framework")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Natnael Gebremariam")]
-[assembly: AssemblyProduct("JUIPP 1.0.5 Core")]
-[assembly: AssemblyCopyright("Copyright ©  2012-2013")]
+[assembly: AssemblyCompany("Adisware")]
+[assembly: AssemblyProduct("JUIPP.Core 1.0.6")]
+[assembly: AssemblyCopyright("Copyright ©  2012-2013 Natnael Gebremariam")]
 [assembly: AssemblyTrademark("juipp, juicy presentation pattern")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.5.0")]
-[assembly: AssemblyFileVersion("1.0.5.*")]
+[assembly: AssemblyVersion("1.0.6.0")]
+[assembly: AssemblyFileVersion("1.0.6.*")]

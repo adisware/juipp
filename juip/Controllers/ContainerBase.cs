@@ -80,11 +80,12 @@ namespace adisware.juipp.Controllers
                 this.Controls.Add(controller.Value);
             }
             base.CreateChildControls();
-            base.EnsureChildControls();
         }
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
+            base.EnsureChildControls();
+
             this.OnViewControllerBinding();
             foreach (var c in Controllers)
             {  
@@ -106,7 +107,9 @@ namespace adisware.juipp.Controllers
 
             foreach(var key in Views.Keys)
             {
-                this.ViewControllerBinding.Add(key, "Controller");
+                var matchingController = string.Format("{0}Controller", key.Substring(0, key.IndexOf("View", System.StringComparison.Ordinal)));
+
+                this.ViewControllerBinding.Add(key, this.Controllers.ContainsKey(matchingController) ? matchingController : "Controller");
             }
         }
     }

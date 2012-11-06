@@ -12,14 +12,14 @@
 namespace <#= "$rootnamespace$.Controllers" #> 
 { 
 <#
-	var viewModels = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\"));
+    var viewModels = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\")); 
 #>
     public partial class <#= "Controller" #> : ControllerBase
     {
-        protected override void OnTransitionEvent<T>(TransitionEvent<T> args)  
+	    public Controller(ContainerBase containerBase) : base(containerBase) {}
+        protected override void OnTransitionEvent<T>(TransitionEvent<T> transitionEvent)  
         {  
              <#
-			    if(viewModels != null && viewModels.Length > 0)
                 foreach(var model in viewModels)
                 {
                     var fileName = System.IO.Path.GetFileName(model);
@@ -27,7 +27,7 @@ namespace <#= "$rootnamespace$.Controllers" #>
                     var handlerName =  string.Format("_{0}ViewSwitched", char.ToLower(className[0]) + className.Substring(1));
                     if(fileName.EndsWith("ViewModel.cs") == false) continue;
              #> 
-            base.FireTransitionEvent(args as TransitionEvent<<#= className #>>, <#= handlerName #>);
+            base.FireTransitionEvent(transitionEvent as TransitionEvent<<#= className #>>, <#= handlerName #>);
              <#
                 }
              #>
@@ -40,7 +40,6 @@ namespace <#= "$rootnamespace$.Controllers" #>
             {
                 var list = new List<IViewModel>();
                  <#
-				    if(viewModels != null && viewModels.Length > 0)
                     foreach(var model in viewModels)
                     {
                         var fileName = System.IO.Path.GetFileName(model);
@@ -58,7 +57,6 @@ namespace <#= "$rootnamespace$.Controllers" #>
 
 
  <#
-    if(viewModels != null && viewModels.Length > 0)
     foreach(var model in viewModels)
     {
         var fileName = System.IO.Path.GetFileName(model);

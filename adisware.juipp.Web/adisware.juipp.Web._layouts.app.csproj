@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <!--<UsingTask AssemblyFile="C:\Program Files (x86)\Adisware\Adisware JUIPP 1.0\adisware.juipp.build.dll" TaskName="adisware.juipp.build.Tasks.ReplaceJuippToken" />-->
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -15,7 +14,6 @@
     <AssemblyName>adisware.juipp.Web._layouts.app</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,8 +32,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Label="AdiswareJuippT4Properties">
+    <TransformOnBuild>true</TransformOnBuild>
+    <OverwriteReadOnlyOuputFiles>true</OverwriteReadOnlyOuputFiles>
+    <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="adisware.juipp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=2410bba4a1745095" />
+    <Reference Include="adisware.juipp">
+      <HintPath>..\packages\JUIPP.NuGet.1.0.6\lib\adisware.juipp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -98,8 +103,11 @@
       <DependentUpon>Container.behind.juipp.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="_layouts\app\Controllers\Container.cs" />
+    <Compile Include="_layouts\app\Controllers\Container.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="_layouts\app\Controllers\Controller.behind.juipp.cs">
       <DependentUpon>Controller.behind.juipp.tt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -123,24 +131,28 @@
     </Compile>
     <Compile Include="_layouts\app\Views\HomeAdminView.ascx.cs">
       <DependentUpon>HomeAdminView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="_layouts\app\Views\HomeAdminView.ascx.designer.cs">
       <DependentUpon>HomeAdminView.ascx</DependentUpon>
     </Compile>
     <Compile Include="_layouts\app\Views\HomeView.ascx.cs">
       <DependentUpon>HomeView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="_layouts\app\Views\HomeView.ascx.designer.cs">
       <DependentUpon>HomeView.ascx</DependentUpon>
     </Compile>
     <Compile Include="_layouts\app\Views\MyView.ascx.cs">
       <DependentUpon>MyView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="_layouts\app\Views\MyView.ascx.designer.cs">
       <DependentUpon>MyView.ascx</DependentUpon>
     </Compile>
     <Compile Include="_layouts\app\Views\StudentProfileView.ascx.cs">
       <DependentUpon>StudentProfileView.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="_layouts\app\Views\StudentProfileView.ascx.designer.cs">
       <DependentUpon>StudentProfileView.ascx</DependentUpon>
@@ -149,6 +161,7 @@
       <DependentUpon>View.juipp.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +169,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <Content Include="packages.config" />
     <None Include="_layouts\app\Behaviors\Behavior.juipp.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Behavior.juipp.cs</LastGenOutput>
@@ -197,7 +211,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\TextTemplating\v10.0\Microsoft.TextTemplating.targets" />
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
@@ -217,13 +230,5 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="OnAfterTransform">
-    <!--<adisware.juipp.build.Tasks.ReplaceJuippToken ProjectDir="$(ProjectDir)" TargetName="$(TargetName)" />-->
-  </Target>
-  <PropertyGroup>
-    <TransformOnBuild>true</TransformOnBuild>
-    <AfterTransform>OnAfterTransform</AfterTransform>
-    <OverwriteReadOnlyOuputFiles>true</OverwriteReadOnlyOuputFiles>
-    <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
-  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\TextTemplating\v10.0\Microsoft.TextTemplating.targets" />
 </Project>

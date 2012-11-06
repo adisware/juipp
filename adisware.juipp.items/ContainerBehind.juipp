@@ -11,32 +11,76 @@
 
 namespace <#= "$rootnamespace$.Controllers" #> 
 { 
+    public static class ControllerReference
+    {
+             <#
+                var controllers = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Controllers\"));
+                foreach(var controller in controllers)
+                {
+                    var fileName = System.IO.Path.GetFileName(controller);
+                    var className =  fileName.Split('.')[0];
+                    if(fileName.EndsWith("Controller.cs")) 
+					{
+             #>public const string <#= className #> = "<#= className #>";
+             <#}
+			 }
+			 #>
+    }
 
     public partial class <#= "Container" #> : ContainerBase
     {
+	           <#
+                //var controllers = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Controllers\"));
+                foreach(var controller in controllers)
+                {
+                    var fileName = System.IO.Path.GetFileName(controller);
+                    var className =  fileName.Split('.')[0];
+                    if(fileName.EndsWith("Controller.cs")) 
+				{#>
+				protected ControllerBase <#= className #>;
+				<#}
+                }
+             #>
+
            <#
-                var views = System.IO.File.Exists(@"..\Views\") ? System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\")) : null;
-				if(views != null && views.Length > 0)
-                 foreach(var view in views)
-                 {
+                var views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\"));
+                foreach(var view in views)
+                {
                     var fileName = System.IO.Path.GetFileName(view);
                     var className =  fileName.Split('.')[0];
                     if(fileName.EndsWith("View.ascx.cs") == false) continue;
-              #> 
-              protected global::$rootnamespace$.Views.<#= className #> <#= className #>;
-              <#
-                 }
-              #>
+             #> 
+             protected global::DOI._layouts.doia.Views.<#= className #> <#= className #>;
+             <#
+                }
+             #>
 
         protected override void OnInit(EventArgs e) 
         { 
+		     <#
+                //var controllers = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Controllers\"));
+                foreach(var controller in controllers)
+                {
+                    var fileName = System.IO.Path.GetFileName(controller);
+                    var className =  fileName.Split('.')[0];
+
+                     if(fileName.EndsWith("Controller.cs")) 
+					 {
+             #> 
+			             base.Controllers.Add(new KeyValuePair<string, ControllerBase>(
+                                      ControllerReference.<#= className #>,
+                                      new <#= className #>(this) { ID = "<#= className #>" }));
+             <#}
+                }
+             #>
+
+		    
              base.OnInit(e);
-			 base.Controller = new Controller(){ ID="Controller" };
+
              base.Behaviors = new Dictionary<String, IBehavior>();
 
              <# 
                 var behaviors = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Behaviors\"));
-				if(behaviors != null && behaviors.Length > 0)
                 foreach(var behavior in behaviors)
                 {
                     var fileName =  System.IO.Path.GetFileName(behavior);
@@ -45,7 +89,7 @@ namespace <#= "$rootnamespace$.Controllers" #>
              #> 
                  base.Behaviors.Add(new KeyValuePair<string, IBehavior>(
                                         BehaviorReference.<#= className #>, 
-                                        new <#= className #>() { BehaviorContext = base.Controller } ));
+                                        new <#= className #>() { BehaviorContext = this } ));
              <#
                 }
              #>
@@ -55,7 +99,6 @@ namespace <#= "$rootnamespace$.Controllers" #>
 
              <#
                 //var views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\"));
-				if(views != null && views.Length > 0)
                 foreach(var view in views)
                 {
                     var fileName = System.IO.Path.GetFileName(view);
@@ -65,9 +108,9 @@ namespace <#= "$rootnamespace$.Controllers" #>
                  base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         ViewReference.<#= className #>,  
                                         this.<#= className #> ));
-              <#
-			  }
-			  #>
+             <#
+                }
+             #>
         }
     }
 } 

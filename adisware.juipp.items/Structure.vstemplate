@@ -1,10 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
-  
   <TemplateData>
-    <Name>JUIPP 1.0.4.0 Structure</Name>
-    <Description>Creates Juicy Presentation Pattern folder structure and catalyst items</Description>
-    <Icon>48_structure.ico</Icon>
+    <Name>JUIPP.Structure 1.0.6</Name>
+    <Description>Creates Juicy Presentation Pattern folder structure and T4 Templates</Description>
+    <Icon></Icon>
     <TemplateID>9b822f7a-823f-4174-8f69-faba3743068f</TemplateID>
     <TemplateGroupID>Adisware</TemplateGroupID>
     <ProjectType>CSharp</ProjectType>
@@ -14,7 +13,7 @@
   <TemplateContent>
 		<References>
 			<Reference>
-        <Assembly>adisware.juipp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=2410bba4a1745095</Assembly>
+        <Assembly>adisware.juipp, Version=1.0.6.0, Culture=neutral, PublicKeyToken=2410bba4a1745095</Assembly>
       </Reference>
 		</References>
     <ProjectItem SubType="Code" TargetFileName="Controllers\Container.cs" ReplaceParameters="true">Container.cs</ProjectItem>

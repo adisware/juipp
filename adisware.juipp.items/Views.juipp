@@ -13,41 +13,25 @@ namespace <#= "$rootnamespace$.Views" #>
     public static class ViewReference
     {
              <#
-				var views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\"));
+                var views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\"));
 				if(views != null && views.Length > 0)
                 foreach(var view in views)
                 {
                     var fileName = System.IO.Path.GetFileName(view);
                     var className =  fileName.Split('.')[0];
                     if(fileName.EndsWith("View.ascx.cs") == false) continue;
-             #>public const string <#= className #> = "<#= className #>";
+             #>public static string <#= className #> = "<#= className #>";
              <#}#>
-}
-
-
-
-	<# 
-    views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\"));
-	if(views != null && views.Length > 0)
-    foreach(var view in views)
-                {
-                    var fileName = System.IO.Path.GetFileName(view);
-                    var className =  fileName.Split('.')[0];
-                    if(fileName.EndsWith("View.ascx.cs") == false) continue;
-    #> 
-        public partial class <#= className #> : View {}
-    <#
     }
-    #>
 
     <# 
-	var models = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\"));
-	if(models != null && models.Length > 0)
+    var models = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\"));
+	if(models != null && models.Length > 0) 
     foreach(var model in models)
     {
         var className =  System.IO.Path.GetFileName(model).Split('.')[0];
         var handlerName =  string.Format("_{0}BehaviorEventFired", char.ToLower(className[0]) + className.Substring(1));
-        if(className == "ViewModels") continue;
+        if(className == "ViewModel") continue;
     #> 
         public partial class View : IBehaviorEventSender<<#= className #>> 
         {

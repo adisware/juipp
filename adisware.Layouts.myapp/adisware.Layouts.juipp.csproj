@@ -41,7 +41,6 @@
     <AssemblyOriginatorKeyFile>juipp.demo.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="adisware.juipp, Version=1.0.4.0, Culture=neutral, PublicKeyToken=2410bba4a1745095" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
@@ -51,8 +50,6 @@
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="Microsoft.SharePoint" />
-    <Reference Include="Microsoft.SharePoint.Security" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Layouts\Behaviors\Behaviors.cs">
