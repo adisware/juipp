@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "juipp", "juip\juipp.csproj", "{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "juipp.Build", "juip.Build\juipp.Build.csproj", "{C2E7F288-4771-4E1F-A82A-18A834145852}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adisware.Layouts.juipp", "adisware.Layouts.myapp\adisware.Layouts.juipp.csproj", "{869003C7-F4DC-4044-8688-84D6E54FD2A7}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "adisware.juipp.Setup", "adisware.juipp.Setup\adisware.juipp.Setup.vdproj", "{81284DFD-B8D2-482B-9F2B-9C1A91DD897E}"
@@ -43,12 +41,6 @@ Global
 		{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}.Release|x86.ActiveCfg = Release|Any CPU
-		{C2E7F288-4771-4E1F-A82A-18A834145852}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2E7F288-4771-4E1F-A82A-18A834145852}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2E7F288-4771-4E1F-A82A-18A834145852}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{C2E7F288-4771-4E1F-A82A-18A834145852}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2E7F288-4771-4E1F-A82A-18A834145852}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2E7F288-4771-4E1F-A82A-18A834145852}.Release|x86.ActiveCfg = Release|Any CPU
 		{869003C7-F4DC-4044-8688-84D6E54FD2A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{869003C7-F4DC-4044-8688-84D6E54FD2A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{869003C7-F4DC-4044-8688-84D6E54FD2A7}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
