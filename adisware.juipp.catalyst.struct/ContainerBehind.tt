@@ -50,7 +50,7 @@ namespace <#= "$rootnamespace$.Controllers" #>
                     var className =  fileName.Split('.')[0];
                     if(fileName.EndsWith("View.ascx.cs") == false) continue;
              #> 
-             protected global::DOI._layouts.doia.Views.<#= className #> <#= className #>;
+             protected global::$rootnamespace$.Views.<#= className #> <#= className #>;
              <#
                 }
              #>

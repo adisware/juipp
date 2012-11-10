@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>Default</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <BuildOnLoad>true</BuildOnLoad>
+    <Name>Structure</Name>
+    <TemplateID>da72ce19-46b6-4bd9-a1ba-fb234a50ae96</TemplateID>
+    <Description>Juicy Presentation Pattern - Structure</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectItem TargetFileName="Controllers\Container.cs" ReplaceParameters="true">Container.cs</ProjectItem>
+    <ProjectItem TargetFileName="Controllers\Controller.cs" ReplaceParameters="true">Controller.cs</ProjectItem>
+    <ProjectItem TargetFileName="Behaviors\OpenDefaultBehavior.cs" ReplaceParameters="true">OpenDefaultBehavior.cs</ProjectItem>
+    <ProjectItem TargetFileName="ViewModels\DefaultViewModel.cs" ReplaceParameters="true">DefaultViewModel.cs</ProjectItem>
+    <ProjectItem TargetFileName="Views\DefaultView.ascx" ReplaceParameters="true">DefaultView.ascx</ProjectItem>
+    <ProjectItem TargetFileName="Views\DefaultView.ascx.cs" ReplaceParameters="true">DefaultView.ascx.cs</ProjectItem>
+    <ProjectItem TargetFileName="Views\DefaultView.ascx.designer.cs" ReplaceParameters="true">DefaultView.ascx.designer.cs</ProjectItem>
+    <ProjectItem TargetFileName="Pages\Default.aspx" ReplaceParameters="true">Default.aspx</ProjectItem>
+    <ProjectItem TargetFileName="Pages\Default.aspx.cs" ReplaceParameters="true">Default.aspx.cs</ProjectItem>
+    <ProjectItem TargetFileName="Pages\Default.aspx.designer.cs" ReplaceParameters="true">Default.aspx.designer.cs</ProjectItem>
+    <ProjectItem TargetFileName="_catalysts\ContainerBehind.tt" ReplaceParameters="true">ContainerBehind.tt</ProjectItem>
+    <ProjectItem TargetFileName="_catalysts\Container.tt" ReplaceParameters="true">Container.tt</ProjectItem>
+    <ProjectItem TargetFileName="_catalysts\ControllerBehind.tt" ReplaceParameters="true">ControllerBehind.tt</ProjectItem>
+    <ProjectItem TargetFileName="_catalysts\ViewModels.tt" ReplaceParameters="true">ViewModels.tt</ProjectItem>
+    <ProjectItem TargetFileName="_catalysts\Views.tt" ReplaceParameters="true">Views.tt</ProjectItem>
+    <ProjectItem TargetFileName="_catalysts\Behaviors.tt" ReplaceParameters="true">Behaviors.tt</ProjectItem>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>adisware.juipp.Wizards, Version=1.0.6.0, Culture=neutral, PublicKeyToken=2410bba4a1745095</Assembly>
+    <FullClassName>adisware.juipp.Wizards.CatalystWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

@@ -11,7 +11,7 @@ namespace $rootnamespace$.Controllers
         {
             base.BehaviorBinding = new Dictionary<string, string>()
                                        {
-                                           {BehaviorReference.OpenDefaultHomeBehavior, ViewReference.DefaultView}
+                                           {BehaviorReference.OpenDefaultBehavior, ViewReference.DefaultView}
                                        };
         }
     }

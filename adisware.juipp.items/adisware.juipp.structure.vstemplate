@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>Structure</Name>
+    <Description>Creates Juicy Presentation Pattern folder structure and T4 template files</Description>
+    <Icon>__TemplateIcon.ico</Icon>
+    <TemplateID>119AE0DA-3B12-4A52-860D-CFE7EAE4BCD9</TemplateID>
+    <BuildOnLoad>true</BuildOnLoad>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <DefaultName>Structure</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+      <Reference>
+        <Assembly>System</Assembly>
+      </Reference>
+    </References>
+    <ProjectItem SubType="Code" TargetFileName="Controllers\Container.cs" ReplaceParameters="true">Container.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="Controllers\Controller.cs" ReplaceParameters="true">Controller.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="Behaviors\OpenDefaultBehavior.cs" ReplaceParameters="true">OpenDefaultBehavior.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="ViewModels\DefaultViewModel.cs" ReplaceParameters="true">DefaultViewModel.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="Views\DefaultView.ascx" ReplaceParameters="true">DefaultView.ascx</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="Views\DefaultView.ascx.cs" ReplaceParameters="true">DefaultView.ascx.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="Views\DefaultView.ascx.designer.cs" ReplaceParameters="true">DefaultView.ascx.designer.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="Pages\Default.aspx" ReplaceParameters="true">Default.aspx</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="Pages\Default.aspx.cs" ReplaceParameters="true">Default.aspx.cs</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="Pages\Default.aspx.designer.cs" ReplaceParameters="true">Default.aspx.designer.cs</ProjectItem>
+    <ProjectItem CustomTool="TextTemplatingFileGenerator" SubType="" TargetFileName="_catalysts\ContainerBehind.tt" ReplaceParameters="true">ContainerBehind.tt</ProjectItem>
+    <ProjectItem CustomTool="TextTemplatingFileGenerator" SubType="" TargetFileName="_catalysts\Container.tt" ReplaceParameters="true">Container.tt</ProjectItem>
+    <ProjectItem CustomTool="TextTemplatingFileGenerator" SubType="" TargetFileName="_catalysts\ControllerBehind.tt" ReplaceParameters="true">ControllerBehind.tt</ProjectItem>
+    <ProjectItem CustomTool="TextTemplatingFileGenerator" SubType="" TargetFileName="_catalysts\ViewModels.tt" ReplaceParameters="true">ViewModels.tt</ProjectItem>
+    <ProjectItem CustomTool="TextTemplatingFileGenerator" SubType="" TargetFileName="_catalysts\Views.tt" ReplaceParameters="true">Views.tt</ProjectItem>
+    <ProjectItem CustomTool="TextTemplatingFileGenerator" SubType="" TargetFileName="_catalysts\Behaviors.tt" ReplaceParameters="true">Behaviors.tt</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

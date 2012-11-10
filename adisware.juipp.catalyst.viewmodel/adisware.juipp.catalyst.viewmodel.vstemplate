@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>Default</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <BuildOnLoad>true</BuildOnLoad>
+    <Name>ViewModel</Name>
+    <TemplateID>4b92e234-a89f-4d8e-8b7c-142e5f76ff2a</TemplateID>
+    <Description>Juicy Presentation Pattern - ViewModel</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <SupportsCodeSeparation>true</SupportsCodeSeparation>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectItem SubType="ViewModel" TargetFileName="$fileinputname$ViewModel.cs" ReplaceParameters="true">DefaultViewModel.cs</ProjectItem>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>adisware.juipp.Wizards, Version=1.0.6.0, Culture=neutral, PublicKeyToken=2410bba4a1745095</Assembly>
+    <FullClassName>adisware.juipp.Wizards.CatalystWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

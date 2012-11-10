@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>Default</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <BuildOnLoad>true</BuildOnLoad>
+    <Name>Behavior</Name>
+    <TemplateID>9914E8E1-D6DE-4CCF-8870-1BD3ED153750</TemplateID>
+    <Description>Juicy Presentation Pattern - Behavior</Description>
+    <ProjectType>CSharp</ProjectType>
+    <SortOrder>10</SortOrder>
+    <Icon>__TemplateIcon.ico</Icon>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <SupportsCodeSeparation>true</SupportsCodeSeparation>
+  </TemplateData>
+  <TemplateContent>
+    <ProjectItem SubType="Behavior" TargetFileName="$fileinputname$Behavior.cs" ReplaceParameters="true">DefaultBehavior.cs</ProjectItem>
+  </TemplateContent>
+  <WizardExtension>
+    <Assembly>adisware.juipp.Wizards, Version=1.0.6.0, Culture=neutral, PublicKeyToken=2410bba4a1745095</Assembly>
+    <FullClassName>adisware.juipp.Wizards.CatalystWizard</FullClassName>
+  </WizardExtension>
+</VSTemplate>

@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>adisware.juipp.vsix</RootNamespace>
-    <AssemblyName>JUIPP.Vsix 1.0.6</AssemblyName>
+    <AssemblyName>JUIPP.Vsix 1.0.8</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <GeneratePkgDefFile>false</GeneratePkgDefFile>
     <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
@@ -40,11 +40,33 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ItemTemplates\Structure.zip">
+    <Content Include="adisware.juipp.Wizards.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Adisware\JUIPP\adisware.juipp.Wizards.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="MIT_LICENSE.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
-    <Content Include="MIT_LICENSE.txt">
+    <Content Include="ItemTemplates\Juicy Presentation Pattern\adisware.juipp.catalyst.behavior.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="ItemTemplates\Juicy Presentation Pattern\adisware.juipp.catalyst.controller.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="ItemTemplates\Juicy Presentation Pattern\adisware.juipp.catalyst.view.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="ItemTemplates\Juicy Presentation Pattern\adisware.juipp.catalyst.viewmodel.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="ItemTemplates\Juicy Presentation Pattern\adisware.juipp.catalyst.struct.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
@@ -56,10 +78,11 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\adisware.juipp.items\adisware.juipp.structure.csproj">
-      <Project>{96068B0B-5457-4831-98BD-0EC979D01BFD}</Project>
-      <Name>adisware.juipp.structure</Name>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    <ProjectReference Include="..\adisware.juipp.Wizards\adisware.juipp.Wizards.csproj">
+      <Project>{92AC8FC9-D80C-4D4A-BB90-2482554CD30D}</Project>
+      <Name>adisware.juipp.Wizards</Name>
+      <IncludeOutputGroupsInVSIX>BuiltProjectOutputGroup%3bBuiltProjectOutputGroupDependencies%3bGetCopyToOutputDirectoryItems%3b</IncludeOutputGroupsInVSIX>
+      <IncludeOutputGroupsInVSIXLocalOnly>DebugSymbolsProjectOutputGroup%3b</IncludeOutputGroupsInVSIXLocalOnly>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

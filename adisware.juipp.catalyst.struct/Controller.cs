@@ -18,7 +18,7 @@ namespace $rootnamespace$.Controllers
             this.FireBehaviorEvent<DefaultViewModel>(
                 new BehaviorEvent<DefaultViewModel>()
                 {
-                    BehaviorReference = BehaviorReference.OpenDefaultHomeBehavior
+                    BehaviorReference = BehaviorReference.OpenDefaultBehavior
                 });
         }
     }
