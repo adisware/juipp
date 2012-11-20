@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9E98A7F9-D148-4C3A-894E-CF7A2E45B4DD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Org.Juipp.Core</RootNamespace>
+    <AssemblyName>Org.Juipp.Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>false</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Properties\adisware.juipp.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Behaviors\IBehavior.cs" />
+    <Compile Include="Behaviors\IExecutableBehavior.cs" />
+    <Compile Include="ViewModels\CollectionViewModel.cs" />
+    <Compile Include="Commons\IBindable.cs" />
+    <Compile Include="Commons\ICanChangeMyVisibility.cs" />
+    <Compile Include="ViewModels\IViewModel.cs" />
+    <Compile Include="Commons\IRefresher.cs" />
+    <Compile Include="Controllers\ContainerBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controllers\ControllerBase.cs" />
+    <Compile Include="Controllers\ControllerAttribute.cs" />
+    <Compile Include="Controllers\IBehaviorContext.cs" />
+    <Compile Include="Controllers\IBehaviorNames.cs" />
+    <Compile Include="Controllers\IContainBehaviorViewBinding.cs" />
+    <Compile Include="Controllers\IDetermineInitialEvent.cs" />
+    <Compile Include="Controllers\IDetermineModelTypes.cs" />
+    <Compile Include="Controllers\IDetermineNotificationViewName.cs" />
+    <Compile Include="Controllers\ILoadBehaviorViewBinding.cs" />
+    <Compile Include="Controllers\ITransitionInvoker.cs" />
+    <Compile Include="Events\Arguments\BehaviorEvent.cs" />
+    <Compile Include="Events\Arguments\DataChangedEvent.cs" />
+    <Compile Include="Events\Arguments\TransitionEvent.cs" />
+    <Compile Include="Events\Handlers\BehaviorEventHandler.cs" />
+    <Compile Include="Events\Handlers\OptionChangedHandler.cs" />
+    <Compile Include="Events\Handlers\TransitionHandler.cs" />
+    <Compile Include="Events\Handlers\ViewTransitionMethodDelegate.cs" />
+    <Compile Include="Events\Handlers\VisibilityChangedHandler.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\ViewBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\IBehaviorEventSender.cs" />
+    <Compile Include="Views\IBehaviorTriggererCollection.cs" />
+    <Compile Include="Commons\ICanChangeMyEnability.cs" />
+    <Compile Include="Views\ICanHandleBehaviorTrigger.cs" />
+    <Compile Include="Views\ICanCatchBehaviorEvent.cs" />
+    <Compile Include="Views\ICanCatchTransition.cs" />
+    <Compile Include="Views\ICanPropagateChange.cs" />
+    <Compile Include="Views\IDetermineCurrentViewReference.cs" />
+    <Compile Include="Views\ICanCollectBehaviorEventSender.cs" />
+    <Compile Include="Views\IVisibilityChangeInvoker.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\adisware.juipp.snk" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

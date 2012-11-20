@@ -1,5 +1,5 @@
 ﻿/*  Copyright (c) 2012-2013 Natnael Gebremariam
-    http://www.juipp.com
+    http://www.juipp.org
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -24,11 +24,11 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("JUIPP.Core 1.0.6")]
+[assembly: AssemblyTitle("Org.Juipp.Core 1.0.6")]
 [assembly: AssemblyDescription("Juicy Presentation Pattern - ASP.NET WebForms Framework")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Adisware")]
-[assembly: AssemblyProduct("JUIPP.Core 1.0.6")]
+[assembly: AssemblyProduct("Org.Juipp.Core 1.0.6")]
 [assembly: AssemblyCopyright("Copyright ©  2012-2013 Natnael Gebremariam")]
 [assembly: AssemblyTrademark("juipp, juicy presentation pattern")]
 [assembly: AssemblyCulture("")]

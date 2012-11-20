@@ -1,5 +1,5 @@
 ﻿/*  Copyright (c) 2012-2013 Natnael Gebremariam
-    http://www.juipp.com
+    http://www.juipp.org
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -28,14 +28,14 @@ using System.Linq;
 using System.Reflection;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using adisware.juipp.Behaviors;
-using adisware.juipp.Commons;
-using adisware.juipp.Events.Arguments;
-using adisware.juipp.Events.Handlers;
-using adisware.juipp.ViewModels;
-using adisware.juipp.Views;
+using Org.Juipp.Core.Behaviors;
+using Org.Juipp.Core.Commons;
+using Org.Juipp.Core.Events.Arguments;
+using Org.Juipp.Core.Events.Handlers;
+using Org.Juipp.Core.ViewModels;
+using Org.Juipp.Core.Views;
 
-namespace adisware.juipp.Controllers
+namespace Org.Juipp.Core.Controllers
 {
     public abstract class ControllerBase :
         WebControl,
@@ -195,10 +195,6 @@ namespace adisware.juipp.Controllers
 
             this.TransitionView(view, viewName, behaviorEvent);
 
-            this.OnAfterTransitionEvent(viewName, behavior);
-
-
-
             if (viewName == null && sender is ViewBase)
             {
                 BindViewModel(sender as ViewBase, behaviorEvent.ViewModel);
@@ -208,16 +204,18 @@ namespace adisware.juipp.Controllers
                 var next = this.GetNextView(viewName);
                 if (next != null)
                 {
+                    BindViewModel(next, behaviorEvent.ViewModel);
+
                     next.OnAfterTransition(behaviorEvent);
                     foreach (var sub in next.Controls.OfType<ViewBase>())
                     {
                         sub.BehaviorContext = next.BehaviorContext;
                         sub.OnAfterTransition(behaviorEvent);
                     }
-
-                    BindViewModel(next, behaviorEvent.ViewModel);
                 }
             }
+
+            this.OnAfterTransitionEvent(viewName, behavior);
 
             return true;
         }

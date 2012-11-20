@@ -1,5 +1,5 @@
 /*  Copyright (c) 2012-2013 Natnael Gebremariam
-    http://www.juipp.com
+    http://www.juipp.org
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -21,11 +21,11 @@
     WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-using adisware.juipp.Commons;
-using adisware.juipp.Events.Arguments;
-using adisware.juipp.ViewModels;
+using Org.Juipp.Core.Commons;
+using Org.Juipp.Core.Events.Arguments;
+using Org.Juipp.Core.ViewModels;
 
-namespace adisware.juipp.Views
+namespace Org.Juipp.Core.Views
 {
     public interface ICanSendBehaviorEvent
     {

@@ -1,0 +1,1961 @@
+IBehavior.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+ *  http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+using Org.Juipp.Core.Controllers;
+
+namespace Org.Juipp.Core.Behaviors
+{
+    public interface IBehavior
+    {
+        IBehaviorContext BehaviorContext { get; set; }
+    }
+}
+
+IExecutableBehavior.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+ *  http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+using Org.Juipp.Core.Events.Arguments;
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Behaviors
+{
+    public interface IExecutableBehavior<T> : IBehavior where T : IViewModel, new()
+    {
+        void Execute(BehaviorEvent<T> args);
+    }
+}
+IBindable.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+namespace Org.Juipp.Core.Commons
+{
+    public interface IBindable<in T> 
+    {
+        void Bind(T item);
+    }
+}
+ICanChangeMyEnability.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+namespace Org.Juipp.Core.Commons
+{
+    public interface ICanChangeMyEnability
+    {
+        void Enable();
+        void Disable();
+    }
+}
+ICanChangeMyVisibility.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+namespace Org.Juipp.Core.Commons
+{
+    public interface ICanChangeMyVisibility
+    {
+        void Hide();
+        void Show();
+    }
+}
+IRefresher.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+namespace Org.Juipp.Core.Commons
+{
+    public interface IRefresher<in TD>
+    {
+        void Refresh(TD item);
+    }
+}
+ContainerBase.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using System;
+using System.Collections.Generic;
+using Org.Juipp.Core.Behaviors;
+using Org.Juipp.Core.Views;
+
+namespace Org.Juipp.Core.Controllers
+{
+    public abstract class ContainerBase : 
+        System.Web.UI.UserControl, 
+        IBehaviorContext
+    {
+        protected IDictionary<string, ControllerBase> Controllers { get; set; }
+        protected IDictionary<string, ViewBase> Views { get; set; }
+        protected IDictionary<string, string> ViewControllerBinding { get; set; }
+        protected IDictionary<string, string> BehaviorBinding { get; set; }
+        protected IDictionary<string, IBehavior> Behaviors { get; set; }
+
+        private readonly IDictionary<string, object> _contextValues = new Dictionary<string, object>();
+
+        protected ContainerBase()
+        {
+            this.Controllers = new Dictionary<string, ControllerBase>();
+        }
+        object IBehaviorContext.this[string key]
+        {
+            get { return _contextValues.ContainsKey(key) == false ? this.RetrieveBindingElement(key) : _contextValues[key]; }
+            set
+            {
+                if (_contextValues.ContainsKey(key)) _contextValues.Remove(key);
+                _contextValues.Add(key, value);
+                this.PersistBindingElement(key, value);
+            }
+        }
+        
+        protected object RetrieveBindingElement(string key)
+        {
+            var bindingItem = this.ViewState[key];
+            return bindingItem;
+        }
+        protected void PersistBindingElement(string key, object element)
+        {
+            var bindingItem = this.ViewState[key];
+            if (bindingItem != null) this.ViewState.Remove(key);
+            this.ViewState.Add(key, element);
+        }
+
+        protected override void OnInit(EventArgs e)
+        {
+          
+            base.OnInit(e);
+            this.OnBehaviorBinding();
+        }
+        protected override void CreateChildControls()
+        {
+            foreach (var controller in Controllers)
+            {
+                this.Controls.Add(controller.Value);
+            }
+            base.CreateChildControls();
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            base.EnsureChildControls();
+
+            this.OnViewControllerBinding();
+            foreach (var c in Controllers)
+            {  
+                c.Value.LoadBehaviorViewBinding(
+                    this.Views, 
+                    this.Behaviors, 
+                    this.BehaviorBinding, 
+                    this.ViewControllerBinding);
+            }
+        }
+
+        protected virtual void OnBehaviorBinding()
+        {
+            this.BehaviorBinding = new Dictionary<string, string>();
+        }
+        protected virtual void OnViewControllerBinding()
+        {
+            this.ViewControllerBinding = new Dictionary<string, string>();
+
+            foreach(var key in Views.Keys)
+            {
+                var matchingController = string.Format("{0}Controller", key.Substring(0, key.IndexOf("View", System.StringComparison.Ordinal)));
+
+                this.ViewControllerBinding.Add(key, this.Controllers.ContainsKey(matchingController) ? matchingController : "Controller");
+            }
+        }
+    }
+}
+
+ControllerAttribute.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using System;
+
+namespace Org.Juipp.Core.Controllers
+{
+    public class ControllerAttribute : Attribute
+    {
+        public string InitialBehaviorFullName { get; set; }
+        public string InitialViewModel { get; set; }
+    }
+}
+
+ControllerBase.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
+using System.Reflection;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Org.Juipp.Core.Behaviors;
+using Org.Juipp.Core.Commons;
+using Org.Juipp.Core.Events.Arguments;
+using Org.Juipp.Core.Events.Handlers;
+using Org.Juipp.Core.ViewModels;
+using Org.Juipp.Core.Views;
+
+namespace Org.Juipp.Core.Controllers
+{
+    public abstract class ControllerBase :
+        WebControl,
+        ILoadBehaviorViewBinding,
+        IDetermineModels,
+        IBehaviorContext
+    {
+        protected IDictionary<string, ViewBase> Views;
+        protected IDictionary<string, string> BehaviorBinding;
+        protected IDictionary<string, string> ViewControllerBinding;
+        protected IDictionary<string, IBehavior> Behaviors;
+        protected ContainerBase ContainerBase;
+        public ScriptManager ScriptManager { get; set; }
+
+        protected Stack<String> ViewHistory
+        {
+            get
+            {
+                var history = this.RetrieveBindingElement("ViewHistory");
+                return history == null ? new Stack<string>() : history as Stack<string>;
+            }
+            set { this.PersistBindingElement("ViewHistory", value);}
+        }
+
+        protected ControllerBase(ContainerBase containerBase)
+        {
+            ContainerBase = containerBase;
+        }
+
+        #region IBehaviorContext Members
+
+        object IBehaviorContext.this[string key]
+        {
+            get { return (ContainerBase as IBehaviorContext)[key]; }
+            set { (ContainerBase as IBehaviorContext)[key] = value; }
+        }
+
+        #endregion
+
+        private string CurrentViewReference
+        {
+            set
+            {
+                var state = this.ViewState["CurrentViewReference"];
+                if (state != null) this.ViewState.Remove("CurrentViewReference");
+                this.ViewState.Add("CurrentViewReference", value);
+            }
+            get
+            {
+                var state = this.ViewState["CurrentViewReference"];
+                if (state == null) return null;
+                return (string)state;
+            }
+        }
+        private void TransitionView<T>(ICanChangeMyVisibility sender, string viewName, BehaviorEvent<T> behaviorEvent)  where T : IViewModel, new()
+        {
+            this.TransitionView(sender, viewName);
+
+            this.FireTransitionEvent(behaviorEvent, this.OnTransitionEvent, viewName);
+
+
+            //if (sender is IBehaviorEventSender<T>) this.CurrentViewReference = viewName;
+        }
+        private ViewBase GetNextView(string viewName)
+        {
+            var nextView = Views[viewName];
+            nextView.Reference = viewName;
+            return nextView;
+        }
+        private void TransitionView(ICanChangeMyVisibility sender, string viewName)
+        {
+            if (viewName == null) return;
+            var nextView = this.GetNextView(viewName);
+            if (sender != null && !sender.Equals(nextView))
+            {
+                sender.Hide();
+            }
+            nextView.Show();
+
+            if (string.IsNullOrEmpty(viewName) == false)
+            {
+                var viewHistory = this.ViewHistory;
+                viewHistory.Push(viewName);
+                this.ViewHistory = viewHistory;
+            }
+        }
+        private static void BindViewModel(Control view, IViewModel viewModel)
+        {
+            if (viewModel == null) return;
+
+            var viewType = view.GetType();
+            var modelType = viewModel.GetType();
+
+            var bind = viewType.GetMethods().FirstOrDefault(
+                m =>
+                    m.Name == "Bind"
+                    && m.GetParameters().FirstOrDefault() != null
+                    && m.GetParameters()[0].ParameterType == modelType);
+
+            if (bind != null) bind.Invoke(view, new object[] { viewModel });
+
+            foreach (var control in view.Controls.OfType<ViewBase>())
+            {
+                BindViewModel(control as ViewBase, viewModel);
+            }
+        }
+        private void FireTransitionEvent<T>(BehaviorEvent<T> args, TransitionEventDelegate<T> transitionEventDelegate, string viewName)  where T : IViewModel, new()
+        {
+            var transitionEvent = new TransitionEvent<T>(args)
+            {
+                ViewModel = args.ViewModel,
+                ViewReference = viewName,
+                PreviousViewReference = this.CurrentViewReference
+            };
+            transitionEventDelegate(transitionEvent);
+
+            if (viewName != null) this.CurrentViewReference = viewName;
+
+
+            this.ScriptManager = ScriptManager.GetCurrent(this.Page);
+            if (this.ScriptManager != null
+                && this.ScriptManager.IsInAsyncPostBack
+                && this.ScriptManager.EnableHistory
+                && string.IsNullOrEmpty(viewName) == false)
+            {
+                this.ScriptManager.AddHistoryPoint(new NameValueCollection()
+                                                       {
+                                                           {"pv", transitionEvent.PreviousViewReference}
+                                                       }, transitionEvent.PreviousViewReference);
+            }
+
+        }
+        private bool OnBehaviorEventFired<T>(IBehaviorEventSender<T> sender, BehaviorEvent<T> behaviorEvent) where T : IViewModel, new()
+        {
+            this.OnBeforeBehaviorLookup(behaviorEvent);
+            if (this.Behaviors.ContainsKey(behaviorEvent.BehaviorReference) == false) return false;
+
+            var behavior = this.Behaviors[behaviorEvent.BehaviorReference] as IExecutableBehavior<T>;
+            if (behavior == null) return false;
+
+            behavior.BehaviorContext = this;
+
+            this.OnBeforeBehaviorEvent(sender, behaviorEvent);
+            this.OnBehaviorEvent(behavior, behaviorEvent);
+            this.OnAfterBehaviorEvent(sender, behaviorEvent);
+
+            string viewName = null;
+
+            if (this.BehaviorBinding.ContainsKey(behaviorEvent.BehaviorReference))
+            {
+                viewName = this.BehaviorBinding[behaviorEvent.BehaviorReference];
+            }
+
+            this.OnBeforeTransitionEvent(viewName, behavior);
+            var view = sender as ViewBase;
+            if (view != null) view.BehaviorContext = this;
+
+            this.TransitionView(view, viewName, behaviorEvent);
+
+            this.OnAfterTransitionEvent(viewName, behavior);
+
+
+
+            if (viewName == null && sender is ViewBase)
+            {
+                BindViewModel(sender as ViewBase, behaviorEvent.ViewModel);
+            }
+            else if (viewName != null)
+            {
+                var next = this.GetNextView(viewName);
+                if (next != null)
+                {
+                    next.OnAfterTransition(behaviorEvent);
+                    foreach (var sub in next.Controls.OfType<ViewBase>())
+                    {
+                        sub.BehaviorContext = next.BehaviorContext;
+                        sub.OnAfterTransition(behaviorEvent);
+                    }
+
+                    BindViewModel(next, behaviorEvent.ViewModel);
+                }
+            }
+
+            return true;
+        }
+
+        protected T RetrieveBindingElement<T>()
+        {
+            var name = typeof(T).FullName;
+            if (name != null)
+            {
+                var bindingItem = this.ViewState[name];
+                if (bindingItem == null) return default(T);
+                return (T)bindingItem;
+            }
+            return default(T);
+        }
+        protected void PersistBindingElement<T>(T element)
+        {
+            var name = typeof(T).FullName;
+            if (name != null)
+            {
+                var bindingItem = this.ViewState[name];
+                if (bindingItem != null) this.ViewState.Remove(name);
+                this.ViewState.Add(name, element);
+            }
+        }
+        protected object RetrieveBindingElement(string key)
+        {
+            var bindingItem = this.ViewState[key];
+            return bindingItem;
+        }
+        protected void PersistBindingElement(string key, object element)
+        {
+            var bindingItem = this.ViewState[key];
+            if (bindingItem != null) this.ViewState.Remove(key);
+            this.ViewState.Add(key, element);
+        }
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            this.ScriptManager = ScriptManager.GetCurrent(this.Page);
+            if (this.ScriptManager != null)
+            {
+                this.ScriptManager.Navigate += this.ScriptManagerNavigate;
+
+            }
+        }
+
+        protected virtual void ScriptManagerNavigate(object sender, HistoryEventArgs e)
+        {
+            
+            if (e.State.AllKeys.Contains("pv") == false) return;
+
+            this.TransitionView(this.Views[this.CurrentViewReference], e.State["pv"]);
+            this.CurrentViewReference = e.State["pv"];
+        }
+        protected void OnInitialBehaviorEventFired<T>(string behaviorName) where T : IViewModel, new()
+        {
+            this.OnBehaviorEventFired(null,
+                new BehaviorEvent<T>()
+                {
+                    BehaviorReference = behaviorName
+                });
+        }
+        protected void OnLoadBehaviorViewBinding()
+        {
+            foreach (var model in Models)
+            {
+                var type = this.GetType();
+                var wireOnBehaviorEventFiredMethod = type.GetMethod("WireOnBehaviorEventFired", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.FlattenHierarchy);
+
+                var method = wireOnBehaviorEventFiredMethod.MakeGenericMethod(new[] { model.GetType() });
+
+                method.Invoke(this, new object[] { });
+            }
+
+        }
+        protected void WireViewEvents()
+        {
+            foreach (var view in Views.Where(view => this.ViewControllerBinding[view.Key] == this.ID))
+            {
+                view.Value.BackTriggered += this.ValueBackTriggered;
+            }
+        }
+        protected void FireTransitionEvent<T>(TransitionEvent<T> transitionEvent, TransitionEventHandler<T> transitionEventHandler) where T : IViewModel, new()
+        {
+            if (transitionEvent == null || transitionEventHandler == null) return;
+
+            transitionEventHandler((ITransitionEventSender<T>)this, transitionEvent);
+        }
+        protected void WireOnBehaviorEventFired<T>() where T : IViewModel, new()
+        {
+            foreach (var view in Views.Where(view => this.ViewControllerBinding[view.Key] == this.ID))
+            {
+                view.Value.BehaviorContext = this;
+
+                if (view.Value is IBehaviorEventSender<T>)
+                {
+                    var actionPerformer = ((IBehaviorEventSender<T>)view.Value);
+
+                    actionPerformer.BehaviorEventFired -= this.OnBehaviorEventFired;
+                    actionPerformer.BehaviorEventFired += this.OnBehaviorEventFired;
+
+                    if (view.Value is IBehaviorEventSenderCollection<T>)
+                    {
+                        var parent = (IBehaviorEventSenderCollection<T>)view.Value;
+                        foreach (var c in parent.BehaviorTriggers)
+                        {
+                            c.BehaviorEventFired -= this.OnBehaviorEventFired;
+                            c.BehaviorEventFired += this.OnBehaviorEventFired;
+                        }
+                    }
+                }
+
+                var listenerView = view.Value as ICanCatchTransition;
+                ((ITransitionEventSender<T>)this).TransitionEventFired += listenerView.OnCatchTransition;
+            }
+        }
+        protected void ValueBackTriggered(object sender, EventArgs e)
+        {
+            var viewHistory = this.ViewHistory;
+            viewHistory.Pop(); //pop the current
+            this.ViewHistory = viewHistory;
+            this.TransitionView(sender as ICanChangeMyVisibility, ViewHistory.Pop()); //pop the previous one
+        }
+
+        protected virtual void InitBehaviorContext() { }
+        protected virtual void OnBeforeBehaviorEvent<T>(IBehaviorEventSender<T> sender, BehaviorEvent<T> behaviorEvent) where T : IViewModel, new()
+        {
+        }
+        protected virtual void OnBeforeBehaviorLookup<T>(BehaviorEvent<T> behaviorEvent) where T : IViewModel, new()
+        {
+        }
+        protected virtual void OnAfterBehaviorEvent<T>(IBehaviorEventSender<T> sender, BehaviorEvent<T> behaviorEvent) where T : IViewModel, new()
+        {
+        }
+        protected virtual void OnBehaviorEvent<T>(IExecutableBehavior<T> executableBehavior, BehaviorEvent<T> behaviorEvent) where T : IViewModel, new()
+        {
+            executableBehavior.Execute(behaviorEvent);
+        }
+        protected virtual void OnBeforeTransitionEvent<T>(string viewReference, IExecutableBehavior<T> behavior) where T : IViewModel, new()
+        {
+        }
+        protected virtual void OnAfterTransitionEvent<T>(string viewReference, IExecutableBehavior<T> behavior) where T : IViewModel, new()
+        {
+        }
+
+        protected abstract void OnTransitionEvent<T>(TransitionEvent<T> transitionEvent) where T : IViewModel, new();
+        public abstract IList<IViewModel> Models { get; }
+
+        public bool FireBehaviorEvent<T>(BehaviorEvent<T> behaviorEvent) where T : IViewModel, new()
+        {
+            return this.OnBehaviorEventFired(null, behaviorEvent);
+        }
+        public void LoadBehaviorViewBinding(
+            IDictionary<string, ViewBase> views,
+            IDictionary<string, IBehavior> behaviors,
+            IDictionary<string, string> behaviorBinding,
+            IDictionary<string, string> viewControllerBinding)
+        {
+            this.Views = views;
+            this.Behaviors = behaviors;
+            this.BehaviorBinding = behaviorBinding;
+            this.ViewControllerBinding = viewControllerBinding;
+            this.WireViewEvents();
+            this.OnLoadBehaviorViewBinding();
+            this.InitBehaviorContext();
+        }
+    }
+}
+
+IBehaviorContext.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using System;
+
+namespace Org.Juipp.Core.Controllers
+{
+    public interface IBehaviorContext
+    {
+        object this[String key] { get; set; }
+    }
+}
+IBehaviorNames.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using System.Collections.Generic;
+
+namespace Org.Juipp.Core.Controllers
+{
+    public interface IBehaviorNames
+    {
+        IList<string> Names { get; set; } 
+    }
+}
+IContainBehaviorViewBinding.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using System.Collections.Generic;
+using Org.Juipp.Core.Behaviors;
+using Org.Juipp.Core.Views;
+
+namespace Org.Juipp.Core.Controllers
+{
+    public interface IContainBehaviorViewBinding
+    {
+        IDictionary<string, IBehavior> Behaviors { get; set; }
+        IDictionary<string, ViewBase> Views { get; set; }
+        IDictionary<string, string> BehaviorBinding { get; set; }
+    }
+}
+IDetermineInitialEvent.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Controllers
+{
+    public interface IDetermineInitialEvent
+    {
+        string InitialViewName { get; }
+        string InitialBehaviorName { get; }
+        IViewModel InitialModel { get; }
+    }
+}
+IDetermineModelTypes.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using System.Collections.Generic;
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Controllers
+{
+    public interface IDetermineModels
+    {
+        IList<IViewModel> Models { get; }  
+    }
+}
+IDetermineNotificationViewName.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+namespace Org.Juipp.Core.Controllers
+{
+    public interface IDetermineNotificationViewName
+    {
+        string NotificationViewName { get; }
+    }
+}
+ILoadBehaviorViewBinding.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using System.Collections.Generic;
+using Org.Juipp.Core.Behaviors;
+using Org.Juipp.Core.Views;
+
+namespace Org.Juipp.Core.Controllers
+{
+    public interface ILoadBehaviorViewBinding
+    {
+        void LoadBehaviorViewBinding(
+            IDictionary<string, ViewBase> views,
+            IDictionary<string, IBehavior> behaviors,
+            IDictionary<string, string> behaviorBinding,
+            IDictionary<string, string> viewControllerBinding);
+    }
+}
+ITransitionInvoker.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using Org.Juipp.Core.Events.Handlers;
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Controllers
+{
+    public interface ITransitionEventSender<TD> where TD : IViewModel, new()
+    {
+        event TransitionEventHandler<TD> TransitionEventFired;
+    }
+}
+BehaviorEvent.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Events.Arguments
+{
+public class BehaviorEvent<T> where T : IViewModel, new()
+{
+    public T ViewModel { get; set; }
+    public string BehaviorReference { get; set; }
+}
+}
+DataChangedEvent.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+namespace Org.Juipp.Core.Events.Arguments
+{
+    public class DataChangedEvent<TD> 
+    {
+        public TD Data { get; set; }
+    }
+}
+TransitionEvent.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using System;
+using Org.Juipp.Core.Commons;
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Events.Arguments
+{
+public class TransitionEvent<T> where T : IViewModel, new() 
+{
+    public BehaviorEvent<T> BehaviorEvent { get; private set; }
+
+    public TransitionEvent(BehaviorEvent<T> behaviorEvent)
+    {
+        this.BehaviorEvent = behaviorEvent;
+    }
+
+    public T ViewModel
+    {
+        get
+        {
+            return this.BehaviorEvent.ViewModel;
+        } 
+        set
+        {
+            this.BehaviorEvent.ViewModel = value;
+        }
+    }
+    public string ViewReference { get; set; }
+    public string PreviousViewReference { get; set; }
+}
+}
+BehaviorEventHandler.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using Org.Juipp.Core.Events.Arguments;
+using Org.Juipp.Core.ViewModels;
+using Org.Juipp.Core.Views;
+
+namespace Org.Juipp.Core.Events.Handlers
+{
+    public delegate bool BehaviorEventHandler<TD>(IBehaviorEventSender<TD> sender, BehaviorEvent<TD> args) where TD : IViewModel, new();
+}
+OptionChangedHandler.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using Org.Juipp.Core.Events.Arguments;
+using Org.Juipp.Core.ViewModels;
+using Org.Juipp.Core.Views;
+
+namespace Org.Juipp.Core.Events.Handlers
+{
+    public delegate void OptionChangedHandler<TD>(ViewBase sender, DataChangedEvent<TD> args) where TD : IViewModel, new();
+}
+TransitionHandler.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using Org.Juipp.Core.Controllers;
+using Org.Juipp.Core.Events.Arguments;
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Events.Handlers
+{
+    public delegate void TransitionEventHandler<TD>(ITransitionEventSender<TD> sender, TransitionEvent<TD> transitionEvent) where TD : IViewModel, new();
+}
+ViewTransitionMethodDelegate.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using Org.Juipp.Core.Events.Arguments;
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Events.Handlers
+{
+    public delegate void TransitionEventDelegate<TD>(TransitionEvent<TD> transitionEvent) where TD : IViewModel, new();
+}
+VisibilityChangedHandler.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+namespace Org.Juipp.Core.Events.Handlers
+{
+    public delegate void VisibilityChangedHandler(object sender, bool isVisible);
+}
+AssemblyInfo.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using System.Reflection;
+using System.Runtime.InteropServices;
+
+[assembly: AssemblyTitle("Org.Juipp.Core 1.0.6")]
+[assembly: AssemblyDescription("Juicy Presentation Pattern - ASP.NET WebForms Framework")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("Adisware")]
+[assembly: AssemblyProduct("Org.Juipp.Core 1.0.6")]
+[assembly: AssemblyCopyright("Copyright ©  2012-2013 Natnael Gebremariam")]
+[assembly: AssemblyTrademark("juipp, juicy presentation pattern")]
+[assembly: AssemblyCulture("")]
+
+// Setting ComVisible to false makes the types in this assembly not visible 
+// to COM components.  If you need to access a type in this assembly from 
+// COM, set the ComVisible attribute to true on that type.
+[assembly: ComVisible(false)]
+
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("99d1f72a-dd76-4edd-ba72-cb8be4d7b3f0")]
+
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Build and Revision Numbers 
+// by using the '*' as shown below:
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.6.0")]
+[assembly: AssemblyFileVersion("1.0.6.*")]
+
+CollectionViewModel.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using System;
+using System.Collections.Generic;
+
+namespace Org.Juipp.Core.ViewModels
+{
+    [Serializable]
+    public class CollectionViewModel<T> : IList<T> where T : IViewModel
+    {
+        readonly IList<T> _list = new List<T>();
+
+        public CollectionViewModel() { }
+        public CollectionViewModel(IList<T> list)
+        {
+            _list = list;
+        }
+        #region IEnumerable<ApplicantViewModel> Members
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return _list.GetEnumerator();
+        }
+
+        #endregion
+
+        #region IEnumerable Members
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return _list.GetEnumerator();
+        }
+
+        #endregion
+
+        #region IList<ApplicantViewModel> Members
+
+        public int IndexOf(T item)
+        {
+            return _list.IndexOf(item);
+        }
+
+        public void Insert(int index, T item)
+        {
+            _list.Insert(index, item);
+        }
+
+        public void RemoveAt(int index)
+        {
+            _list.RemoveAt(index);
+        }
+
+        public T this[int index]
+        {
+            get
+            {
+                return _list[index];
+            }
+            set
+            {
+                _list[index] = value;
+            }
+        }
+
+        #endregion
+
+        #region ICollection<T> Members
+
+        public void Add(T item)
+        {
+            _list.Add(item);
+        }
+
+        public void Clear()
+        {
+            _list.Clear();
+        }
+
+        public bool Contains(T item)
+        {
+            return _list.Contains(item);
+        }
+
+        public void CopyTo(T[] array, int arrayIndex)
+        {
+            _list.CopyTo(array, arrayIndex);
+        }
+
+        public int Count
+        {
+            get { return _list.Count; }
+        }
+
+        public bool IsReadOnly
+        {
+            get { return _list.IsReadOnly; }
+        }
+
+        public bool Remove(T item)
+        {
+            return _list.Remove(item);
+        }
+
+        #endregion
+    }
+}
+
+IViewModel.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+namespace Org.Juipp.Core.ViewModels
+{
+    public interface IViewModel { }
+}
+
+IBehaviorEventSender.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using Org.Juipp.Core.Events.Handlers;
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Views
+{
+    public interface IBehaviorEventSender<TD> where TD : IViewModel, new()
+    {
+        event BehaviorEventHandler<TD> BehaviorEventFired;
+    }
+}
+IBehaviorTriggererCollection.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using System.Collections.Generic;
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Views
+{
+    public interface IBehaviorEventSenderCollection<T> where T : IViewModel, new()
+    {
+        ICollection<IBehaviorEventSender<T>> BehaviorTriggers { get; }
+    }
+}
+
+ICanCatchBehaviorEvent.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using Org.Juipp.Core.Commons;
+using Org.Juipp.Core.Events.Arguments;
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Views
+{
+    public interface ICanCatchBehaviorEvent
+    {
+        void OnBehaviorEventReceive<T>(IBehaviorEventSender<T> sender, BehaviorEvent<T> behaviorEvent) where T : IViewModel, new();
+    }
+}
+ICanCatchTransition.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using Org.Juipp.Core.Controllers;
+using Org.Juipp.Core.Events.Arguments;
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Views
+{
+    public interface ICanCatchTransition
+    {
+        void OnCatchTransition<T>(ITransitionEventSender<T> sender, TransitionEvent<T> args) where T : IViewModel, new();
+    }
+}
+ICanCollectBehaviorEventSender.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using Org.Juipp.Core.Commons;
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Views
+{
+    public interface ICanCollectBehaviorEventSender<T>  where T : IViewModel, new()
+    {
+        void AddBehaviorEventSender(IBehaviorEventSender<T> behaviorTrigger);
+    }
+}
+
+ICanHandleBehaviorTrigger.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using Org.Juipp.Core.Commons;
+using Org.Juipp.Core.Events.Arguments;
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Views
+{
+    public interface ICanSendBehaviorEvent
+    {
+        bool SendBehaviorEvent<T>(BehaviorEvent<T> args) where T : IViewModel, new();
+    }
+}
+ICanPropagateChange.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+namespace Org.Juipp.Core.Views
+{
+    public interface ICanPropagateChange
+    {
+        void PropagateChange();
+    }
+}
+IDetermineCurrentViewReference.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+namespace Org.Juipp.Core.Views
+{
+    public interface IDetermineCurrentViewReference
+    {
+        string CurrentViewReference { get; set; }
+    }
+}
+IVisibilityChangeInvoker.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using Org.Juipp.Core.Events.Handlers;
+
+namespace Org.Juipp.Core.Views
+{
+    public interface IVisibilityChangedInvoker
+    {
+        event VisibilityChangedHandler VisibilityChanged;
+        void OnVisibilityChanged(bool isVisible);
+    }
+}
+ViewBase.cs
+/*  Copyright (c) 2012-2013 Natnael Gebremariam
+    http://www.juipp.org
+ 
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+
+    The above copyright notice and this permission notice shall be
+    included in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+    LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+    OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+    WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+*/
+
+using System;
+using System.Collections.Generic;
+using System.Web.UI;
+using Org.Juipp.Core.Commons;
+using Org.Juipp.Core.Controllers;
+using Org.Juipp.Core.Events.Arguments;
+using Org.Juipp.Core.Events.Handlers;
+using Org.Juipp.Core.ViewModels;
+
+namespace Org.Juipp.Core.Views
+{
+    public abstract class ViewBase : 
+        UserControl, 
+        ICanChangeMyVisibility,  
+        ICanCatchTransition
+    {
+        public string Title
+        {
+            set
+            {
+                var state = this.ViewState["Title"];
+                if (state != null) this.ViewState.Remove("Title");
+                this.ViewState.Add("Title", value);
+            }
+            get
+            {
+                var state = this.ViewState["Title"];
+                if (state == null) return null;
+                return (string)state;
+            }
+        }
+        public string Reference
+        {
+            set
+            {
+                var state = this.ViewState["Reference"];
+                if (state != null) this.ViewState.Remove("Reference");
+                this.ViewState.Add("Reference", value);
+            }
+            get
+            {
+                var state = this.ViewState["Reference"];
+                if (state == null) return null;
+                return (string)state;
+            }
+        }
+
+        #region IHideable
+
+        public virtual void Hide()
+        {
+            if (this.Visible == true) this.Visible = false;
+            this.OnVisibilityChanged(false);
+        }
+        public virtual void Show()
+        {
+            if (this.Visible == false) this.Visible = true;
+            this.OnVisibilityChanged(true);
+        }
+
+        #endregion
+
+        public T RetrieveBindingElement<T>()
+        {
+            var name = typeof(T).FullName;
+            if (name != null)
+            {
+                var bindingItem = this.ViewState[name];
+                if (bindingItem == null) return default(T);
+                return (T) bindingItem;
+            }
+            return default(T);
+        }
+        public void PersistBindingElement<T>(T element)
+        {
+            var name = typeof(T).FullName;
+            if (name != null)
+            {
+                var bindingItem = this.ViewState[name];
+                if (bindingItem != null) this.ViewState.Remove(name);
+                this.ViewState.Add(name, element);
+            }
+        }
+        
+
+        public IBehaviorContext BehaviorContext { get; set; }
+
+        public delegate bool FireBehaviorEventDelegate(object behaviorEvent);
+        public event VisibilityChangedHandler  VisibilityChanged;
+        public event EventHandler BackTriggered;
+
+        public void OnBackTriggered(object sender, EventArgs e)
+        {
+            var handler = BackTriggered;
+            if (handler != null) handler(this, e);
+        }
+
+        protected void OnVisibilityChanged(bool visibility)
+        {
+            var handler = VisibilityChanged;
+            if (handler != null) handler(this, visibility);
+        }
+
+        public bool SendBehaviorEvent<T>(BehaviorEvent<T> behaviorEvent) where T : IViewModel, new()
+        {
+            var success = false;
+            foreach (var fireBehaviorEventDelegate in this.FireBehaviorEventDelegates)
+            {
+                success = fireBehaviorEventDelegate.Invoke(behaviorEvent);
+            }
+
+            return success;
+        }
+
+        public virtual void Bind<T>(T viewModel) where T : IViewModel { }
+        public virtual void OnAfterTransition<T>(BehaviorEvent<T> behaviorEvent) where T : IViewModel, new() { }
+        public virtual void OnCatchTransition<T>(ITransitionEventSender<T> sender, TransitionEvent<T> transitionEvent) where T : IViewModel, new() { }
+        public virtual void PropagateChange() { }
+        public virtual void Enable() { }
+        public virtual void Disable() { }
+
+        protected bool FireBehaviorEvent<T>(BehaviorEventHandler<T> handler, BehaviorEvent<T> behaviorEvent) where T : IViewModel, new()
+        {
+            if (behaviorEvent == null) return false;
+            return handler != null && handler(this as IBehaviorEventSender<T>, behaviorEvent);
+        }
+        protected readonly IList<FireBehaviorEventDelegate> FireBehaviorEventDelegates = new List<FireBehaviorEventDelegate>();
+    }
+}

@@ -1,5 +1,5 @@
 ﻿/*  Copyright (c) 2012-2013 Natnael Gebremariam
-    http://www.juipp.com
+    http://www.juipp.org
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -22,9 +22,9 @@
 */
 
 using System.Collections.Generic;
-using adisware.juipp.ViewModels;
+using Org.Juipp.Core.ViewModels;
 
-namespace adisware.juipp.Views
+namespace Org.Juipp.Core.Views
 {
     public interface IBehaviorEventSenderCollection<T> where T : IViewModel, new()
     {

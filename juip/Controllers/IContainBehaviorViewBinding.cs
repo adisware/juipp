@@ -1,5 +1,5 @@
 /*  Copyright (c) 2012-2013 Natnael Gebremariam
-    http://www.juipp.com
+    http://www.juipp.org
  
     Permission is hereby granted, free of charge, to any person obtaining
     a copy of this software and associated documentation files (the
@@ -22,10 +22,10 @@
 */
 
 using System.Collections.Generic;
-using adisware.juipp.Behaviors;
-using adisware.juipp.Views;
+using Org.Juipp.Core.Behaviors;
+using Org.Juipp.Core.Views;
 
-namespace adisware.juipp.Controllers
+namespace Org.Juipp.Core.Controllers
 {
     public interface IContainBehaviorViewBinding
     {
