@@ -3,7 +3,7 @@
   <Identifier Id="adisware.juipp.vsix..ca8879c2-4f9a-4fc3-81f7-6cf8db47b318">
     <Name>JUIPP.Vsix</Name>
     <Author>Natnael Gebremariam</Author>
-    <Version>1.0.8</Version>
+    <Version>1.0.15</Version>
     <Description xml:space="preserve">Juicy Presentation Pattern Developer Tools for Visual Studio.</Description>
     <Locale>1033</Locale>
     <License>MIT_LICENSE.txt</License>
@@ -16,10 +16,14 @@
         <Edition>VWDExpress</Edition>
       </VisualStudio>
       <VisualStudio Version="11.0">
+        <Edition>Ultimate</Edition>
+        <Edition>Premium</Edition>
+        <Edition>Pro</Edition>
         <Edition>VWDExpress</Edition>
       </VisualStudio>
     </SupportedProducts>
     <SupportedFrameworkRuntimeEdition MinVersion="2.0" MaxVersion="4.0" />
+    <AllUsers>true</AllUsers>
   </Identifier>
   <References>
     <Reference Id="NuPackToolsVsix.Microsoft.67e54e40-0ae3-42c5-a949-fddf5739e7a5" MinVersion="2.1.31002.9028">

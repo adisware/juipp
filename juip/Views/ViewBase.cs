@@ -1,4 +1,4 @@
-/*  Copyright (c) 2012-2013 Natnael Gebremariam
+/*  Copyright (c) 2012 Natnael Gebremariam
     http://www.juipp.org
  
     Permission is hereby granted, free of charge, to any person obtaining
@@ -124,6 +124,22 @@ namespace Org.Juipp.Core.Views
             if (handler != null) handler(this, visibility);
         }
 
+        public bool _<T>(string reference, T viewModel) where T : IViewModel, new()
+        {
+            return this.SendBehaviorEvent(reference, viewModel);
+        }
+        public bool SendBehaviorEvent<T>(string reference, T viewModel) where T : IViewModel, new()
+        {
+            return this.SendBehaviorEvent<T>(new BehaviorEvent<T>()
+                                                 {
+                                                     BehaviorReference = reference,
+                                                     ViewModel = viewModel
+                                                 });
+        }
+        public bool _<T>(BehaviorEvent<T> behaviorEvent) where T : IViewModel, new()
+        {
+            return this.SendBehaviorEvent<T>(behaviorEvent);
+        }
         public bool SendBehaviorEvent<T>(BehaviorEvent<T> behaviorEvent) where T : IViewModel, new()
         {
             var success = false;

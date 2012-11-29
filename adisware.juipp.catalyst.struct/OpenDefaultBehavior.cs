@@ -1,5 +1,5 @@
 ﻿using System;
-using adisware.juipp.Events.Arguments;
+using Org.Juipp.Core.Events.Arguments;
 
 namespace $rootnamespace$.Behaviors
 {

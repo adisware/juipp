@@ -33,9 +33,26 @@ namespace adisware.juipp.Wizards
 
         public void RunFinished()
         {
-            var catalysts = _project.ProjectItems.Item("_catalysts");
+            foreach (ProjectItem item in _project.ProjectItems)
+            {
+                this.SearchAndRun(item);
+            }
+        }
 
-            this.RunCustomTool(catalysts);
+        private void SearchAndRun(ProjectItem item)
+        {
+            const string name = "_catalysts";
+            if (item.Collection.Count > 0 && item.Name == name)
+            {
+                this.RunCustomTool(item);
+            }
+            else if(item.Collection.Count > 0)
+            {
+                foreach (ProjectItem i in item.ProjectItems)
+                {
+                    this.SearchAndRun(i);
+                }
+            }
         }
 
         public void RunCustomTool(ProjectItem catalysts)
@@ -46,7 +63,7 @@ namespace adisware.juipp.Wizards
                 var item = (ProjectItem)projectItem;
                 if (!item.FileNames[0].EndsWith(".tt"))
                 {
-                    if (!item.FileNames[0].EndsWith("_catalyst") || !item.FileNames[0].EndsWith("_catalyst/")) this.RunCustomTool(item);
+                    //if (!item.FileNames[0].EndsWith("_catalysts") || !item.FileNames[0].EndsWith("_catalysts/")) this.RunCustomTool(item);
                     continue;
                 }
                 var vsItem = item.Object as VSProjectItem;

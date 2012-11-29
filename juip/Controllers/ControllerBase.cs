@@ -1,4 +1,4 @@
-﻿/*  Copyright (c) 2012-2013 Natnael Gebremariam
+﻿/*  Copyright (c) 2012 Natnael Gebremariam
     http://www.juipp.org
  
     Permission is hereby granted, free of charge, to any person obtaining
@@ -136,6 +136,15 @@ namespace Org.Juipp.Core.Controllers
                     && m.GetParameters()[0].ParameterType == modelType);
 
             if (bind != null) bind.Invoke(view, new object[] { viewModel });
+
+            var model = viewType.GetProperties().FirstOrDefault(
+                m => 
+                    m.Name == modelType.Name
+                    && m.GetAccessors().FirstOrDefault() != null
+                    && m.GetSetMethod().GetParameters()[0].ParameterType == modelType);
+
+            if (model != null) model.GetSetMethod().Invoke(view, new object[] { viewModel });
+
 
             foreach (var control in view.Controls.OfType<ViewBase>())
             {

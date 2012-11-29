@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using $rootnamespace$.ViewModels;
-using adisware.juipp.Events.Arguments;
+using Org.Juipp.Core.Events.Arguments;
 using $rootnamespace$.Behaviors;
 
 namespace $rootnamespace$.Views

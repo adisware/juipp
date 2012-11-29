@@ -2,10 +2,10 @@
 <#@ output extension=".cs" #>
 <#= "using System.Collections.Generic;" #>
 
-<#= "using adisware.juipp.Controllers;" #>
-<#= "using adisware.juipp.Events.Arguments;" #>
-<#= "using adisware.juipp.Events.Handlers;" #>
-<#= "using adisware.juipp.ViewModels;" #>
+<#= "using Org.Juipp.Core.Controllers;" #>
+<#= "using Org.Juipp.Core.Events.Arguments;" #>
+<#= "using Org.Juipp.Core.Events.Handlers;" #>
+<#= "using Org.Juipp.Core.ViewModels;" #>
 
 <#= "using $rootnamespace$.ViewModels;" #>
 

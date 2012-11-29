@@ -1,8 +1,8 @@
 using System;
 using System.Security.Principal;
-using adisware.juipp.Controllers;
-using adisware.juipp.Events.Arguments;
-using adisware.juipp.Views;
+using Org.Juipp.Core.Controllers;
+using Org.Juipp.Core.Events.Arguments;
+using Org.Juipp.Core.Views;
 using $rootnamespace$.Behaviors;
 using $rootnamespace$.ViewModels;
 

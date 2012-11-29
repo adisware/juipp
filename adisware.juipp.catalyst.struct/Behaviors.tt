@@ -1,9 +1,9 @@
 ﻿<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ output extension=".cs" #>
-<#= "using adisware.juipp.Events.Arguments;" #>
-<#= "using adisware.juipp.Events.Handlers;" #>
-<#= "using adisware.juipp.Behaviors;" #>
-<#= "using adisware.juipp.Controllers;" #>
+<#= "using Org.Juipp.Core.Events.Arguments;" #>
+<#= "using Org.Juipp.Core.Events.Handlers;" #>
+<#= "using Org.Juipp.Core.Behaviors;" #>
+<#= "using Org.Juipp.Core.Controllers;" #>
 <#= "using $rootnamespace$.ViewModels;" #>
 
 namespace <#= "$rootnamespace$.Behaviors" #> 

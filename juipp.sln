@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adisware.juipp.Web._layouts
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adisware.juipp.vsix", "adisware.juipp.vsix\adisware.juipp.vsix.csproj", "{38014606-BEC0-4780-B258-0095520A9095}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItemTemplate1", "ItemTemplate1\ItemTemplate1.csproj", "{12435F84-1FB4-4FBB-9AFD-3AE8CA3EC5BC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adisware.juipp.Wizards", "adisware.juipp.Wizards\adisware.juipp.Wizards.csproj", "{92AC8FC9-D80C-4D4A-BB90-2482554CD30D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adisware.juipp.catalyst.behavior", "adisware.juipp.catalyst.behavior\adisware.juipp.catalyst.behavior.csproj", "{5DF40A3F-FCC2-4C56-B600-15DF9BB56719}"
@@ -26,6 +24,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adisware.juipp.catalyst.struct", "adisware.juipp.catalyst.struct\adisware.juipp.catalyst.struct.csproj", "{884091E4-792D-49DE-9A00-DAD723BF7AFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "adisware.juipp.structure", "adisware.juipp.items\adisware.juipp.structure.csproj", "{96068B0B-5457-4831-98BD-0EC979D01BFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Org.Juipp.Core", "juip\Org.Juipp.Core.csproj", "{0C795576-2929-4130-9A3A-E42024C13678}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{CBBE946F-25C7-4D20-A964-F7D81D9C99FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,12 +69,6 @@ Global
 		{38014606-BEC0-4780-B258-0095520A9095}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38014606-BEC0-4780-B258-0095520A9095}.Release|Any CPU.Build.0 = Release|Any CPU
 		{38014606-BEC0-4780-B258-0095520A9095}.Release|x86.ActiveCfg = Release|Any CPU
-		{12435F84-1FB4-4FBB-9AFD-3AE8CA3EC5BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{12435F84-1FB4-4FBB-9AFD-3AE8CA3EC5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{12435F84-1FB4-4FBB-9AFD-3AE8CA3EC5BC}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{12435F84-1FB4-4FBB-9AFD-3AE8CA3EC5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{12435F84-1FB4-4FBB-9AFD-3AE8CA3EC5BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{12435F84-1FB4-4FBB-9AFD-3AE8CA3EC5BC}.Release|x86.ActiveCfg = Release|Any CPU
 		{92AC8FC9-D80C-4D4A-BB90-2482554CD30D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{92AC8FC9-D80C-4D4A-BB90-2482554CD30D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92AC8FC9-D80C-4D4A-BB90-2482554CD30D}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -115,6 +111,18 @@ Global
 		{96068B0B-5457-4831-98BD-0EC979D01BFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96068B0B-5457-4831-98BD-0EC979D01BFD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{96068B0B-5457-4831-98BD-0EC979D01BFD}.Release|x86.ActiveCfg = Release|Any CPU
+		{0C795576-2929-4130-9A3A-E42024C13678}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C795576-2929-4130-9A3A-E42024C13678}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C795576-2929-4130-9A3A-E42024C13678}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0C795576-2929-4130-9A3A-E42024C13678}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C795576-2929-4130-9A3A-E42024C13678}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C795576-2929-4130-9A3A-E42024C13678}.Release|x86.ActiveCfg = Release|Any CPU
+		{CBBE946F-25C7-4D20-A964-F7D81D9C99FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBBE946F-25C7-4D20-A964-F7D81D9C99FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBBE946F-25C7-4D20-A964-F7D81D9C99FB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CBBE946F-25C7-4D20-A964-F7D81D9C99FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBBE946F-25C7-4D20-A964-F7D81D9C99FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBBE946F-25C7-4D20-A964-F7D81D9C99FB}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,14 +1,32 @@
 <#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ output extension=".cs" #>
-<#= "using adisware.juipp.Events.Arguments;" #>
-<#= "using adisware.juipp.Events.Handlers;" #>
-<#= "using adisware.juipp.Views;" #>
+<#= "using Org.Juipp.Core.Events.Arguments;" #>
+<#= "using Org.Juipp.Core.Events.Handlers;" #>
+<#= "using Org.Juipp.Core.Views;" #>
 <#= "using $rootnamespace$.ViewModels;" #>
 
 namespace <#= "$rootnamespace$.Views" #> 
 {
    
-    public partial class <#= "View" #> : ViewBase {}
+    <# 
+    var models = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\"));
+	#>public partial class <#= "View" #> : ViewBase 
+	{
+		<#
+		if(models != null && models.Length > 0) 
+	    foreach(var model in models)
+        {
+			var className =  System.IO.Path.GetFileName(model).Split('.')[0];
+			var handlerName =  string.Format("_{0}BehaviorEventFired", char.ToLower(className[0]) + className.Substring(1));
+			if(className == "ViewModel") continue;
+		#>public <#= className #> <#= className #>
+        {
+            get { return base.RetrieveBindingElement<<#= className #>>(); }
+            set { base.PersistBindingElement(value); }
+        }
+		<#
+		}#>	
+	}
     
     public static class ViewReference
     {
@@ -25,7 +43,6 @@ namespace <#= "$rootnamespace$.Views" #>
     }
 
     <# 
-    var models = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\"));
 	if(models != null && models.Length > 0) 
     foreach(var model in models)
     {

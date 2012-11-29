@@ -2,12 +2,12 @@
 <#@ output extension=".cs" #>
 <#= "using System;" #>
 <#= "using System.Collections.Generic;" #>
-<#= "using adisware.juipp.Behaviors;" #>
+<#= "using Org.Juipp.Core.Behaviors;" #>
 <#= "using $rootnamespace$.Views;" #>
 <#= "using $rootnamespace$.Behaviors;" #>
 <#= "using $rootnamespace$.Controllers;" #>
-<#= "using adisware.juipp.Views;" #>
-<#= "using adisware.juipp.Controllers;" #>
+<#= "using Org.Juipp.Core.Views;" #>
+<#= "using Org.Juipp.Core.Controllers;" #>
 
 namespace <#= "$rootnamespace$.Controllers" #> 
 { 
