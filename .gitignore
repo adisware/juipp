@@ -4,5 +4,6 @@ obj
 _ReSharper.juipp
 juipp.suo
 juipp.csproj.user
+Output-Build.txt
 # mstest test results
 TestResults
