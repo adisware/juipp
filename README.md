@@ -1,5 +1,6 @@
-JUIPP - Juicy Presentation Pattern
-http://www.juipp.org
+JUIPP http://www.juipp.org
+
+- Juicy Presentation Pattern
 
 ======
 
