@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace juip.app.Views
 {
-    public partial class WorkView : ApplicationView
+    public partial class WorkView : View
     {
     }
 }

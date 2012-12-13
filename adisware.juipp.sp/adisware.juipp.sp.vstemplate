@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>adisware.juipp.sp</Name>
+    <Description>&lt;No description available&gt;</Description>
+    <Icon>adisware.juipp.sp.ico</Icon>
+    <TemplateID>c129c208-838d-4199-8190-5cec5bc14a74</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>organization.juipp</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="adisware.Layouts.juipp.csproj" File="adisware.Layouts.juipp.csproj" ReplaceParameters="true">
+      <Folder Name="Features" TargetFolderName="Features">
+        <Folder Name="juipp" TargetFolderName="juipp">
+          <ProjectItem ReplaceParameters="false" TargetFileName="juipp.feature">juipp.feature</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="juipp.Template.xml">juipp.Template.xml</ProjectItem>
+        </Folder>
+      </Folder>
+      <ProjectItem ReplaceParameters="false" TargetFileName="juipp.demo.snk">juipp.demo.snk</ProjectItem>
+      <Folder Name="Layouts" TargetFolderName="Layouts">
+        <Folder Name="juipp" TargetFolderName="juipp">
+          <Folder Name="Behaviors" TargetFolderName="Behaviors">
+            <ProjectItem ReplaceParameters="false" TargetFileName="Behavior.juipp.tt">Behavior.juipp.tt</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Behavior.juipp.cs">Behavior.juipp.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="MyBehavior.cs">MyBehavior.cs</ProjectItem>
+          </Folder>
+          <Folder Name="Controllers" TargetFolderName="Controllers">
+            <ProjectItem ReplaceParameters="true" TargetFileName="Container.cs">Container.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Container.behind.juipp.tt">Container.behind.juipp.tt</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Container.behind.juipp.cs">Container.behind.juipp.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Container.juipp.tt">Container.juipp.tt</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Container.juipp.ascx">Container.juipp.ascx</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Container.juipp1.ascx">Container.juipp1.ascx</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Controller.cs">Controller.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="Controller.behind.juipp.tt">Controller.behind.juipp.tt</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Controller.behind.juipp.cs">Controller.behind.juipp.cs</ProjectItem>
+          </Folder>
+          <Folder Name="Pages" TargetFolderName="Pages">
+            <ProjectItem ReplaceParameters="true" TargetFileName="Default.aspx">Default.aspx</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Default.aspx.cs">Default.aspx.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="Default.aspx.designer.cs">Default.aspx.designer.cs</ProjectItem>
+          </Folder>
+          <Folder Name="ViewModels" TargetFolderName="ViewModels">
+            <ProjectItem ReplaceParameters="true" TargetFileName="MyViewModel.cs">MyViewModel.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="ViewModel.juipp.tt">ViewModel.juipp.tt</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="ViewModel.juipp.cs">ViewModel.juipp.cs</ProjectItem>
+          </Folder>
+          <Folder Name="Views" TargetFolderName="Views">
+            <ProjectItem ReplaceParameters="true" TargetFileName="MyView.ascx">MyView.ascx</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="MyView.ascx.cs">MyView.ascx.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="MyView.ascx.designer.cs">MyView.ascx.designer.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="false" TargetFileName="View.juipp.tt">View.juipp.tt</ProjectItem>
+            <ProjectItem ReplaceParameters="true" TargetFileName="View.juipp.cs">View.juipp.cs</ProjectItem>
+          </Folder>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Web.config">Web.config</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Web.Debug.config">Web.Debug.config</ProjectItem>
+          <ProjectItem ReplaceParameters="true" TargetFileName="Web.Release.config">Web.Release.config</ProjectItem>
+        </Folder>
+        <ProjectItem ReplaceParameters="false" TargetFileName="SharePointProjectItem.spdata">SharePointProjectItem.spdata</ProjectItem>
+      </Folder>
+      <Folder Name="Package" TargetFolderName="Package">
+        <ProjectItem ReplaceParameters="false" TargetFileName="Package.package">Package.package</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="Package.Template.xml">Package.Template.xml</ProjectItem>
+      </Folder>
+      <Folder Name="Properties" TargetFolderName="Properties">
+        <ProjectItem ReplaceParameters="true" TargetFileName="AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

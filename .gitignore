@@ -1,9 +1,10 @@
 # Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
 bin
 obj
-_ReSharper.juip
-_ReSharper.sp.jui.soln
-juip.suo
-juip.csproj.user
+_ReSharper.juipp
+juipp.suo
+juipp.csproj.user
+Output-Build.txt
+UpgradeLog.XML
 # mstest test results
 TestResults

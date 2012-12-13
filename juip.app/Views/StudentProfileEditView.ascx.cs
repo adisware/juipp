@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace juip.app.Views
 {
-    public partial class StudentProfileEditView : ApplicationView
+    public partial class StudentProfileEditView : View
     {
     }
 }

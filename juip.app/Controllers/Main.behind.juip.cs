@@ -1,34 +1,38 @@
 using System;
 using System.Collections.Generic;
 using juip.Behaviors;
-using juip.app.Behaviors;
+using TargetName@juip.Behaviors;
 using juip.Views;
 using juip.Controllers;
-using juip.app.Views;
+using TargetName@juip.Views;
 
-namespace juip.app.Controllers 
+namespace TargetName@juip.Controllers 
 { 
 
     public partial class Main : ApplicationBase
     {
             
-             protected global::juip.app.Views.HomeView HomeView;
+             protected global::TargetName@juip.Views.HomeView HomeView;
               
-             protected global::juip.app.Views.StudentBrowseView StudentBrowseView;
+             protected global::TargetName@juip.Views.StudentBrowseView StudentBrowseView;
               
-             protected global::juip.app.Views.StudentProfileAddView StudentProfileAddView;
+             protected global::TargetName@juip.Views.StudentProfileAddView StudentProfileAddView;
               
-             protected global::juip.app.Views.StudentProfileEditView StudentProfileEditView;
+             protected global::TargetName@juip.Views.StudentProfileEditView StudentProfileEditView;
               
-             protected global::juip.app.Views.StudentProfileView StudentProfileView;
+             protected global::TargetName@juip.Views.StudentProfileView StudentProfileView;
               
-             protected global::juip.app.Views.WorkView WorkView;
+             protected global::TargetName@juip.Views.WorkView WorkView;
              
         protected override void OnInit(EventArgs e) 
         { 
              base.OnInit(e);
              base.Behaviors = new Dictionary<String, IApplicationContextAccessible>();
 
+              
+                 base.Behaviors.Add(new KeyValuePair<string, IApplicationContextAccessible>(
+                                        Behavior.Behavior, 
+                                        new Behavior() { ActionContext = base.Controller } ));
               
                  base.Behaviors.Add(new KeyValuePair<string, IApplicationContextAccessible>(
                                         Behavior.OpenHomeBehavior, 
@@ -43,30 +47,30 @@ namespace juip.app.Controllers
                                         new OpenStudentBrowseBehavior() { ActionContext = base.Controller } ));
              
 
-            base.Views = new Dictionary<string, ApplicationViewBase>();
+            base.Views = new Dictionary<string, ViewBase>();
 
               
-                 base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         View.HomeView,  
                                         this.HomeView ));
               
-                 base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         View.StudentBrowseView,  
                                         this.StudentBrowseView ));
               
-                 base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         View.StudentProfileAddView,  
                                         this.StudentProfileAddView ));
               
-                 base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         View.StudentProfileEditView,  
                                         this.StudentProfileEditView ));
               
-                 base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         View.StudentProfileView,  
                                         this.StudentProfileView ));
               
-                 base.Views.Add(new KeyValuePair<string, ApplicationViewBase>(
+                 base.Views.Add(new KeyValuePair<string, ViewBase>(
                                         View.WorkView,  
                                         this.WorkView ));
                            this.Controller.LoadBehaviorViewBinding(this.Views, this.BehaviorBinding, this.Behaviors);

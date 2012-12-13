@@ -1,0 +1,31 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".ascx" #>
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Application.ascx.cs" Inherits="adisware.juipp.Web._layouts.app.Controllers.Container" %>
+
+<#
+    var views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\")); 
+#>
+
+ <# 
+    foreach(var view in views)
+    {
+        var fileName = System.IO.Path.GetFileName(view);
+        var className =  System.IO.Path.GetFileName(view).Split('.')[0];
+        if(fileName.EndsWith("View.ascx.cs") == false) continue;
+ #>
+<%@Register src="~/_layouts/app/Views/<#= className #>.ascx" tagName="<#= className #>" tagPrefix="juipp" %>
+ <#
+    }
+ #>
+
+ <#
+    foreach(var view in views)
+    {
+        var fileName = System.IO.Path.GetFileName(view);
+        var className =  System.IO.Path.GetFileName(view).Split('.')[0];
+        if(fileName.EndsWith("View.ascx.cs") == false) continue;
+ #>
+ <juipp:<#= className #>  Visible="false" ID="<#= className #>" runat="server" />   
+ <#
+    }
+ #>

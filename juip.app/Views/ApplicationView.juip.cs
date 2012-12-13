@@ -1,25 +1,25 @@
 using juip.Events.Arguments;
 using juip.Events.Handlers;
 using juip.Views;
-using juip.app.ViewModels;
+using TargetName@juip.ViewModels;
 
-namespace juip.app.Views 
+namespace TargetName@juip.Views 
 {
    
-    public partial class ApplicationView : ApplicationViewBase {}
+    public partial class View : ViewBase {}
     
     public static class View
     {
-             public static string HomeView = "juip.app.Views.HomeView";
-             public static string StudentBrowseView = "juip.app.Views.StudentBrowseView";
-             public static string StudentProfileAddView = "juip.app.Views.StudentProfileAddView";
-             public static string StudentProfileEditView = "juip.app.Views.StudentProfileEditView";
-             public static string StudentProfileView = "juip.app.Views.StudentProfileView";
-             public static string WorkView = "juip.app.Views.WorkView";
+             public static string HomeView = "TargetName@juip.Views.HomeView";
+             public static string StudentBrowseView = "TargetName@juip.Views.StudentBrowseView";
+             public static string StudentProfileAddView = "TargetName@juip.Views.StudentProfileAddView";
+             public static string StudentProfileEditView = "TargetName@juip.Views.StudentProfileEditView";
+             public static string StudentProfileView = "TargetName@juip.Views.StudentProfileView";
+             public static string WorkView = "TargetName@juip.Views.WorkView";
                  }
 
      
-        public partial class ApplicationView : IActionPerformer<CourseViewModel> 
+        public partial class View : IActionPerformer<CourseViewModel> 
         {
             private ActionPerformedHandler<CourseViewModel> _courseViewModelActionPerformed;
             event ActionPerformedHandler<CourseViewModel> IActionPerformer<CourseViewModel>.ActionPerformed
@@ -33,7 +33,7 @@ namespace juip.app.Views
             }
         }
      
-        public partial class ApplicationView : IActionPerformer<RegistrationViewModel> 
+        public partial class View : IActionPerformer<RegistrationViewModel> 
         {
             private ActionPerformedHandler<RegistrationViewModel> _registrationViewModelActionPerformed;
             event ActionPerformedHandler<RegistrationViewModel> IActionPerformer<RegistrationViewModel>.ActionPerformed
@@ -47,7 +47,7 @@ namespace juip.app.Views
             }
         }
      
-        public partial class ApplicationView : IActionPerformer<StudentViewModel> 
+        public partial class View : IActionPerformer<StudentViewModel> 
         {
             private ActionPerformedHandler<StudentViewModel> _studentViewModelActionPerformed;
             event ActionPerformedHandler<StudentViewModel> IActionPerformer<StudentViewModel>.ActionPerformed

@@ -1,0 +1,53 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#= "using adisware.juipp.Events.Arguments;" #>
+<#= "using adisware.juipp.Events.Handlers;" #>
+<#= "using adisware.juipp.Views;" #>
+<#= "using ItemTemplate1.ViewModels;" #>
+
+namespace <#= "ItemTemplate1.Views" #> 
+{
+   
+    public partial class <#= "View" #> : ViewBase {}
+    
+    public static class ViewReference
+    {
+             <#
+                var views = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Views\"));
+				if(views != null && views.Length > 0)
+                foreach(var view in views)
+                {
+                    var fileName = System.IO.Path.GetFileName(view);
+                    var className =  fileName.Split('.')[0];
+                    if(fileName.EndsWith("View.ascx.cs") == false) continue;
+             #>public static string <#= className #> = "<#= className #>";
+             <#}#>
+    }
+
+    <# 
+    var models = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\"));
+	if(models != null && models.Length > 0) 
+    foreach(var model in models)
+    {
+        var className =  System.IO.Path.GetFileName(model).Split('.')[0];
+        var handlerName =  string.Format("_{0}BehaviorEventFired", char.ToLower(className[0]) + className.Substring(1));
+        if(className == "ViewModel") continue;
+    #> 
+        public partial class View : IBehaviorEventSender<<#= className #>> 
+        {
+            private BehaviorEventHandler<<#= className #>> <#= handlerName #>;
+            event BehaviorEventHandler<<#= className #>> IBehaviorEventSender<<#= className #>>.BehaviorEventFired
+            {
+                add
+                {
+                    <#= handlerName #> += value;
+                    base.FireBehaviorEventDelegates.Add(args => base.FireBehaviorEvent(<#= handlerName #>, args as BehaviorEvent<<#= className #>>));
+                }
+                remove { if (<#= handlerName #> != null) <#= handlerName #> -= value; }
+            }
+        }
+    <#
+    }
+    #>
+} 
+

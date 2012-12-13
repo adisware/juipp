@@ -1,0 +1,21 @@
+﻿<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Item">
+  <TemplateData>
+    <DefaultName>Behavior.juipp.tt</DefaultName>
+    <Name>Behavior.juipp.tt</Name>
+    <Description>JUIPP Behavior TT</Description>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <SortOrder>10</SortOrder>
+    <Icon>Behavior.juipp.tt.ico</Icon>
+    <ShowByDefault>true</ShowByDefault>
+  </TemplateData>
+  <TemplateContent>
+    <References>
+      <Reference>
+        <Assembly>adisware.juipp</Assembly>
+      </Reference>
+    </References>
+    <ProjectItem SubType="" TargetFileName="$fileinputname$.juipp.tt" ReplaceParameters="false">Behavior.juipp.tt</ProjectItem>
+    <ProjectItem SubType="Code" TargetFileName="$fileinputname$.juipp.cs" ReplaceParameters="true">Behavior.juipp.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Adisware.juipp</id>
+    <version>1.0.6</version>
+    <title />
+    <authors>natdico</authors>
+    <owners>natdico</owners>
+    <licenseUrl>https://github.com/natdico/juipp/blob/juipp/MIT_LICENSE.txt</licenseUrl>
+    <projectUrl>http://juipp.org/</projectUrl>
+    <iconUrl>http://juipp.org/storage/juipp.ico</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Juicy Presentation Pattern - Core 1.0.5</description>
+    <summary>MIT License</summary>
+    <releaseNotes>- Support for multiple controllers
+- View and Controller binding by convention</releaseNotes>
+    <copyright>Copyright (c) 2012-2013 Natnael Gebremariam</copyright>
+    <language>en-US</language>
+  </metadata>
+</package>

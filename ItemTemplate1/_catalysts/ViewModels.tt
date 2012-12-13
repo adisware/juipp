@@ -1,0 +1,37 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#= "using System;" #>
+<#= "using adisware.juipp.ViewModels;" #>
+
+namespace <#= "ItemTemplate1.ViewModels" #> 
+{
+    public static class ViewModelReference
+    {
+             <#
+			    var viewModels = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\"));
+				if(viewModels != null && viewModels.Length > 0)
+                foreach(var viewModel in viewModels)
+                {
+                    var fileName = System.IO.Path.GetFileName(viewModel);
+                    var className =  fileName.Split('.')[0];
+                    if(fileName.EndsWith("ViewModel.cs") == false) continue;
+             #>public const string <#= className #> = "<#= className #>";
+             <#}#>
+    }
+
+    <#
+	if(viewModels != null && viewModels.Length > 0)
+    foreach(var model in viewModels)
+    {
+        var fileName = System.IO.Path.GetFileName(model);
+        var className =  System.IO.Path.GetFileName(model).Split('.')[0];
+        if(fileName.EndsWith("ViewModel.cs") == false) continue;
+    #> 
+    
+    [Serializable]
+    public partial class <#= className #> : IViewModel {}
+ <#
+    }
+ #>
+} 
+

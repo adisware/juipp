@@ -8,7 +8,7 @@
 namespace <#= "TargetName@juip.Views" #> 
 {
    
-    public partial class <#= "ApplicationView" #> : ApplicationViewBase {}
+    public partial class <#= "View" #> : ViewBase {}
     
     public static class View
     {
@@ -31,7 +31,7 @@ namespace <#= "TargetName@juip.Views" #>
         var handlerName =  string.Format("_{0}ActionPerformed", char.ToLower(className[0]) + className.Substring(1));
         if(className == "ViewModel") continue;
     #> 
-        public partial class ApplicationView : IActionPerformer<<#= className #>> 
+        public partial class View : IActionPerformer<<#= className #>> 
         {
             private ActionPerformedHandler<<#= className #>> <#= handlerName #>;
             event ActionPerformedHandler<<#= className #>> IActionPerformer<<#= className #>>.ActionPerformed

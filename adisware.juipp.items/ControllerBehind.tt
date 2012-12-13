@@ -1,0 +1,102 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#= "using System.Collections.Generic;" #>
+
+<#= "using adisware.juipp.Controllers;" #>
+<#= "using adisware.juipp.Events.Arguments;" #>
+<#= "using adisware.juipp.Events.Handlers;" #>
+<#= "using adisware.juipp.ViewModels;" #>
+
+<#= "using $rootnamespace$.ViewModels;" #>
+
+namespace <#= "$rootnamespace$.Controllers" #> 
+{ 
+
+ <#
+	var controllers = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\Controllers\"));
+	foreach(var controller in controllers)
+	{
+		var fileName = System.IO.Path.GetFileName(controller);
+		var controllerName =  fileName.Split('.')[0];
+
+        if(fileName.EndsWith("Controller.cs") == false) continue;
+		 #>
+
+	public partial class <#= controllerName #> : ParentController
+    {
+        public <#= controllerName #>(ContainerBase containerBase) : base(containerBase) {}
+    }
+ <#
+    }
+ #>
+
+
+
+<#
+    var viewModels = System.IO.Directory.GetFiles(Host.ResolvePath(@"..\ViewModels\")); 
+#>
+    public partial class ParentController : ControllerBase
+    {
+	    public ParentController(ContainerBase containerBase) : base(containerBase) {}
+        protected override void OnTransitionEvent<T>(TransitionEvent<T> transitionEvent)  
+        {  
+             <#
+                foreach(var model in viewModels)
+                {
+                    var fileName = System.IO.Path.GetFileName(model);
+                    var className =  System.IO.Path.GetFileName(model).Split('.')[0];
+                    var handlerName =  string.Format("_{0}ViewSwitched", char.ToLower(className[0]) + className.Substring(1));
+                    if(fileName.EndsWith("ViewModel.cs") == false) continue;
+             #> 
+            base.FireTransitionEvent(transitionEvent as TransitionEvent<<#= className #>>, <#= handlerName #>);
+             <#
+                }
+             #>
+
+        }
+
+        public override IList<IViewModel> Models
+        {
+            get
+            {
+                var list = new List<IViewModel>();
+                 <#
+                    foreach(var model in viewModels)
+                    {
+                        var fileName = System.IO.Path.GetFileName(model);
+                        var className =  System.IO.Path.GetFileName(model).Split('.')[0];
+                        if(fileName.EndsWith("ViewModel.cs") == false) continue;
+                 #>
+                list.Add(new <#= className #>());
+                 <#
+                    }
+                 #>
+                return list; 
+            }
+        }
+    }
+
+
+ <#
+    foreach(var model in viewModels)
+    {
+        var fileName = System.IO.Path.GetFileName(model);
+        var className =  System.IO.Path.GetFileName(model).Split('.')[0];
+        var handlerName =  string.Format("_{0}ViewSwitched", char.ToLower(className[0]) + className.Substring(1));
+        if(fileName.EndsWith("ViewModel.cs") == false) continue;
+ #>
+    public partial class ParentController : ITransitionEventSender<<#= className #>>
+    {
+        private TransitionEventHandler<<#= className #>> <#= handlerName #>;
+        event TransitionEventHandler<<#= className #>> ITransitionEventSender<<#= className #>>.TransitionEventFired
+        {
+            add { <#= handlerName #> += value; }
+            remove { if (<#= handlerName #> != null) <#= handlerName #> -= value; }
+        }
+    }
+ <#
+    }
+ #>
+
+} 
+
